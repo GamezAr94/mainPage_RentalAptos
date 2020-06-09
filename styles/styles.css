@@ -1,3 +1,73 @@
+header {
+  position: fixed;
+  width: 100%;
+  background-color: lightgray;
+  height: 100px; }
+  header .centralize {
+    display: flex;
+    width: 95%;
+    align-items: center;
+    margin: 0px auto;
+    height: 100%; }
+    header .centralize a h1 {
+      font-size: 50px; }
+    header .centralize .menu {
+      width: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      header .centralize .menu nav {
+        margin: 0;
+        padding: 0;
+        width: 40%;
+        min-width: 260px; }
+        header .centralize .menu nav ul {
+          margin: 0;
+          display: flex;
+          justify-content: space-around;
+          padding: 0; }
+          header .centralize .menu nav ul li a {
+            font-size: 16px;
+            padding: 6px; }
+          header .centralize .menu nav ul li a:hover {
+            font-weight: bold; }
+      header .centralize .menu .form-login {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end; }
+        header .centralize .menu .form-login form {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end; }
+          header .centralize .menu .form-login form input {
+            width: 33%;
+            max-width: 150px;
+            border-radius: 7px;
+            margin-right: 7px; }
+          header .centralize .menu .form-login form button {
+            border-radius: 7px;
+            background-color: #2f3f47;
+            border: 0px;
+            color: #fff;
+            width: 70px; }
+          header .centralize .menu .form-login form button:hover {
+            background-color: #3c505a; }
 
+@media only screen and (max-width: 700px) {
+  header {
+    background-color: lightblue;
+    height: 80px; }
+    header .centralize .menu {
+      display: none; } }
+li {
+  list-style: none; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+body {
+  height: 3000px; }
 
 /*# sourceMappingURL=styles.css.map */

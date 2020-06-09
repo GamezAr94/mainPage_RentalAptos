@@ -9,30 +9,48 @@
 </head>
 <body>
     <header>
-        <nav>
-            <a href="#">
-                <h1>GAMEZ</h1>
-            </a>
-            <ul>
-                <li><a href="index.php">Home</a></li>
-                <li><a href="#">Porfolio</a></li>
-                <li><a href="#">About me</a></li>
-                <li><a href="#">Content</a></li>
-            </ul>
-            <div>
-                <form action="includes/login.inc.php" method ="post">
-                    <input type="text" name="mailuid" placeholder="Username/E-mail...">
-                    <input type="password" name="pwd" placeholder="Password...">
-                    <button type="submit" name="login-submit">Login</button>
-                </form>
-                <a href="signup.php">Signup</a>
-                <form action="includes/logout.inc.php" method ="post">
-                    <button type="submit" name="logout-submit">Logout</button>
-                </form>
+            <div class="centralize">
+                <a href="#">
+                    <h1>GZ</h1>
+                </a>
+                <div class="menu">
+                    <nav>
+                        <ul>
+                            <li><a href="index.php">Home</a></li>
+                            <li><a href="#">Porfolio</a></li>
+                            <li><a href="#">About me</a></li>
+                            <li><a href="#">Content</a></li>
+                        </ul>
+                    </nav>
+                    <div class="signin">
+                        <div class="form-login">
+                            <form action="includes/login.inc.php" method ="post">
+                                <input type="text" name="mailuid" placeholder="Username/E-mail...">
+                                <input type="password" name="pwd" placeholder="Password...">
+                                <button type="submit" name="login-submit">Login</button>
+                            </form>
+                            <!--<form action="includes/logout.inc.php" method ="post">
+                                <button type="submit" name="logout-submit">Logout</button>
+                            </form>-->
+                        </div>
+                    </div>
+                </div>
             </div>
-        </nav>
+        
     </header>
     
+<!--
+        <div class="form-login">
+            <form action="includes/login.inc.php" method ="post">
+                <input type="text" name="mailuid" placeholder="Username/E-mail...">
+                <input type="password" name="pwd" placeholder="Password...">
+                <button type="submit" name="login-submit">Login</button>
+            </form>
+            <form action="includes/logout.inc.php" method ="post">
+                <button type="submit" name="logout-submit">Logout</button>
+            </form>
+        </div>
+-->
     <footer>
 
     </footer>

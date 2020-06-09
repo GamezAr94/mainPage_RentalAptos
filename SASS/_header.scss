@@ -1,0 +1,108 @@
+header{
+    position: fixed;
+    width: 100%;
+    background-color: lightgray;
+    height: 100px;
+    .centralize{
+        //este es el espacio que tiene todo el contenedor del header
+        //lo alinea en el centro vertical y horizontal al a y al .menu 
+        //background-color: red;
+        display: flex;
+        width: 95%;
+        align-items: center;
+        margin: 0px auto;
+        height: 100%;
+        a{
+            h1{
+                font-size: 50px;
+            }
+        }
+        //este le da un espacio around al nav y al contenedor del form
+        //tiene un espacio del 100% porque es el espacio que le deja el H1 libre
+        //alinea los elementos en el centro vertical y orizontalmente
+        //tiene un space around para que no choquen con el borde derecho ni con el H1
+        .menu{
+            width: 100%;
+            //background-color: gray;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            nav{
+                //solo le da un espacio del 70% para que no tome tanto espacio del form
+                //al ser 100% ocuparia todo el espacio libre que deje el form y dejaria al form muy apretado
+               // background-color: yellow;
+                margin: 0;
+                padding:0;
+                width: 40%;
+                min-width: 260px;
+                ul{
+                    //le da una separacion around a los elementos de la lista
+              //      background-color: purple;
+                    margin: 0;
+                    display: flex;
+                    justify-content: space-around;
+                    padding:0;
+                    li{
+                       // background-color: #fff;
+                        a{
+                            font-size: 16px;
+                            padding: 6px;
+                        }
+                        a:hover{
+                            font-weight: bold;
+                        }
+                    }
+                }
+            }
+            .form-login{
+                //toma el 100% porqu toma el espacio libre del nav 
+                //al ser 100% ocupa mas del espacio necesario el form para que no este apretado
+                //manda al contenedor del form a la derecha de la pagina
+              //  background-color: blue;
+                width: 100%;
+                display: flex;
+                justify-content: flex-end;
+                form{
+                    //toma el 100% del espacio que ha dejado libre el contenedor de este form
+                    //al ser menor abria espacios vacios dentro del contenedor de este
+                    //manda todos sus elementos a la derecha de la pagina
+                   // background-color: #fff;
+                    width: 100%;
+                    display: flex;
+                    justify-content: flex-end;
+                    input{
+                        width: 33%;
+                        max-width: 150px;
+                        border-radius: 7px;
+                        margin-right: 7px;
+                    }
+                    button{
+                        border-radius: 7px;
+                        background-color: #2f3f47;
+                        border: 0px;
+                        color: #fff;
+                        width: 70px;
+                    }
+                    button:hover{
+                        background-color: #3c505a;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    header{
+        //se disminutye el alto del header al llegar a ese tamaño
+        background-color: lightblue;
+        height: 80px;
+        .centralize{
+            .menu{
+                //se esconde el menu para que pueda aparecer el menu hamburguesa
+                display: none;
+            }
+        }
+    }
+}
