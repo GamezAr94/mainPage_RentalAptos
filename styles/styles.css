@@ -7,6 +7,7 @@ header {
     display: flex;
     width: 95%;
     align-items: center;
+    justify-content: space-between;
     margin: 0px auto;
     height: 100%; }
     header .centralize a h1 {
@@ -15,7 +16,7 @@ header {
       width: 100%;
       margin: 0 auto;
       display: flex;
-      justify-content: space-around;
+      justify-content: space-between;
       align-items: center; }
       header .centralize .menu nav {
         margin: 0;

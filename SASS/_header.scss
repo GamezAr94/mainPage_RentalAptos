@@ -10,6 +10,7 @@ header{
         display: flex;
         width: 95%;
         align-items: center;
+        justify-content: space-between;
         margin: 0px auto;
         height: 100%;
         a{
@@ -26,7 +27,7 @@ header{
             //background-color: gray;
             margin: 0 auto;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
             nav{
                 //solo le da un espacio del 70% para que no tome tanto espacio del form
