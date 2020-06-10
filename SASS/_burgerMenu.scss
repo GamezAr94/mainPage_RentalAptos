@@ -1,3 +1,4 @@
+//posicion del contenedor de la hamburguesa
 #menu-hamburger{
     display: none;
     position: absolute;
@@ -8,6 +9,7 @@
         margin: 0px 0 20px 20px;
         cursor: pointer;
         z-index: 100;
+        //color, posicionamiento y ancho de la hamburguesa
         .bar{
             height: 8px;
             width: 100%;
@@ -17,6 +19,7 @@
             transition: 0.3s ease;
         }
     }
+    //la posicion del menu cambia para formar la hamburguesa al ser su clase igual a esta 
     .burger{
         #bar2{
             margin: 2px 0;
@@ -29,6 +32,7 @@
             transform: translateY(4px);
         }
     }
+    //cambian los valores del menu para formar una equis al ser su clase igual que esta
     .burger-close{
         #bar2{
             display: none;
@@ -42,6 +46,7 @@
     }
 
     @media only screen and (max-width: 700px) {
+        //se muestra menu de hamburguesa
         #menu-hamburger{
             display: block;
         }

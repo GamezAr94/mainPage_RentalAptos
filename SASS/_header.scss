@@ -37,6 +37,7 @@ header{
                 padding:0;
                 width: 40%;
                 min-width: 260px;
+                transition: 0.5s ease;
                 ul{
                     //le da una separacion around a los elementos de la lista
               //      background-color: purple;
@@ -44,8 +45,12 @@ header{
                     display: flex;
                     justify-content: space-around;
                     padding:0;
+                    .login{
+                        display: none;
+                    }
                     li{
                        // background-color: #fff;
+                transition: 0.5s ease;
                         a{
                             font-size: 16px;
                             padding: 6px;
@@ -84,6 +89,7 @@ header{
                         border: 0px;
                         color: #fff;
                         width: 70px;
+                        cursor:pointer;
                     }
                     button:hover{
                         background-color: $colorBtnsHover;
@@ -93,16 +99,50 @@ header{
         }
     }
 }
-
 @media only screen and (max-width: 700px) {
     header{
         //se disminutye el alto del header al llegar a ese tamaño
         background-color: $colorHeader;
         height: 80px;
         .centralize{
-            .menu{
-                //se esconde el menu para que pueda aparecer el menu hamburguesa
+            .hide{
+                //se esconde el menu para que pueda aparecer el menu hamburguesa cada que el menu se clickea
+                //y tambien cuando la pantalla es menor que 700px
                 display: none;
+            }
+            .show{
+                //cuando el menu es clickeado se cambia la clase a show para mostrar el menu
+                //ocupa toda la pantalla con una posicion absoluta
+                top: 78px;
+                left: 0;
+                position: absolute;
+                background-color: $colorHeader;
+                height: 88vh;
+                justify-content: center;
+                nav{
+                    width: 100%;
+                    transform: translateY(-50px);
+                    ul{
+                        flex-direction: column;
+                        .login{
+                            display: flex;
+                        }
+                        li{
+                            display: flex;
+                            justify-content: center;
+                            margin: 9px 0;
+                            a{
+                                font-size: 40px;
+                            }
+                        }
+                        li:hover{
+                            background-color: gray;
+                        }
+                    }
+                }
+                .form-login{
+                    display: none;
+                }
             }
         }
     }

@@ -22,17 +22,22 @@ header {
         margin: 0;
         padding: 0;
         width: 40%;
-        min-width: 260px; }
+        min-width: 260px;
+        transition: 0.5s ease; }
         header .centralize .menu nav ul {
           margin: 0;
           display: flex;
           justify-content: space-around;
           padding: 0; }
-          header .centralize .menu nav ul li a {
-            font-size: 16px;
-            padding: 6px; }
-          header .centralize .menu nav ul li a:hover {
-            font-weight: bold; }
+          header .centralize .menu nav ul .login {
+            display: none; }
+          header .centralize .menu nav ul li {
+            transition: 0.5s ease; }
+            header .centralize .menu nav ul li a {
+              font-size: 16px;
+              padding: 6px; }
+            header .centralize .menu nav ul li a:hover {
+              font-weight: bold; }
       header .centralize .menu .form-login {
         width: 100%;
         display: flex;
@@ -51,7 +56,8 @@ header {
             background-color: #2f3f47;
             border: 0px;
             color: #fff;
-            width: 70px; }
+            width: 70px;
+            cursor: pointer; }
           header .centralize .menu .form-login form button:hover {
             background-color: #3c505a; }
 
@@ -59,8 +65,32 @@ header {
   header {
     background-color: lightblue;
     height: 80px; }
-    header .centralize .menu {
-      display: none; } }
+    header .centralize .hide {
+      display: none; }
+    header .centralize .show {
+      top: 78px;
+      left: 0;
+      position: absolute;
+      background-color: lightblue;
+      height: 88vh;
+      justify-content: center; }
+      header .centralize .show nav {
+        width: 100%;
+        transform: translateY(-50px); }
+        header .centralize .show nav ul {
+          flex-direction: column; }
+          header .centralize .show nav ul .login {
+            display: flex; }
+          header .centralize .show nav ul li {
+            display: flex;
+            justify-content: center;
+            margin: 9px 0; }
+            header .centralize .show nav ul li a {
+              font-size: 40px; }
+          header .centralize .show nav ul li:hover {
+            background-color: gray; }
+      header .centralize .show .form-login {
+        display: none; } }
 #menu-hamburger {
   display: none;
   position: absolute;
