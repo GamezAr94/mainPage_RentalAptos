@@ -1,7 +1,7 @@
 header {
   position: fixed;
   width: 100%;
-  background-color: lightgray;
+  background-color: lightblue;
   height: 100px; }
   header .centralize {
     display: flex;
@@ -61,6 +61,41 @@ header {
     height: 80px; }
     header .centralize .menu {
       display: none; } }
+#menu-hamburger {
+  display: none;
+  position: absolute;
+  top: 27px;
+  right: 7%;
+  width: 40px;
+  height: 35px;
+  margin: 0px 0 20px 20px;
+  cursor: pointer;
+  z-index: 100; }
+  #menu-hamburger .bar {
+    height: 8px;
+    width: 100%;
+    background-color: #000;
+    display: block;
+    border-radius: 5px;
+    transition: 0.3s ease; }
+
+.burger #bar2 {
+  margin: 2px 0; }
+.burger #bar1 {
+  transform: translateY(-4px); }
+.burger #bar3 {
+  transform: translateY(4px); }
+
+.burger-close #bar2 {
+  display: none; }
+.burger-close #bar1 {
+  transform: translateY(6px) rotateZ(-45deg); }
+.burger-close #bar3 {
+  transform: translateY(-1px) rotateZ(45deg); }
+
+@media only screen and (max-width: 700px) {
+  #menu-hamburger {
+    display: block; } }
 li {
   list-style: none; }
 
@@ -70,5 +105,8 @@ a {
 
 body {
   height: 3000px; }
+
+* {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); }
 
 /*# sourceMappingURL=styles.css.map */

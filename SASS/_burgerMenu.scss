@@ -1,0 +1,48 @@
+#menu-hamburger{
+    display: none;
+    position: absolute;
+    top: 27px;
+    right: 7%;
+    width: 40px;
+        height: 35px;
+        margin: 0px 0 20px 20px;
+        cursor: pointer;
+        z-index: 100;
+        .bar{
+            height: 8px;
+            width: 100%;
+            background-color: $colorMenu;
+            display: block;
+            border-radius: 5px;
+            transition: 0.3s ease;
+        }
+    }
+    .burger{
+        #bar2{
+            margin: 2px 0;
+        }
+        #bar1{
+  
+            transform: translateY(-4px);
+        }
+        #bar3{
+            transform: translateY(4px);
+        }
+    }
+    .burger-close{
+        #bar2{
+            display: none;
+        }
+        #bar1{
+            transform: translateY(6px) rotateZ(-45deg);
+        }
+        #bar3{
+            transform: translateY(-1px) rotateZ(45deg);
+        }
+    }
+
+    @media only screen and (max-width: 700px) {
+        #menu-hamburger{
+            display: block;
+        }
+    }

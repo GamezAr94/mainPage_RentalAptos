@@ -1,7 +1,7 @@
 header{
     position: fixed;
     width: 100%;
-    background-color: lightgray;
+    background-color: $colorHeader;
     height: 100px;
     .centralize{
         //este es el espacio que tiene todo el contenedor del header
@@ -80,13 +80,13 @@ header{
                     }
                     button{
                         border-radius: 7px;
-                        background-color: #2f3f47;
+                        background-color: $colorBtns;
                         border: 0px;
                         color: #fff;
                         width: 70px;
                     }
                     button:hover{
-                        background-color: #3c505a;
+                        background-color: $colorBtnsHover;
                     }
                 }
             }
@@ -97,7 +97,7 @@ header{
 @media only screen and (max-width: 700px) {
     header{
         //se disminutye el alto del header al llegar a ese tamaño
-        background-color: lightblue;
+        background-color: $colorHeader;
         height: 80px;
         .centralize{
             .menu{
