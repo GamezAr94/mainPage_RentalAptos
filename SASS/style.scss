@@ -1,6 +1,8 @@
 @import "variables";
 @import "header";
 @import "burgerMenu";
+@import "optionsBody";
+@import "banner";
 li{
     list-style: none;
 }
@@ -10,6 +12,9 @@ a{
 }
 body {
     height:3000px; 
+}
+input:focus, button:focus{
+    outline: none;
 }
 //al hacer tap en cualquier enlace boton etc no se pondra un fondo azul por default indicador que se ha hecho tap
 * { -webkit-tap-highlight-color: rgba(0,0,0,0); }
