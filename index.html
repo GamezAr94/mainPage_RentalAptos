@@ -19,16 +19,17 @@
                     <div id="bar3" class="bar"></div>
                 </div>
                 <div id="menu" class="menu hide">
-                    <nav>
+                    <nav id="nav">
                         <ul>
                             <li><a href="index.php">Home</a></li>
                             <li><a href="#">Porfolio</a></li>
                             <li><a href="#">About me</a></li>
                             <li><a href="#">Content</a></li>
-                            <li class="login"><a href="#">Login</a></li>
+                            <li class="login"><a onclick="onClickLogin()">Login</a></li>
                         </ul>
                     </nav>
-                    <div class="form-login">
+                    <div id="form-login" class="hiden">
+                        <div>Login</div>
                             <form action="includes/login.inc.php" method ="post">
                                 <input type="text" name="mailuid" placeholder="Username/E-mail...">
                                 <input type="password" name="pwd" placeholder="Password...">
