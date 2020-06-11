@@ -4,6 +4,7 @@
 @import "optionsBody";
 @import "banner";
 @import "footer";
+@import "bodyContent";
 li{
     list-style: none;
 }
@@ -12,10 +13,9 @@ a{
     color: black;
 }
 body {
-    //height:3000px;
-    #cosa{
-        height: 500px;
-    }
+    //testing style
+    background-color: rgb(245, 245, 245);
+   // height:3000px;
 }
 input:focus, button:focus, select:focus{
     outline: none;

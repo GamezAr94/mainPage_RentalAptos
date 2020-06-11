@@ -218,12 +218,13 @@ header {
   #menu-hamburger {
     display: block; } }
 body #options {
+  background-color: #fff;
   -webkit-box-shadow: 0px -5px 16px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px -5px 16px -2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px -5px 16px -2px rgba(0, 0, 0, 0.75);
-  padding: 15px 35px 40px 35px; }
+  padding: 15px 35px 30px 35px; }
   body #options #form {
-    padding: 15px;
+    padding: 10px;
     background-color: #dddcdc; }
     body #options #form h2 {
       padding: 0 0 10px 0;
@@ -357,6 +358,59 @@ footer {
 @media only screen and (max-width: 700px) {
   footer #conteiner div:nth-child(2) {
     display: none; } }
+body #bodyContent {
+  background-color: #fff;
+  display: block;
+  -webkit-box-shadow: 0px 0px 19px -15px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 19px -15px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 11px 0px 0px white, 0 -19px 0px 0px white, 0px 0px 19px -15px rgba(0, 0, 0, 0.75);
+  width: 95%;
+  margin: 9px auto;
+  margin-bottom: 10px;
+  padding-bottom: 10px; }
+  body #bodyContent .aptos {
+    margin: 10px 3px 25px 25px;
+    display: inline-block;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
+    width: 280px;
+    height: 330px;
+    border-radius: 15px; }
+    body #bodyContent .aptos .img {
+      background-color: black;
+      border-radius: 15px 15px 0 0;
+      margin: 0;
+      padding: 0;
+      width: 280px;
+      top: 0;
+      left: 0;
+      height: 230px; }
+      body #bodyContent .aptos .img .price {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        background-color: #fff;
+        border-radius: 4px 0px 4px 0;
+        padding: 3px 15px; }
+    body #bodyContent .aptos .info {
+      background-color: red;
+      border-radius: 0px 0px 15px 15px;
+      margin: 0;
+      padding: 0px;
+      height: 100px;
+      width: 280px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around; }
+      body #bodyContent .aptos .info p {
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        max-width: 275px;
+        background-color: #fff;
+        max-height: 85px; }
+
 li {
   list-style: none; }
 
@@ -365,7 +419,7 @@ a {
   color: black; }
 
 body {
-  height: 3000px; }
+  background-color: whitesmoke; }
 
 input:focus, button:focus, select:focus {
   outline: none; }
