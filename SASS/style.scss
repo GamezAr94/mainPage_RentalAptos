@@ -3,6 +3,7 @@
 @import "burgerMenu";
 @import "optionsBody";
 @import "banner";
+@import "footer";
 li{
     list-style: none;
 }
@@ -11,9 +12,9 @@ a{
     color: black;
 }
 body {
-    height:3000px; 
+   // height:3000px; 
 }
-input:focus, button:focus{
+input:focus, button:focus, select:focus{
     outline: none;
 }
 //al hacer tap en cualquier enlace boton etc no se pondra un fondo azul por default indicador que se ha hecho tap
