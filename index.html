@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
@@ -8,60 +9,77 @@
     <link rel="stylesheet" href="styles/normalize.css">
     <title>Document</title>
 </head>
+
 <body>
     <header>
-            <div class="centralize">
-                <a href="#">
-                    <h1>GZ</h1>
-                </a>
-                <div id="menu-hamburger" class="burger" onclick="onClickMenu()">
-                    <div id="bar1" class="bar"></div>
-                    <div id="bar2" class="bar"></div>
-                    <div id="bar3" class="bar"></div>
-                </div>
-                <div id="menu" class="menu hide">
-                    <nav id="nav">
-                        <ul>
-                            <li><a href="index.php">Home</a></li>
-                            <li><a href="#">About me</a></li>
-                            <li><a href="#">Content</a></li>
-                            <li class="cntct"><a onclick="onClickContact()">Contact</a></li>
-                            <li class="login"><a onclick="onClickLogin()">Login</a></li>
-                        </ul>
-                    </nav>
-                    <div id="form-login" class="hiden">
-                        <div>Login</div>
-                            <form action="includes/login.inc.php" method ="post">
-                                <input type="text" name="mailuid" placeholder="Username/E-mail...">
-                                <input type="password" name="pwd" placeholder="Password...">
-                                <button type="submit" name="login-submit">Login</button>
-                            </form>
-                            <!--<form action="includes/logout.inc.php" method ="post">
+        <div class="centralize">
+            <a href="#">
+                <h1>GZ</h1>
+            </a>
+            <div id="menu-hamburger" class="burger" onclick="onClickMenu()">
+                <div id="bar1" class="bar"></div>
+                <div id="bar2" class="bar"></div>
+                <div id="bar3" class="bar"></div>
+            </div>
+            <div id="menu" class="menu hide">
+                <nav id="nav">
+                    <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="#">About me</a></li>
+                        <li><a href="#">Content</a></li>
+                        <li class="cntct"><a onclick="onClickContact()">Contact</a></li>
+                        <li class="login"><a onclick="onClickLogin()">Login</a></li>
+                    </ul>
+                </nav>
+                <div id="form-login" class="hiden">
+                    <div>Login</div>
+                    <form action="includes/login.inc.php" method="post">
+                        <input type="text" name="mailuid" placeholder="Username/E-mail...">
+                        <input type="password" name="pwd" placeholder="Password...">
+                        <button type="submit" name="login-submit">Login</button>
+                    </form>
+                    <!--<form action="includes/logout.inc.php" method ="post">
                                 <button type="submit" name="logout-submit">Logout</button>
                             </form>-->
-                    </div>
-                    <div id="contact" class="contact-hiden">
-                        <p>Contact us</p>
-                        <form action="#" method="post">
-                            <input type="text" name="name" placeholder="Name...">
-                            <input type="text" name="email" placeholder="Emal...">
-                            <input type="text" name="subject" placeholder="Subject...">
-                            <input type="textarea" name="message" rows="10" cols="30" placeholder="Message...">
-                            <button type="submit" name="send-message">Send</button>         
-                        </form>
-                    </div>
+                </div>
+                <div id="contact" class="contact-hiden">
+                    <p>Contact us</p>
+                    <form action="#" method="post">
+                        <input type="text" name="name" placeholder="Name...">
+                        <input type="text" name="email" placeholder="Emal...">
+                        <input type="text" name="subject" placeholder="Subject...">
+                        <input type="textarea" name="message" rows="10" cols="30" placeholder="Message...">
+                        <button type="submit" name="send-message">Send</button>
+                    </form>
                 </div>
             </div>
+        </div>
     </header>
     <div id="banner">
         <div class="img"></div>
     </div>
     <div id="options">
-        <form id="search">
-            <input type="text" name="search" placeholder="Search..">
-          </form>
-    </div>
-    <div id="cosa">
+        <form id="form">
+            <h2>Availability: </h2>
+            <fieldset>
+                <div>
+                    <label><input type="radio" id="now" name="searchAvaila" value="thisMonth" checked onclick="advancedChecked()">
+                        This month</label>
+                    <label><input type="radio" id="allAptos" name="searchAvaila" value="allAptos" onclick="advancedChecked()">
+                        All apartments</label>
+                    <label><input type="radio" id="nextMonth" name="searchAvaila" value="nextMonth" onclick="advancedChecked()">
+                        Other month <i>(advanced search)</i></label>
+                </div>
+            </fieldset>
+            <fieldset id="advanced" class="default">
+                <h3>Advanced Search: </h3>
+                <div>
+                    <label>Month: <input type="month" name="mes"></label>
+                    <label>Price:<input type="text" name="price" placeholder="$700.00"></label>
+                </div>
+            </fieldset>
+            <button type="submit" name="search-aptos">Search</button>
+        </form>
     </div>
     <footer>
         <div id="conteiner">
@@ -78,7 +96,7 @@
                     <input type="text" name="email" placeholder="Emal...">
                     <input type="text" name="subject" placeholder="Subject...">
                     <input type="textarea" name="message" rows="10" cols="30" placeholder="Message...">
-                    <button type="submit" name="send-message">Send</button>         
+                    <button type="submit" name="send-message">Send</button>
                 </form>
             </div>
             <div class="items">
@@ -90,7 +108,9 @@
             </div>
         </div>
     </footer>
-    
+
     <script src="scripts/menu_btn.js"></script>
+    <script src="scripts/searchTool.js"></script>
 </body>
+
 </html>
