@@ -12,7 +12,10 @@ a{
     color: black;
 }
 body {
-    height:3000px;
+    //height:3000px;
+    #cosa{
+        height: 500px;
+    }
 }
 input:focus, button:focus, select:focus{
     outline: none;
