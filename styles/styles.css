@@ -255,6 +255,44 @@ body #options {
       body #options #form #advanced div label:nth-child(2) input[type=text] {
         text-align: right; }
 
+@media only screen and (max-width: 700px) {
+  body #options {
+    padding: 0; }
+    body #options #form h2 {
+      font-size: 23px; }
+    body #options #form button {
+      display: flex;
+      margin: 15px auto;
+      justify-content: center;
+      padding: 15px 0;
+      width: 80%;
+      max-width: 200px; }
+    body #options #form div {
+      flex-direction: column;
+      min-width: 100px;
+      height: 100px;
+      align-items: flex-start; }
+    body #options #form #advanced {
+      padding-bottom: 50px;
+      min-width: 0px; }
+      body #options #form #advanced div {
+        width: 60%;
+        min-width: 0px; }
+        body #options #form #advanced div label:nth-child(1) {
+          min-width: 0px;
+          width: 100%; }
+          body #options #form #advanced div label:nth-child(1) input[type=date] {
+            min-width: 100px;
+            width: 100%; }
+        body #options #form #advanced div label:nth-child(2) {
+          min-width: 130px;
+          margin-top: 20px; }
+          body #options #form #advanced div label:nth-child(2) i {
+            padding-right: 20px; }
+          body #options #form #advanced div label:nth-child(2) input[type=text] {
+            text-align: right;
+            width: 70%;
+            max-width: 100px; } }
 #banner {
   background-color: gray;
   width: 100%;
@@ -411,6 +449,36 @@ body #bodyContent {
         background-color: #fff;
         max-height: 85px; }
 
+@media only screen and (max-width: 700px) {
+  body #bodyContent {
+    margin: 0;
+    box-shadow: none;
+    padding-top: 35px;
+    width: 100%; }
+    body #bodyContent .aptos {
+      width: 240px;
+      height: 290px; }
+      body #bodyContent .aptos .img {
+        height: 210px;
+        width: 100%; }
+      body #bodyContent .aptos .info {
+        height: 75px;
+        width: 100%;
+        padding-top: 5px; }
+        body #bodyContent .aptos .info .amount {
+          display: none; }
+        body #bodyContent .aptos .info .comments {
+          order: 5; } }
+@media only screen and (max-width: 550px) {
+  body #bodyContent {
+    margin: 0;
+    box-shadow: none;
+    padding-top: 35px;
+    width: 100%; }
+    body #bodyContent .aptos {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0px auto 35px auto; } }
 li {
   list-style: none; }
 

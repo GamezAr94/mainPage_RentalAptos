@@ -51,3 +51,58 @@ body{
         }
     }
 }
+
+@media only screen and (max-width: 700px){
+    body{
+        #options{
+            padding: 0;
+            #form{
+                h2{
+                    font-size: 23px;
+                }
+                button{
+                    display: flex;
+                    margin: 15px auto;
+                    justify-content: center;
+                    padding: 15px 0;
+                    width: 80%;
+                    max-width: 200px;
+                }
+                div{
+                    flex-direction: column;
+                    min-width: 100px;
+                    height: 100px;
+                    align-items: flex-start;
+                }
+                #advanced{
+                    padding-bottom: 50px;
+                    min-width: 0px;
+                    div{
+                        width: 60%;
+                        min-width: 0px;
+                        label:nth-child(1){
+                            min-width: 0px;
+                            width: 100%;
+                            input[type=date]{
+                                min-width: 100px;
+                                width: 100%;
+                            }
+                        }
+                        label:nth-child(2){
+                            min-width: 130px;
+                            margin-top: 20px;
+                            i{
+                                padding-right: 20px;
+                            }
+                            input[type=text]{
+                                text-align: right;
+                                width: 70%;
+                                max-width: 100px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
