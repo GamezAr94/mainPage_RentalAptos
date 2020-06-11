@@ -33,7 +33,7 @@ header {
           display: flex;
           justify-content: space-around;
           padding: 0; }
-          header .centralize .menu nav ul .login {
+          header .centralize .menu nav ul .login, header .centralize .menu nav ul .cntct {
             display: none; }
           header .centralize .menu nav ul li {
             transition: 0.5s ease; }
@@ -76,6 +76,8 @@ header {
             background-color: #3c505a; }
           header .centralize .menu #form-login form button:active {
             box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.75); }
+      header .centralize .menu .contact-hiden {
+        display: none; }
 
 @media only screen and (max-width: 700px) {
   header {
@@ -118,6 +120,31 @@ header {
           height: 40px; }
     header .centralize #menu .hiden {
       display: none; }
+    header .centralize #menu .contact-hiden {
+      display: none; }
+    header .centralize #menu #contact {
+      position: absolute;
+      background-color: lightblue;
+      height: 100vh; }
+      header .centralize #menu #contact p {
+        padding-top: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: 40px; }
+      header .centralize #menu #contact form {
+        width: 80%;
+        margin: 0 auto; }
+        header .centralize #menu #contact form input {
+          width: 100%;
+          height: 30px;
+          margin-bottom: 20px; }
+        header .centralize #menu #contact form input[type=textarea] {
+          padding-bottom: 50px; }
+        header .centralize #menu #contact form button {
+          margin: 0 50% 0 50%;
+          transform: translateX(-50%);
+          width: 30%;
+          height: 35px; }
     header .centralize .hide {
       display: none; }
     header .centralize #menu {
@@ -258,7 +285,7 @@ body #options {
     height: 130px;
     background-position: 30% -30px; } }
 footer {
-  position: absolute;
+  position: relative;
   width: 100%;
   bottom: 0;
   left: 0;
@@ -335,6 +362,9 @@ li {
 a {
   text-decoration: none;
   color: black; }
+
+body #cosa {
+  height: 900px; }
 
 input:focus, button:focus, select:focus {
   outline: none; }

@@ -23,9 +23,9 @@
                     <nav id="nav">
                         <ul>
                             <li><a href="index.php">Home</a></li>
-                            <li><a href="#">Porfolio</a></li>
                             <li><a href="#">About me</a></li>
                             <li><a href="#">Content</a></li>
+                            <li class="cntct"><a onclick="onClickContact()">Contact</a></li>
                             <li class="login"><a onclick="onClickLogin()">Login</a></li>
                         </ul>
                     </nav>
@@ -40,6 +40,16 @@
                                 <button type="submit" name="logout-submit">Logout</button>
                             </form>-->
                     </div>
+                    <div id="contact" class="contact-hiden">
+                        <p>Contact us</p>
+                        <form action="#" method="post">
+                            <input type="text" name="name" placeholder="Name...">
+                            <input type="text" name="email" placeholder="Emal...">
+                            <input type="text" name="subject" placeholder="Subject...">
+                            <input type="textarea" name="message" rows="10" cols="30" placeholder="Message...">
+                            <button type="submit" name="send-message">Send</button>         
+                        </form>
+                    </div>
                 </div>
             </div>
     </header>
@@ -51,6 +61,8 @@
             <input type="text" name="search" placeholder="Search..">
           </form>
     </div>
+    <div id="cosa">
+    </div>
     <footer>
         <div id="conteiner">
             <div class="logo">
@@ -59,14 +71,14 @@
                 <p>July 6, 2020</p>
                 <p>copyright&copy</p>
             </div>
-            <div class=contact>
+            <div>
                 <p>Contact us</p>
                 <form action="#" method="post">
                     <input type="text" name="name" placeholder="Name...">
                     <input type="text" name="email" placeholder="Emal...">
                     <input type="text" name="subject" placeholder="Subject...">
                     <input type="textarea" name="message" rows="10" cols="30" placeholder="Message...">
-                    <button type="submit" name="login-submit">Login</button>         
+                    <button type="submit" name="send-message">Send</button>         
                 </form>
             </div>
             <div class="items">
