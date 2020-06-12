@@ -409,6 +409,72 @@ footer {
 @media only screen and (max-width: 700px) {
   footer #conteiner div:nth-child(2) {
     display: none; } }
+/*
+body{
+    #bodyContent{
+        background-color: #fff;
+        display: block;
+        -webkit-box-shadow: 0px 0px 19px -15px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 19px -15px rgba(0,0,0,0.75);
+        box-shadow:0 11px 0px 0px white, 0 -19px 0px 0px white, 0px 0px 19px -15px rgba(0,0,0,0.75);
+        width: 95%;
+        margin: 9px auto;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        .aptos{
+            margin: 10px 3px 25px 25px;
+            display: inline-block;
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            width: 280px;
+            height: 330px;
+            border-radius: 15px;
+            .img{
+                background-color: black;
+                border-radius: 15px 15px 0 0;
+                margin: 0;
+                padding: 0;
+                width: 280px;
+                top: 0;
+                left: 0;
+                height: 226px;
+                .price{
+                    position: absolute;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #fff;
+                    border-radius: 4px 0px 4px 0;
+                    padding: 3px 15px;
+                }
+            }
+            .info{
+                background-color: #fff;
+                border-radius: 0px 0px 15px 15px;
+                margin: 0;
+                padding: 4px 0 0 0;
+                height: 100px;
+                width: 280px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                p{
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                    max-width: 275px;
+                    background-color: #fff;
+                    max-height: 85px;
+                }
+                p:nth-child(3), p:nth-child(4){
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+}
+*/
 body #bodyContent {
   background-color: #fff;
   display: block;
@@ -419,7 +485,8 @@ body #bodyContent {
   margin: 9px auto;
   margin-bottom: 10px;
   padding-bottom: 10px; }
-  body #bodyContent .aptos {
+  body #bodyContent .apto-card {
+    transition: all .3s ease;
     margin: 10px 3px 25px 25px;
     display: inline-block;
     -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.75);
@@ -428,39 +495,60 @@ body #bodyContent {
     width: 280px;
     height: 330px;
     border-radius: 15px; }
-    body #bodyContent .aptos .img {
-      background-color: black;
-      border-radius: 15px 15px 0 0;
-      margin: 0;
-      padding: 0;
-      width: 280px;
-      top: 0;
-      left: 0;
-      height: 230px; }
-      body #bodyContent .aptos .img .price {
-        position: absolute;
+    body #bodyContent .apto-card .aptos {
+      position: relative; }
+      body #bodyContent .apto-card .aptos .img {
+        transition: all .3s ease;
+        background-color: black;
+        border-radius: 15px 15px 0 0;
         margin: 0;
         padding: 0;
+        width: 280px;
+        top: 0;
+        left: 0;
+        height: 226px; }
+        body #bodyContent .apto-card .aptos .img .price {
+          position: absolute;
+          margin: 0;
+          padding: 0;
+          background-color: #fff;
+          border-radius: 4px 0px 4px 0;
+          padding: 3px 15px; }
+      body #bodyContent .apto-card .aptos .info {
+        transition: all .3s ease;
         background-color: #fff;
-        border-radius: 4px 0px 4px 0;
-        padding: 3px 15px; }
-    body #bodyContent .aptos .info {
-      background-color: red;
-      border-radius: 0px 0px 15px 15px;
-      margin: 0;
-      padding: 0px;
-      height: 100px;
-      width: 280px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-around; }
-      body #bodyContent .aptos .info p {
-        text-align: center;
+        border-radius: 0px 0px 15px 15px;
         margin: 0;
-        padding: 0;
-        max-width: 275px;
-        background-color: #fff;
-        max-height: 85px; }
+        padding: 4px 0 0 0;
+        height: 100px;
+        width: 280px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around; }
+        body #bodyContent .apto-card .aptos .info p {
+          text-align: center;
+          margin: 0;
+          padding: 0;
+          max-width: 275px;
+          background-color: #fff;
+          max-height: 85px; }
+        body #bodyContent .apto-card .aptos .info p:nth-child(1) {
+          font-weight: bold; }
+        body #bodyContent .apto-card .aptos .info p:nth-child(3), body #bodyContent .apto-card .aptos .info p:nth-child(4) {
+          font-weight: bold;
+          font-size: 18px; }
+  body #bodyContent .apto-card:hover {
+    -webkit-box-shadow: 0px 0px 37px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 37px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 37px -15px rgba(0, 0, 0, 0.75);
+    width: 281.5px;
+    height: 328; }
+    body #bodyContent .apto-card:hover .aptos .img, body #bodyContent .apto-card:hover .aptos .info {
+      width: 281.5px; }
+    body #bodyContent .apto-card:hover .aptos .img {
+      height: 227px; }
+    body #bodyContent .apto-card:hover .aptos .info {
+      height: 101px; }
 
 @media only screen and (max-width: 700px) {
   body #bodyContent {
@@ -468,27 +556,37 @@ body #bodyContent {
     box-shadow: none;
     padding-top: 35px;
     width: 100%; }
-    body #bodyContent .aptos {
+    body #bodyContent .apto-card {
       width: 240px;
       height: 290px; }
-      body #bodyContent .aptos .img {
-        height: 210px;
+      body #bodyContent .apto-card .aptos .img {
+        height: 205px;
         width: 100%; }
-      body #bodyContent .aptos .info {
-        height: 75px;
-        width: 100%;
-        padding-top: 5px; }
-        body #bodyContent .aptos .info .amount {
+      body #bodyContent .apto-card .aptos .info {
+        padding-top: 10px;
+        height: 70px;
+        width: 100%; }
+        body #bodyContent .apto-card .aptos .info .amount {
           display: none; }
-        body #bodyContent .aptos .info .comments {
-          order: 5; } }
+        body #bodyContent .apto-card .aptos .info .comments {
+          order: 5; }
+    body #bodyContent .apto-card:hover {
+      width: 240px;
+      height: 290px; }
+      body #bodyContent .apto-card:hover .aptos .img {
+        height: 205px;
+        width: 100%; }
+      body #bodyContent .apto-card:hover .aptos .info {
+        padding-top: 10px;
+        height: 70px;
+        width: 100%; } }
 @media only screen and (max-width: 550px) {
   body #bodyContent {
     margin: 0;
     box-shadow: none;
     padding-top: 35px;
     width: 100%; }
-    body #bodyContent .aptos {
+    body #bodyContent .apto-card {
       display: flex;
       flex-wrap: wrap;
       margin: 0px auto 35px auto; } }

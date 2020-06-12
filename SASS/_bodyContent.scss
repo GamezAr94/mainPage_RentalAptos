@@ -1,3 +1,4 @@
+/*
 body{
     #bodyContent{
         background-color: #fff;
@@ -26,7 +27,7 @@ body{
                 width: 280px;
                 top: 0;
                 left: 0;
-                height: 230px;
+                height: 226px;
                 .price{
                     position: absolute;
                     margin: 0;
@@ -37,10 +38,10 @@ body{
                 }
             }
             .info{
-                background-color: red;
+                background-color: #fff;
                 border-radius: 0px 0px 15px 15px;
                 margin: 0;
-                padding: 0px;
+                padding: 4px 0 0 0;
                 height: 100px;
                 width: 280px;
                 display: flex;
@@ -54,10 +55,112 @@ body{
                     background-color: #fff;
                     max-height: 85px;
                 }
+                p:nth-child(3), p:nth-child(4){
+                    font-weight: bold;
+                    font-size: 18px;
+                }
             }
         }
     }
 }
+*/
+
+
+
+body{
+    #bodyContent{
+        background-color: #fff;
+        display: block;
+        -webkit-box-shadow: 0px 0px 19px -15px rgba(0,0,0,0.75);
+        -moz-box-shadow: 0px 0px 19px -15px rgba(0,0,0,0.75);
+        box-shadow:0 11px 0px 0px white, 0 -19px 0px 0px white, 0px 0px 19px -15px rgba(0,0,0,0.75);
+        width: 95%;
+        margin: 9px auto;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        .apto-card{
+            transition: all .3s ease;
+            margin: 10px 3px 25px 25px;
+            display: inline-block;
+            -webkit-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            -moz-box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.75);
+            width: 280px;
+            height: 330px;
+            border-radius: 15px;
+            .aptos{
+                position: relative;
+            .img{
+                transition: all .3s ease;
+                background-color: black;
+                border-radius: 15px 15px 0 0;
+                margin: 0;
+                padding: 0;
+                width: 280px;
+                top: 0;
+                left: 0;
+                height: 226px;
+                .price{
+                    position: absolute;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #fff;
+                    border-radius: 4px 0px 4px 0;
+                    padding: 3px 15px;
+                }
+            }
+            .info{
+                transition: all .3s ease;
+                background-color: #fff;
+                border-radius: 0px 0px 15px 15px;
+                margin: 0;
+                padding: 4px 0 0 0;
+                height: 100px;
+                width: 280px;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                p{
+                    text-align: center;
+                    margin: 0;
+                    padding: 0;
+                    max-width: 275px;
+                    background-color: #fff;
+                    max-height: 85px;
+                }
+                p:nth-child(1){
+                    font-weight: bold;
+                }
+                p:nth-child(3), p:nth-child(4){
+                    font-weight: bold;
+                    font-size: 18px;
+                }
+            }
+        }
+    }
+    .apto-card:hover{
+        -webkit-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.75);
+        width: 281.5px;
+        height: 328;
+        .aptos{
+            .img,.info{
+                width: 281.5px;
+            }
+            .img{
+                height: 227px;
+            }
+            .info{
+                height: 101px;
+            }
+        }
+    }
+    }
+}
+
+
+
 @media only screen and (max-width: 700px){
     body{
         #bodyContent{
@@ -65,17 +168,18 @@ body{
             box-shadow: none;
             padding-top: 35px;
             width: 100%;
-            .aptos{
+            .apto-card{
                 width: 240px;
                 height: 290px;
+            .aptos{
                 .img{
-                    height: 210px;
+                    height: 205px;
                     width: 100%;
                 }
                 .info{
-                    height: 75px;
+                    padding-top: 10px;
+                    height: 70px;
                     width: 100%;
-                    padding-top: 5px;
                     .amount{
                         display: none;
                     }
@@ -84,6 +188,22 @@ body{
                     }
                 }
             }
+        }
+        .apto-card:hover{
+            width: 240px;
+            height: 290px;
+            .aptos{
+                .img{
+                    height: 205px;
+                    width: 100%;
+                }
+                .info{
+                    padding-top: 10px;
+                    height: 70px;
+                    width: 100%;
+                }
+            }
+        }
         }
     }
 }
@@ -95,7 +215,7 @@ body{
             box-shadow: none;
             padding-top: 35px;
             width: 100%;
-            .aptos{
+            .apto-card{
                 display: flex;
                 flex-wrap: wrap;
                 margin: 0px auto 35px auto;
