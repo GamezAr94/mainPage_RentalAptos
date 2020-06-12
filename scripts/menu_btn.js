@@ -6,6 +6,13 @@ const menu = document.getElementById('menu');
 const login = document.getElementById('form-login');
 const navMenu = document.getElementById('nav');
 const contact = document.getElementById('contact');
+
+window.addEventListener("resize", function(){
+    if(window.innerWidth > 700){
+        contact.className = 'contact-hiden';
+        navMenu.style.display="block";
+    }
+});
 function onClickMenu(){
     btn.classList.toggle("burger-close");
     btn.classList.toggle("burger");
