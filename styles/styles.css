@@ -484,7 +484,25 @@ body #bodyContent {
   width: 95%;
   margin: 9px auto;
   margin-bottom: 10px;
-  padding-bottom: 10px; }
+  padding-bottom: 10px;
+    /*.apto-card:hover{
+        -webkit-box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
+        width: 284px;
+        height: 332;
+        .aptos{
+            .img,.info{
+                width: 284px;
+            }
+            .img{
+                height: 229px;
+            }
+            .info{
+                height: 103px;
+            }
+        }
+    }*/ }
   body #bodyContent .apto-card {
     transition: all .3s ease;
     margin: 10px 3px 25px 25px;
@@ -537,18 +555,6 @@ body #bodyContent {
         body #bodyContent .apto-card .aptos .info p:nth-child(3), body #bodyContent .apto-card .aptos .info p:nth-child(4) {
           font-weight: bold;
           font-size: 18px; }
-  body #bodyContent .apto-card:hover {
-    -webkit-box-shadow: 0px 0px 37px -15px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 0px 37px -15px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 0px 37px -15px rgba(0, 0, 0, 0.75);
-    width: 281.5px;
-    height: 328; }
-    body #bodyContent .apto-card:hover .aptos .img, body #bodyContent .apto-card:hover .aptos .info {
-      width: 281.5px; }
-    body #bodyContent .apto-card:hover .aptos .img {
-      height: 227px; }
-    body #bodyContent .apto-card:hover .aptos .info {
-      height: 101px; }
 
 @media only screen and (max-width: 700px) {
   body #bodyContent {

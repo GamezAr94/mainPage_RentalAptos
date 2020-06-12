@@ -138,24 +138,25 @@ body{
             }
         }
     }
-    .apto-card:hover{
-        -webkit-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.75);
-box-shadow: 0px 0px 37px -15px rgba(0,0,0,0.75);
-        width: 281.5px;
-        height: 328;
+    //Descomentar esta seccion Si se quiere crear un hover para que las tarjetas aumenten de tamaño 
+    /*.apto-card:hover{
+        -webkit-box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
+        width: 284px;
+        height: 332;
         .aptos{
             .img,.info{
-                width: 281.5px;
+                width: 284px;
             }
             .img{
-                height: 227px;
+                height: 229px;
             }
             .info{
-                height: 101px;
+                height: 103px;
             }
         }
-    }
+    }*/
     }
 }
 
