@@ -54,16 +54,26 @@ footer{
                     width: 97%;
                     padding: 0;
                 }
-                input[type=textarea]{
-                    padding: 0;
+                textarea{
+                    padding: 500px;
                     width: 97%;
                     padding: 0px 0 50px 0;
+                    min-width: 390px;
+                    max-width: 70vw;
+                    max-height: 70px;
+                    min-height: 20px;
                 }
                 button{
                     display: block;
-                    margin: 20px auto 0 auto;
-                    padding: 0 10px;
-                    width: 100px;
+                    margin: 10px auto 0 auto;
+                    @include button();
+                    width: 50%;
+                    max-width: 250px;
+                    height: 30px;
+                    font-weight: bold;
+                }
+                button:hover{
+                    background-color: $colorBtnsHover;
                 }
             }
         }

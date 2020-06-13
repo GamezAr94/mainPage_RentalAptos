@@ -1,4 +1,5 @@
 @import "variables";
+@import "mixins";
 @import "header";
 @import "burgerMenu";
 @import "optionsBody";
@@ -17,7 +18,7 @@ body {
     background-color: rgb(245, 245, 245);
    // height:3000px;
 }
-input:focus, button:focus, select:focus{
+input:focus, button:focus, select:focus, textarea:focus{
     outline: none;
 }
 //al hacer tap en cualquier enlace boton etc no se pondra un fondo azul por default indicador que se ha hecho tap

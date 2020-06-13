@@ -1,0 +1,9 @@
+@mixin button($bgcolor: $colorBtns, $fontColor: #fff){
+    border-radius: 7px;
+    background-color: $bgcolor;
+    border: 0px;
+    color: $fontColor;
+    cursor:pointer;
+    transition: all .3s;
+    box-shadow: 0px .5px 0px .5px rgba(0,0,0,0.75);             
+}
