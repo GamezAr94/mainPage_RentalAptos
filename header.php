@@ -1,6 +1,7 @@
 <?php
     //starting the sessions in all the web pages 
     session_start();
+    include 'includes/dbh.inc.php';
 ?>
 
 <!DOCTYPE html>
@@ -29,19 +30,17 @@
             <div id="menu" class="menu hide">
                 <nav id="nav">
                     <ul>
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#">About me</a></li>
                         <li><a href="#">Careers</a></li>
                         <?php
-                        if(isset($_SESSION['userId'])){
-                            echo '<li class="login"><a onclick="onClickLogin()">Logout</a></li>';
-                        }else{
-                            echo '<li class="cntct"><a onclick="onClickContact()">Contact</a></li>';
-                            echo '<li class="login"><a onclick="onClickLogin()">Login</a></li>';
-                        }
+                            if(isset($_SESSION['userId'])){
+                                echo '<li class="login"><a onclick="onClickLogin()">Logout</a></li>';
+                            }else{
+                                echo '<li class="cntct"><a onclick="onClickContact()">Contact</a></li>';
+                                echo '<li class="login"><a onclick="onClickLogin()">Login</a></li>';
+                            }
                         ?>
-                        
-                        
                     </ul>
                 </nav>
                 <div id="form-login" class="hiden">

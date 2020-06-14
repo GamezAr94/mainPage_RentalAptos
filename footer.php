@@ -7,14 +7,23 @@
                 <p>copyright&copy;</p>
             </div>
             <div>
-                <p>Contact us</p>
-                <form action="#" method="post">
-                    <input type="text" name="name" placeholder="Name...">
-                    <input type="text" name="email" placeholder="Emal...">
-                    <input type="text" name="subject" placeholder="Subject...">
-                    <textarea name="message" placeholder="Message..."></textarea>
-                    <button type="submit" name="send-message">Send</button>
-                </form>
+                <?php
+
+                    if(isset($_SESSION['userId'])){
+                        //ingresar datos que quiero que se muesten en vez de la forma de contacto 
+                    }else{
+                        echo '<p>Contact us</p>
+                            <form action="#" method="post">
+                                <input type="text" name="name" placeholder="Name...">
+                                <input type="text" name="email" placeholder="Emal...">
+                                <input type="text" name="subject" placeholder="Subject...">
+                                <textarea name="message" placeholder="Message..."></textarea>
+                                <button type="submit" name="send-message">Send</button>
+                            </form>';
+                    }
+
+                ?>
+                
             </div>
             <div class="items">
                 <p class="extInfo">Social:</p>

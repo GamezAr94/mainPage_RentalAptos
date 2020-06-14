@@ -586,6 +586,8 @@ box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
           max-height: 85px; }
         body #bodyContent .apto-card .aptos .info p:nth-child(1) {
           font-weight: bold; }
+        body #bodyContent .apto-card .aptos .info P:nth-child(2) {
+          width: 100%; }
         body #bodyContent .apto-card .aptos .info p:nth-child(3), body #bodyContent .apto-card .aptos .info p:nth-child(4) {
           font-weight: bold;
           font-size: 18px; }
