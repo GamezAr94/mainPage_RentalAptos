@@ -34,7 +34,12 @@
         <?php
             $sql = "SELECT *
             FROM apartaments
-            INNER JOIN room ON apartaments.apts_id = room.apts_fk";
+            INNER JOIN room ON apartaments.apts_id = room.apts_fk
+            INNER JOIN room_users ON room.room_id = room_users.room_fk
+            where room_users.ru_endD in (
+                select MAX(ru_endD)
+                from room_users
+                group by room_fk);";
             $result = mysqli_query($conn, $sql);
             $queryResults = mysqli_num_rows($result);
 
@@ -50,7 +55,7 @@
                             <div class="info">
                                 <p class="comments">'.$row["apts_strtNum"]." ".$row["apts_strtName"].' st.</p>
                                 <p class="details">'.$row["room_desc"].'</p>
-                                <p class="date">Jun 11</p>
+                                <p class="date">'.$row["ru_endD"].'</p>
                                 <p class="amount">$'.$row["room_price"].'</p>
                             </div>
                         </div>
