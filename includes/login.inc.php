@@ -14,8 +14,13 @@
             exit();
         }else{
             $sql = "SELECT *
-                    FROM users
-                    WHERE name_users=? OR email_users = ?;";
+            FROM room_users
+            INNER JOIN users
+            ON room_users.users_fk = users.id_users
+            WHERE (users.name_users=? OR users.email_users = ?) AND room_users.ru_endD in (
+                select MAX(ru_endD)
+                from room_users
+                group by room_fk)";
             //preparar el statement connection de la base de datos
             $stmt = mysqli_stmt_init($conn);
 
@@ -45,6 +50,9 @@
                         header("Location: ../index.php?error=wrongpasswordd");
                         exit();
                     }else if($row['pass_users'] == $password){
+
+                        //checa si su contrato aun no ha expirado, de haber expirado no podran acceder 
+                        if($row['ru_endD'] >= date("Y-m-d")){
                         //iniciar una session
                         //se crea una variable global que contiene la informacion del usuario
                         session_start();
@@ -55,9 +63,17 @@
                         //llevar al usuario al inicio de pantalla con un mensaje exitoso
                         header("Location: ../prueba.php?login=success");
                         exit();
+                        }else{
+                            header("Location: ../index.php?error=nocurrentuser".date("Y-m-d").$row['ru_endD']);
+                            exit();
+                        }
+
                     }else{
                         header("Location: ../index.php?error=wrongpassword");
+                        exit();
                     }
+
+
                 }else{
                     header("Location: ../index.php?error=nouser");
                 }
