@@ -39,7 +39,8 @@
             where room_users.ru_endD in (
                 select MAX(ru_endD)
                 from room_users
-                group by room_fk);";
+                group by room_fk)
+                ORDER BY room.room_price ASC;";
             $result = mysqli_query($conn, $sql);
             $queryResults = mysqli_num_rows($result);
 
