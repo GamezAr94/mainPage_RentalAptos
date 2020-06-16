@@ -48,15 +48,23 @@
                 while($row = mysqli_fetch_assoc($result)){
                     echo '
                     
-                    <a href="aptos_content.php?idapartment='.$row["apts_id"].'" class="apto-card">
+                    <a href="aptos_content.php?idroom='.$row["room_id"].'" class="apto-card">
                         <div class="aptos">
                             <div class="img">
                                 <div class="price">$'.$row["room_price"].'</div>
                             </div>
                             <div class="info">
                                 <p class="comments">'.$row["apts_strtNum"]." ".$row["apts_strtName"].' st.</p>
-                                <p class="details">'.$row["room_desc"].'</p>
-                                <p class="date">'.$row["ru_endD"].'</p>
+                                <p class="details">'.$row["room_desc"].'</p>';
+                                ?>
+                                <?php
+                                    if((strtotime(date("Y-m-d"))-strtotime($row["ru_endD"]))< 0){
+                                        echo '<p class="date">'.date("d M Y", strtotime($row["ru_endD"])).'</p>';
+                                    }else{
+                                        echo '<p class="date">Now</p>';
+                                    }
+                                ?>
+                                <?php echo '
                                 <p class="amount">$'.$row["room_price"].'</p>
                             </div>
                         </div>
@@ -65,7 +73,7 @@
                     ';
                 }
             }else{
-                echo "NADAAA";
+                header("Location: index.php?error=pagenotfound");
             }
         ?>
 
