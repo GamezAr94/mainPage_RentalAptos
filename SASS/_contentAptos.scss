@@ -39,6 +39,7 @@ body{
                 padding: 20px 40px 40px 40px;
             }
             .img-container{
+                margin-top: 25px;
                 min-width: 470px;
                 height: 450px;
                 overflow: hidden;
@@ -56,7 +57,8 @@ body{
                             height: 100%;
                             object-fit: cover;
                         }
-                    }/*
+                    }
+/*+++++++++++++++++animacion fade in++++++++++++++++++*/
                     .fade {
                         -webkit-animation-name: fade;
                         -webkit-animation-duration: 1.5s;
@@ -71,27 +73,37 @@ body{
                       @keyframes fade {
                         from {opacity: .4}
                         to {opacity: 1}
-                      }*/
+                      }
+
+
                     #prev, #next {
                         cursor: pointer;
                         position: absolute;
                         top: 50vh;
                         width: auto;
-                        margin-top: -5px;
-                        padding: 16px;
-                        color: black;
+                        margin-top: 25px;
+                        padding: 10px;
+                        color:rgba(7, 7, 7, .6);
                         font-weight: bold;
                         font-size: 38px;
                         transition: 0.6s ease;
-                        border-radius: 0 3px 3px 0;
                         user-select: none;
+                        i{
+                            margin-top: 5px;
+                        }
                       }
                       #next {
-                        transform: translateX(416px);
-                        border-radius: 3px 0 0 3px;
+                        transform: translateX(427px);
+                        border-radius: 10px 0px 0px 10px;
+                      }
+                      #prev {
+                        border-radius: 0px 10px 10px 0px;
                       }
                       #prev:hover, #next:hover {
-                        background-color: rgba(190, 172, 172, 0.8);
+                        background-color: rgba(255, 255, 255, 0.8);
+                        i{
+                            color:rgba(7, 7, 7, 1);
+                        }
                       }
                 }
             }
@@ -129,6 +141,7 @@ body{
         padding-top: 90px;
             .content{
                 .img-container{
+                    margin-top: 0;
                     min-width: 0;
                     width: 100%;
                     height: 500px;
@@ -152,6 +165,11 @@ body{
     body{
         #container-info{
             padding-top: 80px;
+            .content{
+                .img-container{
+                    margin-top: 10px;
+                }
+            }
             .apply{
                 margin-bottom: 0px;
             }
