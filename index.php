@@ -48,7 +48,7 @@
                 while($row = mysqli_fetch_assoc($result)){
                     echo '
                     
-                    <a href="#" class="apto-card">
+                    <a href="aptos_content.php?idapartment='.$row["apts_id"].'" class="apto-card">
                         <div class="aptos">
                             <div class="img">
                                 <div class="price">$'.$row["room_price"].'</div>

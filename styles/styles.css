@@ -632,6 +632,128 @@ box-shadow: 0px 0px 41px -20px rgba(0,0,0,0.75);
       display: flex;
       flex-wrap: wrap;
       margin: 0px auto 35px auto; } }
+body #container-info {
+  -webkit-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.75);
+  flex-wrap: wrap;
+  padding-top: 130px;
+  justify-content: center;
+  display: flex;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff; }
+  body #container-info .content {
+    display: flex;
+    align-content: stretch;
+    width: 100%;
+    max-width: 1500px;
+    background-color: #fff; }
+    body #container-info .content .info {
+      background-color: #fff;
+      padding: 20px 40px 40px 40px; }
+      body #container-info .content .info h3 {
+        font-size: 35px;
+        padding: 0 0 14px 0;
+        margin: 0; }
+      body #container-info .content .info h5 {
+        font-size: 20px;
+        padding: 0 0 15px 0;
+        margin: 0; }
+      body #container-info .content .info p {
+        font-size: 17px; }
+      body #container-info .content .info .amenities {
+        font-weight: bold;
+        font-size: 19px; }
+    body #container-info .content .img-container {
+      min-width: 470px;
+      height: 450px;
+      overflow: hidden;
+      background-color: #fff;
+      width: 42%; }
+      body #container-info .content .img-container .slideshow-container {
+        width: 100%;
+        height: 100%;
+       /*
+      .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        @-webkit-keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4}
+          to {opacity: 1}
+        }*/ }
+        body #container-info .content .img-container .slideshow-container .mySlides {
+          display: flex;
+          width: 100%;
+          height: 100%; }
+          body #container-info .content .img-container .slideshow-container .mySlides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; }
+        body #container-info .content .img-container .slideshow-container #prev, body #container-info .content .img-container .slideshow-container #next {
+          cursor: pointer;
+          position: absolute;
+          top: 50vh;
+          width: auto;
+          margin-top: -5px;
+          padding: 16px;
+          color: black;
+          font-weight: bold;
+          font-size: 38px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none; }
+        body #container-info .content .img-container .slideshow-container #next {
+          transform: translateX(416px);
+          border-radius: 3px 0 0 3px; }
+        body #container-info .content .img-container .slideshow-container #prev:hover, body #container-info .content .img-container .slideshow-container #next:hover {
+          background-color: rgba(190, 172, 172, 0.8); }
+  body #container-info .apply {
+    background-color: gray;
+    height: 100px;
+    width: 100%;
+    margin-bottom: 30px; }
+
+@media only screen and (max-width: 880px) {
+  body #container-info {
+    padding-top: 120px; }
+    body #container-info .content {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      flex-wrap: wrap; }
+      body #container-info .content .info {
+        width: 100%; }
+    body #container-info .apply {
+      margin-bottom: 15x; } }
+@media only screen and (max-width: 540px) {
+  body #container-info {
+    padding-top: 90px; }
+    body #container-info .content .img-container {
+      min-width: 0;
+      width: 100%;
+      height: 500px; }
+      body #container-info .content .img-container .slideshow-container #next {
+        transform: translateX(0px);
+        margin-right: 5%;
+        right: 0;
+        border-radius: 3px 0 0 3px; }
+    body #container-info .apply {
+      margin-bottom: 10px; } }
+@media only screen and (max-width: 400px) {
+  body #container-info {
+    padding-top: 80px; }
+    body #container-info .apply {
+      margin-bottom: 0px; } }
 li {
   list-style: none; }
 

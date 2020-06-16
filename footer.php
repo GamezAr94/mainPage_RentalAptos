@@ -37,6 +37,7 @@
 
     <script src="scripts/menu_btn.js"></script>
     <script src="scripts/searchTool.js"></script>
+    <script src="scripts/carousel_img.js"></script>
 </body>
 
 </html>
