@@ -14,7 +14,7 @@
             //preparar el statement connection de la base de datos
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
-                header("Location: ../index.php?error=sqlerror");
+                header("Location: index.php?error=sqlerror");
                 exit();
             }else{
                 //pasar los parametros del usuario a la base de datos 
@@ -85,7 +85,7 @@
                     </div>
                         ';
                 }else{
-                    header("Location: ../index.php?error=sqlerror");
+                    header("Location: index.php?error=sqlerror");
                     exit();
                 }
             }

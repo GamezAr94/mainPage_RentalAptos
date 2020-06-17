@@ -34,13 +34,20 @@
         <?php
             $sql = "SELECT *
             FROM apartaments
-            INNER JOIN room ON apartaments.apts_id = room.apts_fk
-            INNER JOIN room_users ON room.room_id = room_users.room_fk
+            Inner join room
+            on room.apts_fk = apartaments.apts_id
+            INNER JOIN aptocontract
+            on aptocontract.apts_fk = apartaments.apts_id
+            inner join room_users
+            on room_users.room_fk = room.room_id
             where room_users.ru_endD in (
-                select MAX(ru_endD)
-                from room_users
-                group by room_fk)
-                ORDER BY room.room_price ASC;";
+                            select MAX(ru_endD)
+                            from room_users
+                            group by room_fk) AND aptocontract.ac_endD in (
+                                                    select MAX(ac_endD)
+                                                    FROM aptocontract
+                                                    group by apts_fk) AND aptocontract.ac_endD > CAST(CURRENT_TIMESTAMP AS DATE);";
+            
             $result = mysqli_query($conn, $sql);
             $queryResults = mysqli_num_rows($result);
 
