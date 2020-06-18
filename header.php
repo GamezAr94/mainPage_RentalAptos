@@ -19,7 +19,7 @@
 <body>
     <header>
         <div class="centralize">
-            <a href="#">
+            <a href="index.php">
                 <h1>GZ</h1>
             </a>
             <div id="menu-hamburger" class="burger" onclick="onClickMenu()">
@@ -30,8 +30,14 @@
             <div id="menu" class="menu hide">
                 <nav id="nav">
                     <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="#">About me</a></li>
+                        <?php
+                            if(isset($_SESSION['userId'])){
+                                echo '<li><a href="prueba.php">Account</a></li>';
+                            }else{
+                                echo '<li><a href="#">Algo</a></li>';
+                            }
+                        ?>
+                        <li><a href="#">About us</a></li>
                         <li><a href="#">Careers</a></li>
                         <?php
                             if(isset($_SESSION['userId'])){
