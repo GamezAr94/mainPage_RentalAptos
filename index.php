@@ -1,52 +1,12 @@
 <?php
     require "header.php";
+    require "search_pannel.php";
 ?>
 
-
-    <div id="banner">
-        <div class="img"></div>
-    </div>
-    <div id="options">
-        <form id="form">
-            <h2>Availability: </h2>
-            <fieldset>
-                <div>
-                    <label><input type="radio" id="now" name="searchAvailable" value="thisMonth" checked onclick="advancedChecked()">
-                        This month</label>
-                    <label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" onclick="advancedChecked()">
-                        All apartments</label>
-                    <label><input type="radio" id="nextMonth" name="searchAvailable" value="nextMonth" onclick="advancedChecked()">
-                        Other month <i>(advanced search)</i></label>
-                </div>
-            </fieldset>
-            <fieldset id="advanced" class="default">
-                <h3>Advanced Search: </h3>
-                <div>
-                    <label>Month: <input type="date" name="mes"></label>
-                    <label>Price: <i>(All prices by default)</i><input type="text" name="price" placeholder="700"></label>
-                </div>
-            </fieldset>
-            <button type="submit" name="search-aptos">Search</button>
-        </form>
-    </div>
     <div id="bodyContent">
 
         <?php
-            $sql = "SELECT *
-            FROM apartaments
-            Inner join room
-            on room.apts_fk = apartaments.apts_id
-            INNER JOIN aptocontract
-            on aptocontract.apts_fk = apartaments.apts_id
-            inner join room_users
-            on room_users.room_fk = room.room_id
-            where room_users.ru_endD in (
-                            select MAX(ru_endD)
-                            from room_users
-                            group by room_fk) AND aptocontract.ac_endD in (
-                                                    select MAX(ac_endD)
-                                                    FROM aptocontract
-                                                    group by apts_fk) AND aptocontract.ac_endD > CAST(CURRENT_TIMESTAMP AS DATE);";
+            $sql = $allApartmentsSQL;
             
             $result = mysqli_query($conn, $sql);
             $queryResults = mysqli_num_rows($result);

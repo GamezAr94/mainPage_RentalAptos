@@ -1,23 +1,8 @@
 <?php
-
     require "header.php";
             $idroom = $_GET['idroom'];
 //query to check if the user is not ingressing a invalid room id in the url, a valid id is the room in an apartment with valid contract
-            $sql = "SELECT *
-            FROM apartaments
-            right join room
-            on room.apts_fk = apartaments.apts_id
-            INNER JOIN aptocontract
-            on aptocontract.apts_fk = apartaments.apts_id
-            inner join room_users
-            on room_users.room_fk = room.room_id
-            where room_users.ru_endD in (
-                            select MAX(ru_endD)
-                            from room_users
-                            group by room_fk) AND aptocontract.ac_endD in (
-                                                    select MAX(ac_endD)
-                                                    FROM aptocontract
-                                                    group by apts_fk) AND aptocontract.ac_endD > CAST(CURRENT_TIMESTAMP AS DATE) AND room.room_id = ?";
+            $sql = $displayInfoApartments;
             //preparar el statement connection de la base de datos
             $stmt = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmt,$sql)){
