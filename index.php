@@ -66,9 +66,9 @@
                                 ?>
                                 <?php
                                     if((strtotime(date("Y-m-d"))-strtotime($row["ru_endD"]))< 0){
-                                        echo '<p class="date">'.date("d M Y", strtotime($row["ru_endD"])).'</p>';
+                                        echo '<p id="date">'.date("d M Y", strtotime($row["ru_endD"])).'</p>';
                                     }else{
-                                        echo '<p class="date">Now</p>';
+                                        echo '<p id="date">Now</p>';
                                     }
                                 ?>
                                 <?php echo '
