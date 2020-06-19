@@ -53,3 +53,29 @@ $allApartmentsSQL = "SELECT *
                                             FROM aptocontract
                                             group by apts_fk) AND aptocontract.ac_endD > curdate() AND room_users.ru_endD < curdate() OR room_users.ru_startD is NULL
                     order by room.room_price asc;";
+
+//Full apartment query
+//this query checks the last contract of each room in an apartment and checks if the last contract is null (that means that all the rooms are null) and checks if the apartment still with a current contract
+$fullApto = "SELECT *
+FROM apartaments
+inner join room
+on room.apts_fk = apartaments.apts_id
+INNER JOIN aptocontract
+on aptocontract.apts_fk = apartaments.apts_id
+left join room_users
+on room_users.room_fk = room.room_id
+where (room_users.ru_endD in (
+                select MAX(ru_endD) 
+                from room_users
+                left join room
+                on room.room_id = room_users.room_fk
+                inner join apartaments
+                on apartaments.apts_id = room.apts_fk
+                group by apartaments.apts_id) is null or room_users.ru_endD in (
+													select MAX(ru_endD) 
+													from room_users
+													left join room
+													on room.room_id = room_users.room_fk
+													inner join apartaments
+													on apartaments.apts_id = room.apts_fk
+													group by apartaments.apts_id)) AND aptocontract.ac_endD > curdate();";

@@ -2,33 +2,50 @@
 function checkedLabel(){
     if(empty($_GET['searchAvailable'])){
         echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" checked onclick="advancedChecked()">
-            All apartments</label>
+            All rooms</label>
         <label><input type="radio" id="now" name="searchAvailable" value="thisMonth" onclick="advancedChecked()">
             This month</label>
+            <label><input type="radio" id="fullApto" name="searchAvailable" value="fullApto" onclick="advancedChecked()">
+                Full apartament</label>
         <label><input type="radio" id="nextMonth" name="searchAvailable" value="advSearch" onclick="advancedChecked()">
             Other month <i>(advanced search)</i></label>';
     }else{
        $typeSearch = $_GET['searchAvailable'];
         if($typeSearch == 'allAptos'){
             echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" checked onclick="advancedChecked()">
-            All apartments</label>
+            All rooms</label>
         <label><input type="radio" id="now" name="searchAvailable" value="thisMonth" onclick="advancedChecked()">
             This month</label>
+            <label><input type="radio" id="fullApto" name="searchAvailable" value="fullApto" onclick="advancedChecked()">
+                Full apartament</label>
         <label><input type="radio" id="nextMonth" name="searchAvailable" value="advSearch" onclick="advancedChecked()">
             Other month <i>(advanced search)</i></label>';
         }else if($typeSearch == 'thisMonth'){
             echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" onclick="advancedChecked()">
-            All apartments</label>
+            All rooms</label>
         <label><input type="radio" id="now" name="searchAvailable" value="thisMonth" checked onclick="advancedChecked()">
             This month</label>
+            <label><input type="radio" id="fullApto" name="searchAvailable" value="fullApto" onclick="advancedChecked()">
+                Full apartament</label>
         <label><input type="radio" id="nextMonth" name="searchAvailable" value="advSearch" onclick="advancedChecked()">
             Other month <i>(advanced search)</i></label>';
         }else if($typeSearch == 'advSearch'){
             echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" onclick="advancedChecked()">
-            All apartments</label>
-        <label><input type="radio" id="now" name="searchAvailable" value="thisMonth" onclick="advancedChecked()">
+            All rooms</label>
+        <label><input type="radio" id="now" name="searchAvailable" value="thisMonth"onclick="advancedChecked()">
             This month</label>
+            <label><input type="radio" id="fullApto" name="searchAvailable" value="fullApto" onclick="advancedChecked()">
+                Full apartament</label>
         <label><input type="radio" id="nextMonth" name="searchAvailable" value="advSearch" checked onclick="advancedChecked()">
+            Other month <i>(advanced search)</i></label>';
+        }else if($typeSearch == 'fullApto'){
+            echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" onclick="advancedChecked()">
+            All rooms</label>
+        <label><input type="radio" id="now" name="searchAvailable" value="thisMonth"onclick="advancedChecked()">
+            This month</label>
+            <label><input type="radio" id="fullApto" name="searchAvailable" value="fullApto" checked onclick="advancedChecked()">
+                Full apartament</label>
+        <label><input type="radio" id="nextMonth" name="searchAvailable" value="advSearch" onclick="advancedChecked()">
             Other month <i>(advanced search)</i></label>';
         }
     }

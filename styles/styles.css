@@ -247,13 +247,16 @@ body #options {
   body #options #form {
     padding: 10px;
     background-color: #dddcdc; }
+    body #options #form label {
+      padding: 3px 10px;
+      text-align: center; }
     body #options #form h2 {
       padding: 0 0 10px 0;
       margin: 0;
       font-size: 26px; }
     body #options #form div {
       display: inline-flex;
-      width: 70%;
+      width: 90%;
       min-width: 500px;
       justify-content: space-between;
       align-items: center; }
