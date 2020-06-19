@@ -30,9 +30,12 @@ body{
                 align-items: center;
                 margin-left: 15px;
                 transition: .3s ease;
+                background-color: $colorBtns;
+                color: #fff;
+                border-radius: 10px;
             }
             button:hover{
-                background-color: lightgray;
+                background-color: rgb(126, 125, 125);
             }
             .default{
                 display: none;

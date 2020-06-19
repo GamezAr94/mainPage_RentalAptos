@@ -14,8 +14,7 @@
                     displayApartments($row);
                 }
             }else{
-                header("Location: index.php?error=pagenotfound");
-                //Sorry at the moment we dont have available apartments
+                require 'sorry_message.php';
             }
         }else if($searchType == "thisMonth"){
             $sql = $thisMonthApartments;
@@ -27,8 +26,7 @@
                     displayApartments($row);
                 }
             }else{
-                echo "Sorry for the inconvenient, We don't have apartments at the moment";
-                //Sorry at the moment we dont have available apartments
+                require 'sorry_message.php';
             }
         }
     }

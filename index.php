@@ -40,7 +40,7 @@
                     ';
                 }
             }else{
-                header("Location: index.php?error=pagenotfound");
+                require 'sorry_message.php';
             }
         ?>
 
