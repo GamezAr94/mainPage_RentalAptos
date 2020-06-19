@@ -1,6 +1,6 @@
 <?php
 function checkedLabel(){
-    if(empty($_GET)){
+    if(empty($_GET['searchAvailable'])){
         echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" checked onclick="advancedChecked()">
             All apartments</label>
         <label><input type="radio" id="now" name="searchAvailable" value="thisMonth" onclick="advancedChecked()">
