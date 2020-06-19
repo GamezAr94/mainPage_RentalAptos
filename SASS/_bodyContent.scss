@@ -35,8 +35,17 @@ body{
                     position: absolute;
                     margin: 0;
                     padding: 0;
-                    background-color: #fff;
-                    border-radius: 4px 0px 4px 0;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-radius: 14px 0px 4px 0;
+                    padding: 3px 15px;
+                }
+                .rooms{
+                    position: absolute;
+                    right: 0;
+                    margin: 0;
+                    padding: 0;
+                    background-color: rgba(255, 255, 255, 0.9);
+                    border-radius: 0 14px 0px 4px;
                     padding: 3px 15px;
                 }
             }
