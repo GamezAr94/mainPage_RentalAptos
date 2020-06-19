@@ -1,20 +1,26 @@
 <?php
-//where the last room contract and the last apartament contract and the last apartament contract is greather than todays date and room id is equal to...
+//where the last room contract or the last contract is null and the last apartament contract and the last apartament contract is greather than todays date and room id is equal to...
+//this sql to avoid inyections, the user only can display the info from the room contract from url 
 $displayInfoApartments = "SELECT *
-                        FROM apartaments
-                        right join room
-                        on room.apts_fk = apartaments.apts_id
-                        INNER JOIN aptocontract
-                        on aptocontract.apts_fk = apartaments.apts_id
-                        inner join room_users
-                        on room_users.room_fk = room.room_id
-                        where room_users.ru_endD in (
-                                        select MAX(ru_endD)
-                                        from room_users
-                                        group by room_fk) AND aptocontract.ac_endD in (
-                                                                select MAX(ac_endD)
-                                                                FROM aptocontract
-                                                                group by apts_fk) AND aptocontract.ac_endD > curdate() AND room.room_id = ?";
+FROM apartaments
+inner join room
+on room.apts_fk = apartaments.apts_id
+INNER JOIN aptocontract
+on aptocontract.apts_fk = apartaments.apts_id
+left join room_users
+on room_users.room_fk = room.room_id
+where (room_users.ru_endD in (
+                select MAX(ru_endD)
+                from room_users
+                group by room_fk) is null or
+                room_users.ru_endD in (
+                select MAX(ru_endD)
+                from room_users
+                group by room_fk) )
+                AND aptocontract.ac_endD in (
+                                        select MAX(ac_endD)
+                                        FROM aptocontract
+                                        group by apts_fk) AND aptocontract.ac_endD > curdate() AND room.room_id = ?;";
 
 //this sql display the current date, but CURDATE() only works in MySQL++++++++++++++++++++++++++++++++++
 //where the last contract of the room and the contract of the apartment is current, and that last contract is greather than todays date, or the contract room is empty
