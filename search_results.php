@@ -33,7 +33,17 @@
             $queryResults = mysqli_num_rows($result);
             if($queryResults > 0){
                 while($row = mysqli_fetch_assoc($result)){
-                    displayFullApto($row);
+                    $sqlDetails = 'select *, count(apts_fk) as totalRooms
+                    from room
+                    where apts_fk ='.$row["apts_fk"].'
+                    group by apts_fk;';   
+                    $resultDetail = mysqli_query($conn, $sqlDetails);
+                    $queryResultsDetails = mysqli_num_rows($resultDetail);
+                    if($queryResultsDetails > 0){
+                        while($rowDetails = mysqli_fetch_assoc($resultDetail)){
+                            displayFullApto($row, $rowDetails);
+                        }
+                    }
                 }
             }else{
                 require 'sorry_message.php';
@@ -72,19 +82,23 @@
                     ';
     }
 
-    function displayFullApto($results){
+    function displayFullApto($results, $rowDetails){
         echo '
                     
                     <a href="aptos_content.php?idapto='.$results["apts_id"].'" class="apto-card">
                         <div class="aptos">
                             <div class="img">
                             <!-- Cambiar por el precio del apartamento no por el de cuarto-->
-                                <div class="price">$aptoresult</div>
-                                <div class="rooms">5 rooms</div>
-                            </div>
+                                <div class="price">$'.$results["apts_price"].'</div>';
+                                if($rowDetails["totalRooms"] > 1){
+                                    echo '<div class="rooms">'.$rowDetails["totalRooms"].' rooms</div>';
+                                }else{
+                                    echo '<div class="rooms">'.$rowDetails["totalRooms"].' room</div>';
+                                }
+                            echo '</div>
                             <div class="info">
                                 <p class="comments">'.$results["apts_strtNum"]." ".$results["apts_strtName"].' st.</p>
-                                <p class="details">'.$results["room_desc"].'</p>';
+                                <p class="details">'.$results["apts_shortDesc"].'</p>';
                                 ?>
                                 <?php
                                     if((strtotime(date("Y-m-d"))-strtotime($results["ru_endD"]))< 0){
@@ -94,7 +108,7 @@
                                     }
                                 ?>
                                 <?php echo '
-                                <p class="amount">$'.$results["room_price"].'</p>
+                                <p class="amount">$'.$results["apts_price"].'</p>
                             </div>
                         </div>
                     </a>

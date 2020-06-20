@@ -84,4 +84,5 @@ where (room_users.ru_endD in (
 													on room.room_id = room_users.room_fk
 													inner join apartaments
 													on apartaments.apts_id = room.apts_fk
-													group by apartaments.apts_id)) AND aptocontract.ac_endD > curdate();";
+													group by apartaments.apts_id)) AND aptocontract.ac_endD > curdate()
+                                                    order by room_users.ru_endD asc;";

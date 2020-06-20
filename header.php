@@ -80,4 +80,12 @@
                 </div>
             </div>
         </div>
+        <?php
+            if(!empty($_GET)){
+                if(!empty($_GET['error'])){
+                    $popup = $_GET['error'];
+                    echo '<div id="error-login">Login error: '.$popup.'</div>';
+                }
+            }
+        ?>
     </header>
