@@ -1,7 +1,7 @@
 <?php
 //where the last room contract or the last contract is null and the last apartament contract and the last apartament contract is greather than todays date and room id is equal to...
 //this sql to avoid inyections, the user only can display the info from the room contract from url 
-$displayInfoApartments = "SELECT *
+$displayInfoRooms = "SELECT *
 FROM apartaments
 inner join room
 on room.apts_fk = apartaments.apts_id
