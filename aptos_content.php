@@ -120,10 +120,31 @@
                 //ejecutar el statement
                 mysqli_stmt_execute($stmt);
 
+                //Query to get the number of rooms in this apartment. I can add more queries here
                 $result = mysqli_stmt_get_result($stmt);
                 $queryResults = mysqli_num_rows($result);
                 if($queryResults > 0){
                         $row = mysqli_fetch_assoc($result);
+
+                        $rooms = "select *, count(apts_fk) as total
+                        from room
+                        where apts_fk = ".$row["apts_fk"]."
+                        group by apts_fk;";
+                        $totalRoom;
+                        $stmtRoom = mysqli_stmt_init($conn);
+                        if(!mysqli_stmt_prepare($stmtRoom,$rooms)){
+                            header("Location: index.php?error=sqlerrorroom");
+                            exit();
+                        }else{
+                            mysqli_stmt_execute($stmtRoom);
+                            $resultRoom = mysqli_stmt_get_result($stmtRoom);
+                            $queryResultsRoom = mysqli_num_rows($resultRoom);
+                            if($queryResults > 0){
+                                $totalRoom = mysqli_fetch_assoc($resultRoom);
+                            }
+                        }
+
+                        
                         echo '
                         <div id="container-info">
                     
@@ -151,6 +172,7 @@
                                 <h3>'.$row["apts_strtNum"].' '.$row["apts_strtName"].'</h3>
                                 <div class="details">
                                     <p>Price: $'.$row["apts_price"].'</p>
+                                    <p>Rooms: '.$totalRoom["total"].'</p>
                                     <p>Available: '; ?>
                                 <?php
                                     if((strtotime(date("Y-m-d"))-strtotime($row["ru_endD"]))< 0){
