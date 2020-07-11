@@ -802,20 +802,37 @@ body #mainUserContent {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    width: 95%;
+    width: 90%;
     margin: 0px auto;
     padding: 0 0 0px 0; }
-    body #mainUserContent .userSalut p {
-      margin: 0 0 0 5px;
-      padding: 0;
-      font-size: 25px; }
+    body #mainUserContent .userSalut div {
+      margin: 10px 0; }
+      body #mainUserContent .userSalut div p {
+        margin: 0px;
+        padding: 0px; }
+    body #mainUserContent .userSalut .userName {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%; }
+      body #mainUserContent .userSalut .userName p {
+        margin: 0 0 0 5px;
+        padding: 0;
+        font-size: 25px; }
+    body #mainUserContent .userSalut .userApartment p {
+      font-size: 19px; }
   body #mainUserContent .content {
-    background-color: rgba(240, 240, 240, 0.432);
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0px 1px 13px -7px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 1px 13px -7px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 1px 13px -7px rgba(0, 0, 0, 0.75);
     width: 95%;
     margin: 0 auto;
     display: flex;
     margin-top: 5px; }
     body #mainUserContent .content .summarize {
+      border-radius: 12px 0 0 12px;
+      background-color: rgba(240, 240, 240, 0.432);
       transition: 0.3s;
       width: 60%; }
       body #mainUserContent .content .summarize .title {
@@ -853,17 +870,18 @@ body #mainUserContent {
           body #mainUserContent .content .summarize table tr th:last-child {
             text-align: right; }
         body #mainUserContent .content .summarize table tr:hover {
-          background-color: #f0f0f0; }
+          background-color: #fafafa; }
         body #mainUserContent .content .summarize table tr:last-child {
           transition: .3s;
           background-color: rgba(81, 163, 240, 0.24); }
     body #mainUserContent .content .summarize:hover {
-      background-color: #d8d7d7; }
+      background-color: #e6e6e6; }
       body #mainUserContent .content .summarize:hover .title h4, body #mainUserContent .content .summarize:hover .title p {
         color: black; }
       body #mainUserContent .content .summarize:hover table {
         color: black; }
     body #mainUserContent .content .information {
+      border-radius: 0 12px 12px 0;
       background-color: rgba(173, 216, 230, 0.562);
       width: 45%;
       min-width: 350px; }
@@ -882,16 +900,18 @@ body #mainUserContent {
   body #mainUserContent {
     padding-top: 90px; }
     body #mainUserContent .userSalut {
-      width: 80%;
-      height: 60px; }
-      body #mainUserContent .userSalut p {
-        margin-left: 5px;
-        font-size: 25px; }
+      width: 80%; }
+      body #mainUserContent .userSalut .userName p {
+        font-size: 22px;
+        margin-left: 4px; }
+      body #mainUserContent .userSalut .userApartment p {
+        font-size: 17px; }
     body #mainUserContent .content {
       margin: 0px auto;
       width: 85%;
       display: block; }
       body #mainUserContent .content .summarize {
+        border-radius: 12px 12px 0 0;
         padding-bottom: 30px;
         width: 100%; }
         body #mainUserContent .content .summarize .title {
@@ -905,6 +925,7 @@ body #mainUserContent {
         body #mainUserContent .content .summarize table tr {
           font-size: 17px; }
       body #mainUserContent .content .information {
+        border-radius: 0 0 12px 12px;
         min-width: 0px; }
         body #mainUserContent .content .information table tr th {
           font-size: 15px; } }
@@ -913,10 +934,12 @@ body #mainUserContent {
     padding-top: 90px; }
     body #mainUserContent .userSalut {
       width: 95%; }
-      body #mainUserContent .userSalut p {
+      body #mainUserContent .userSalut .userName p {
         font-weight: bold;
         font-size: 15px;
         margin-left: 3px; }
+      body #mainUserContent .userSalut .userApartment p {
+        font-size: 16px; }
     body #mainUserContent .content {
       width: 100%;
       display: block; }
@@ -932,7 +955,8 @@ body #mainUserContent {
           body #mainUserContent .content .summarize .title p {
             font-size: 15px; }
         body #mainUserContent .content .summarize table tr {
-          font-size: 15px; }
+          font-size: 15px;
+          color: black; }
       body #mainUserContent .content .information {
         min-width: 0px; }
         body #mainUserContent .content .information table tr th {

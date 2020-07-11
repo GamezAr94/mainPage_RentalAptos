@@ -2,7 +2,16 @@
     require "header.php";
 ?>
     <div id="mainUserContent">
-        <div class="userSalut"><i>Icon</i> <p>Welcolme&nbsp;</p><p id="userName">Arturo Gamez.</p></div>
+        <div class="userSalut">
+            <div class="userName">
+                <i>Icon</i> 
+                <p>Welcome&nbsp;</p>
+                <p id="userName">Arturo Gamez.</p>
+            </div>
+            <div class="userApartment">
+                <p>906-1875 Robson st., V6Z-3C1, Vancouver B.C., Canadá</p>
+            </div>
+        </div>
         <div class="content">
             <div class="summarize">
                 <div class="title">
@@ -26,6 +35,10 @@
                     <tr>
                         <th>Early payment:</th>
                         <th>-$50</th>
+                    </tr>
+                    <tr>
+                        <th>Others:</th>
+                        <th>-</th>
                     </tr>
                     <tr>
                         <th>Total:</th>
@@ -56,7 +69,7 @@
                         <th>$600</th>
                     </tr>
                     <tr>
-                        <th>Early Payment:</th>
+                        <th>Early Payment Date:</th>
                         <th>25</th>
                     </tr>
                 </table>
