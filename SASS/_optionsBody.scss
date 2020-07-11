@@ -78,8 +78,10 @@ body{
                 div{
                     flex-direction: column;
                     min-width: 100px;
-                    height: 100px;
                     align-items: flex-start;
+                    label{
+                        padding-bottom: 10px;
+                    }
                 }
                 #advanced{
                     padding-bottom: 50px;
