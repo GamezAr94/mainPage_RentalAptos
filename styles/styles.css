@@ -814,8 +814,9 @@ body #mainUserContent {
     width: 95%;
     margin: 0 auto;
     display: flex;
-    margin-top: 20px; }
+    margin-top: 5px; }
     body #mainUserContent .content .summarize {
+      transition: 0.3s;
       width: 60%; }
       body #mainUserContent .content .summarize .title {
         display: flex;
@@ -823,10 +824,14 @@ body #mainUserContent {
         justify-content: space-around;
         margin: 30px 10% 20px 10%; }
         body #mainUserContent .content .summarize .title h4 {
+          transition: 0.3s;
+          color: #2e2e2e;
           margin: 0;
           font-size: 30px;
           width: 100%; }
         body #mainUserContent .content .summarize .title p {
+          transition: 0.3s;
+          color: #1f1f1f;
           font-size: 20px;
           margin: 20px 0 0 0; }
         body #mainUserContent .content .summarize .title .label {
@@ -837,8 +842,9 @@ body #mainUserContent {
         margin: 0 auto 40px auto;
         width: 80%;
         border-collapse: collapse;
-        background-color: rgba(255, 255, 255, 0.363); }
+        color: #2c2c2c; }
         body #mainUserContent .content .summarize table tr {
+          transition: .6s;
           font-size: 18px; }
           body #mainUserContent .content .summarize table tr th {
             height: 30px; }
@@ -847,12 +853,30 @@ body #mainUserContent {
           body #mainUserContent .content .summarize table tr th:last-child {
             text-align: right; }
         body #mainUserContent .content .summarize table tr:hover {
-          background-color: #fff; }
+          background-color: #f0f0f0; }
         body #mainUserContent .content .summarize table tr:last-child {
+          transition: .3s;
           background-color: rgba(81, 163, 240, 0.24); }
-    body #mainUserContent .content .generalInfo {
-      background-color: lightblue;
-      width: 50%; }
+    body #mainUserContent .content .summarize:hover {
+      background-color: #d8d7d7; }
+      body #mainUserContent .content .summarize:hover .title h4, body #mainUserContent .content .summarize:hover .title p {
+        color: black; }
+      body #mainUserContent .content .summarize:hover table {
+        color: black; }
+    body #mainUserContent .content .information {
+      background-color: rgba(173, 216, 230, 0.562);
+      width: 45%;
+      min-width: 350px; }
+      body #mainUserContent .content .information table tr {
+        font-size: 16px; }
+        body #mainUserContent .content .information table tr th:last-child {
+          text-align: left; }
+      body #mainUserContent .content .information table tr:last-child {
+        background-color: rgba(172, 225, 243, 0); }
+      body #mainUserContent .content .information table tr:last-child:hover {
+        background-color: #d6d4d4; }
+    body #mainUserContent .content .information:hover {
+      background-color: #9ed1e2; }
 
 @media only screen and (max-width: 700px) and (min-width: 500px) {
   body #mainUserContent {
@@ -880,15 +904,17 @@ body #mainUserContent {
             font-size: 19px; }
         body #mainUserContent .content .summarize table tr {
           font-size: 17px; }
-      body #mainUserContent .content .generalInfo {
-        background-color: lightblue;
-        width: 100%; } }
+      body #mainUserContent .content .information {
+        min-width: 0px; }
+        body #mainUserContent .content .information table tr th {
+          font-size: 15px; } }
 @media only screen and (max-width: 500px) and (min-width: 50px) {
   body #mainUserContent {
     padding-top: 90px; }
     body #mainUserContent .userSalut {
       width: 95%; }
       body #mainUserContent .userSalut p {
+        font-weight: bold;
         font-size: 15px;
         margin-left: 3px; }
     body #mainUserContent .content {
@@ -899,7 +925,7 @@ body #mainUserContent {
         padding-bottom: 30px; }
         body #mainUserContent .content .summarize .title {
           padding-top: 20px;
-          margin-top: -15px; }
+          margin-top: 0px; }
           body #mainUserContent .content .summarize .title h4 {
             text-align: center;
             font-size: 23px; }
@@ -907,9 +933,10 @@ body #mainUserContent {
             font-size: 15px; }
         body #mainUserContent .content .summarize table tr {
           font-size: 15px; }
-      body #mainUserContent .content .generalInfo {
-        background-color: lightblue;
-        width: 100%; } }
+      body #mainUserContent .content .information {
+        min-width: 0px; }
+        body #mainUserContent .content .information table tr th {
+          font-size: 13px; } }
 #error-login {
   width: 100%;
   padding: 20px 0;
