@@ -1,42 +1,124 @@
 body{
     #mainUserContent{
+        background-color: #ffff;
         padding-top: 120px;
-        background-color: red;
+        padding-bottom: 30px;
         width: 100%;
         .userSalut{
             display: flex;
+            flex-wrap: wrap;
             align-items: center;
-            background-color: #fff;
-            width: 80%;
+            width: 95%;
             margin: 0px auto;
-            height: 80px;
+            padding: 0 0 0px 0;
             p{
-                background-color: green;
-                font-size: 40px;
+                margin: 0 0 0 5px;
+                padding: 0;
+                font-size: 25px;
             }
         }
         .content{
-            background-color: gray;
-            width: 60%;
-            height: 1000px;
+            background-color: rgba(240, 240, 240, 0.432);
+            width: 95%;
+            margin: 0 auto;
+            display: flex;
+            margin-top: 20px;
+            .summarize{
+                width: 60%;
+                .title{
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    margin: 30px 10% 20px 10%;
+                    h4{
+                        margin: 0;
+                        font-size: 30px;
+                        width: 100%;
+                    } 
+                    p{
+                        font-size: 20px;
+                        margin: 20px 0 0 0;
+                    }
+                    .label{
+                        font-weight: bold;
+                    }
+                    .lastMonth{
+                        font-style: italic;
+                    }
+                }
+                table{
+                    margin: 0 auto 40px auto;
+                    width: 80%;
+                    border-collapse: collapse;
+                    background-color: rgba(255, 255, 255, 0.363);
+                    tr{
+                        font-size: 18px;
+                        th{
+                            height: 30px;
+                        }
+                        th:first-child{
+                            text-align: left;
+                        }
+                        th:last-child{
+                            text-align: right;
+                        }
+                    }
+                    tr:hover{
+                        background-color: #fff;
+                    }
+                    tr:last-child{
+                        background-color: rgba(81, 163, 240, 0.24);
+                    }
+                }
+            }
+            .generalInfo{
+                background-color: lightblue;
+                width: 50%;
+            }
+
         }
     }
 }
 @media only screen and (max-width: 700px) and (min-width: 500px){
     body{
         #mainUserContent{
-            padding-top: 100px;
+            padding-top: 90px;
             .userSalut{
-                width: 100%;
+                width: 80%;
                 height: 60px;
                 p{
-                    margin-left: 30px;
-                    font-size: 30px;
+                    margin-left: 5px;
+                    font-size: 25px;
                 }
             }
             .content{
-                margin: 0 auto;
-                width: 80%;
+                margin: 0px auto;
+                width: 85%;
+                display: block;
+                .summarize{
+                    padding-bottom: 30px;
+                    width: 100%;
+                    .title{
+                        padding-top: 10px;
+                        margin-top: 0px;
+                        h4{
+                            text-align: center;
+                            font-size: 27px;
+                        }
+                        p{
+                            font-size: 19px;
+                        }
+                    }
+                    table{
+                        tr{
+                            font-size: 17px;
+                        }
+                    }
+                }
+                .generalInfo{
+                    background-color: lightblue;
+                    width: 100%;
+                }
             }
         }
     }
@@ -45,17 +127,41 @@ body{
     @media only screen and (max-width: 500px)and (min-width: 50px){
         body{
             #mainUserContent{
-                padding-top: 100px;
+                padding-top: 90px;
                 .userSalut{
-                    width: 100%;
-                    height: 60px;
+                    width: 95%;
                     p{
-                        margin-left: 5px;
-                        font-size: 20px;
+                        font-size: 15px;
+                        margin-left: 3px;
                     }
                 }
                 .content{
                     width: 100%;
+                    display: block;
+                    .summarize{
+                        width: 100%;
+                        padding-bottom: 30px;
+                        .title{
+                            padding-top: 20px;
+                            margin-top: -15px;
+                            h4{
+                                text-align: center;
+                                font-size: 23px;
+                            }
+                            p{
+                                font-size: 15px;
+                            }
+                        }
+                        table{
+                            tr{
+                                font-size: 15px;
+                            }
+                        }
+                    }
+                    .generalInfo{
+                        background-color: lightblue;
+                        width: 100%;
+                    }
                 }
             }
         }

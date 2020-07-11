@@ -794,47 +794,122 @@ body #container-info {
     body #container-info .content .info .amenities {
       font-size: 13px; } }
 body #mainUserContent {
+  background-color: #ffff;
   padding-top: 120px;
-  background-color: red;
+  padding-bottom: 30px;
   width: 100%; }
   body #mainUserContent .userSalut {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    background-color: #fff;
-    width: 80%;
+    width: 95%;
     margin: 0px auto;
-    height: 80px; }
+    padding: 0 0 0px 0; }
     body #mainUserContent .userSalut p {
-      background-color: green;
-      font-size: 40px; }
+      margin: 0 0 0 5px;
+      padding: 0;
+      font-size: 25px; }
   body #mainUserContent .content {
-    background-color: gray;
-    width: 60%;
-    height: 1000px; }
+    background-color: rgba(240, 240, 240, 0.432);
+    width: 95%;
+    margin: 0 auto;
+    display: flex;
+    margin-top: 20px; }
+    body #mainUserContent .content .summarize {
+      width: 60%; }
+      body #mainUserContent .content .summarize .title {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 30px 10% 20px 10%; }
+        body #mainUserContent .content .summarize .title h4 {
+          margin: 0;
+          font-size: 30px;
+          width: 100%; }
+        body #mainUserContent .content .summarize .title p {
+          font-size: 20px;
+          margin: 20px 0 0 0; }
+        body #mainUserContent .content .summarize .title .label {
+          font-weight: bold; }
+        body #mainUserContent .content .summarize .title .lastMonth {
+          font-style: italic; }
+      body #mainUserContent .content .summarize table {
+        margin: 0 auto 40px auto;
+        width: 80%;
+        border-collapse: collapse;
+        background-color: rgba(255, 255, 255, 0.363); }
+        body #mainUserContent .content .summarize table tr {
+          font-size: 18px; }
+          body #mainUserContent .content .summarize table tr th {
+            height: 30px; }
+          body #mainUserContent .content .summarize table tr th:first-child {
+            text-align: left; }
+          body #mainUserContent .content .summarize table tr th:last-child {
+            text-align: right; }
+        body #mainUserContent .content .summarize table tr:hover {
+          background-color: #fff; }
+        body #mainUserContent .content .summarize table tr:last-child {
+          background-color: rgba(81, 163, 240, 0.24); }
+    body #mainUserContent .content .generalInfo {
+      background-color: lightblue;
+      width: 50%; }
 
 @media only screen and (max-width: 700px) and (min-width: 500px) {
   body #mainUserContent {
-    padding-top: 100px; }
+    padding-top: 90px; }
     body #mainUserContent .userSalut {
-      width: 100%;
-      height: 60px; }
-      body #mainUserContent .userSalut p {
-        margin-left: 30px;
-        font-size: 30px; }
-    body #mainUserContent .content {
-      margin: 0 auto;
-      width: 80%; } }
-@media only screen and (max-width: 500px) and (min-width: 50px) {
-  body #mainUserContent {
-    padding-top: 100px; }
-    body #mainUserContent .userSalut {
-      width: 100%;
+      width: 80%;
       height: 60px; }
       body #mainUserContent .userSalut p {
         margin-left: 5px;
-        font-size: 20px; }
+        font-size: 25px; }
     body #mainUserContent .content {
-      width: 100%; } }
+      margin: 0px auto;
+      width: 85%;
+      display: block; }
+      body #mainUserContent .content .summarize {
+        padding-bottom: 30px;
+        width: 100%; }
+        body #mainUserContent .content .summarize .title {
+          padding-top: 10px;
+          margin-top: 0px; }
+          body #mainUserContent .content .summarize .title h4 {
+            text-align: center;
+            font-size: 27px; }
+          body #mainUserContent .content .summarize .title p {
+            font-size: 19px; }
+        body #mainUserContent .content .summarize table tr {
+          font-size: 17px; }
+      body #mainUserContent .content .generalInfo {
+        background-color: lightblue;
+        width: 100%; } }
+@media only screen and (max-width: 500px) and (min-width: 50px) {
+  body #mainUserContent {
+    padding-top: 90px; }
+    body #mainUserContent .userSalut {
+      width: 95%; }
+      body #mainUserContent .userSalut p {
+        font-size: 15px;
+        margin-left: 3px; }
+    body #mainUserContent .content {
+      width: 100%;
+      display: block; }
+      body #mainUserContent .content .summarize {
+        width: 100%;
+        padding-bottom: 30px; }
+        body #mainUserContent .content .summarize .title {
+          padding-top: 20px;
+          margin-top: -15px; }
+          body #mainUserContent .content .summarize .title h4 {
+            text-align: center;
+            font-size: 23px; }
+          body #mainUserContent .content .summarize .title p {
+            font-size: 15px; }
+        body #mainUserContent .content .summarize table tr {
+          font-size: 15px; }
+      body #mainUserContent .content .generalInfo {
+        background-color: lightblue;
+        width: 100%; } }
 #error-login {
   width: 100%;
   padding: 20px 0;
