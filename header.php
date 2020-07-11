@@ -33,7 +33,7 @@
                     <ul>
                         <?php
                             if(isset($_SESSION['userId'])){
-                                echo '<li><a href="prueba.php">Account</a></li>
+                                echo '<li><a href="user.php">Account</a></li>
                                 <li><a href="#">Payment History</a></li>
                                 <li><a href="#">Make Payment</a></li>
                                 <li><a href="#">Maintenance Request</a></li>
@@ -81,7 +81,7 @@
             </div>
         </div>
         <?php
-            if(!empty($_GET)){
+            if(!empty($_GET) && !isset($_SESSION['userId'])){
                 if(!empty($_GET['error'])){
                     $popup = $_GET['error'];
                     echo '<div id="error-login">Login error: '.$popup.'</div>';

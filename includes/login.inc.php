@@ -47,7 +47,7 @@
                     //$pwdCheck = password_verify($password, $row['pass_users']);
 
                     if($row['pass_users'] != $password){
-                        header("Location: ../index.php?error=wrongpasswordd");
+                        header("Location: ../index.php?error=wrongpassword");
                         exit();
                     }else if($row['pass_users'] == $password){
 
@@ -61,7 +61,7 @@
                         $_SESSION['userUid'] = $row['name_users'];
 
                         //llevar al usuario al inicio de pantalla con un mensaje exitoso
-                        header("Location: ../prueba.php?login=success");
+                        header("Location: ../user.php?login=success");
                         exit();
                         }else{
                             header("Location: ../index.php?error=nocurrentuser".date("Y-m-d").$row['ru_endD']);
