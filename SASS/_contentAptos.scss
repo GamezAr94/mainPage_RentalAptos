@@ -39,6 +39,8 @@ body{
                 padding: 20px 40px 40px 40px;
             }
             .img-container{
+                position: -webkit-sticky;
+                position: sticky;
                 margin-top: 25px;
                 min-width: 470px;
                 height: 450px;
@@ -46,6 +48,7 @@ body{
                 background-color: #fff;
                 width: 42%;
                 .slideshow-container{
+                    position: relative;
                     width: 100%;
                     height: 100%;
                     .mySlides{
@@ -81,7 +84,7 @@ body{
                         position: absolute;
                         top: 50vh;
                         width: auto;
-                        margin-top: 25px;
+                        margin-top: -105px;
                         padding: 10px;
                         color:rgba(7, 7, 7, .6);
                         font-weight: bold;

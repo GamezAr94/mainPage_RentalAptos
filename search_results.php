@@ -1,7 +1,7 @@
 <?php
+//This code make is the search engine, it runs everytime when the user press the search button
     require "header.php";
     require "search_pannel.php";
-    
             echo '<div id="bodyContent">';
     if(isset($_GET['search-aptos'])){
         $searchType = $_GET['searchAvailable'];

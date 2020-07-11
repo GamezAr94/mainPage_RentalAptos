@@ -1,4 +1,5 @@
 <?php
+//this code keeps the radio button selected even when you reload the page
 function checkedLabel(){
     if(empty($_GET['searchAvailable'])){
         echo '<label><input type="radio" id="allAptos" name="searchAvailable" value="allAptos" checked onclick="advancedChecked()">

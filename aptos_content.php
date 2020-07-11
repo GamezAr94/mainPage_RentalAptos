@@ -1,4 +1,5 @@
 <?php
+//this is the content of the apartaments subpage
     require "header.php";
     if(!empty($_GET)){
         if(!empty($_GET['idroom']) && empty($_GET['idapto'])){
@@ -165,7 +166,6 @@
 
                                     <a id="prev" onclick="minusSlides()"><i class="fas fa-chevron-left"></i></a>
                                     <a id="next" onclick="plusSlides()"><i class="fas fa-chevron-right"></i></a>
-
                                 </div>
                             </div>
                             <div class="info">
@@ -212,7 +212,23 @@
         }
     }
 ?>
-    
+<script>
+var x = 0;
+var imgContainer = document.getElementsByClassName("img-container");
+
+window.onscroll = function() {myFunction()};
+
+function myFunction() {
+if(window.innerWidth > 880){
+    var info = document.getElementsByClassName("info")[0].offsetHeight;
+    console.log(info);
+        x = offset = window.pageYOffset;
+        if(x < (info-500) && x > 14){
+            imgContainer[0].style.marginTop = x +"px";
+        }
+    }
+}
+</script>
 
 <?php 
 

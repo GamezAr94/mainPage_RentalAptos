@@ -2,7 +2,7 @@
     require "header.php";
     require "search_pannel.php";
 ?>
-
+<!--this is the body content of the min page-->
     <div id="bodyContent">
 
         <?php
@@ -43,28 +43,6 @@
                 require 'sorry_message.php';
             }
         ?>
-
-<!--
-
-<a href="#" class="apto-card">
-                        <div class="aptos">
-                            <div class="img">
-                                <div class="price">$2500</div>
-                            </div>
-                            <div class="info">
-                                <p class="comments">(1875 Robson st.)</p>
-                                <p class="details">2 Bedrooms basement suite by Champlain Square for rent</p>
-                                <p class="date">Jun 11</p>
-                                <p class="amount">$2500</p>
-                            </div>
-                        </div>
-                    </a>
-        -->
-
-        
-        
-
-
     </div>
 
 

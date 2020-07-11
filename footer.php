@@ -1,4 +1,5 @@
 <footer>
+<!-- this is the footer for the ret of the subpages-->
         <div id="conteiner">
             <div class="logo">
                 <h2>GZ</h2>
