@@ -39,7 +39,7 @@
                                 <li><a href="#">Maintenance Request</a></li>
                                 <li class="login"><a onclick="onClickLogin()">Logout</a></li>';
                             }else{
-                                echo '<li><a href="#">Home</a></li>
+                                echo '<li><a href="index.php">Home</a></li>
                                 <li><a href="#">About us</a></li>
                                 <li><a href="#">Careers</a></li>
                                 <li class="cntct"><a onclick="onClickContact()">Contact</a></li>

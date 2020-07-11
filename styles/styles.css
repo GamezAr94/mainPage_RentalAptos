@@ -165,7 +165,7 @@ header {
       left: 0;
       position: absolute;
       background-color: lightblue;
-      height: 85vh;
+      height: 100vh;
       justify-content: center;
       align-items: center; }
       header .centralize #menu nav {
