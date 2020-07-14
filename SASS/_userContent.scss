@@ -113,7 +113,7 @@ body{
                 }
             }
             .summarize:hover{
-                background-color: rgb(230, 230, 230);
+                background-color: rgb(245, 245, 245);
                 .title{
                     h4, p{
                         color: black;
@@ -145,7 +145,7 @@ body{
                 }
             }
             .information:hover{
-                background-color: rgb(158, 209, 226);
+                background-color: rgb(164, 220, 238);
             }
         }
     }
@@ -188,6 +188,7 @@ body{
                     border-radius: 12px 12px 0 0;
                     padding-bottom: 30px;
                     width: 100%;
+                    padding-top: 10px;
                     .title{
                         padding-top: 10px;
                         margin-top: 0px;

@@ -1,4 +1,5 @@
 header{
+    transition: .4s;
     z-index: 50;
     position: fixed;
     width: 100%;
@@ -8,6 +9,7 @@ header{
 -moz-box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
 box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
     .centralize{
+        transition: .4s;
         //este es el espacio que tiene todo el contenedor del header
         //lo alinea en el centro vertical y horizontal al a y al .menu 
         //background-color: red;
@@ -34,6 +36,7 @@ box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
             justify-content: space-between;
             align-items: center;
             nav{
+                transition: .4s;
                 //solo le da un espacio del 70% para que no tome tanto espacio del form
                 //al ser 100% ocuparia todo el espacio libre que deje el form y dejaria al form muy apretado
                // background-color: yellow;
@@ -138,7 +141,7 @@ box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
                     align-items: center;
                     div{
                         display: flex;
-                        font-size: 46px;
+                        font-size: 30px;
                         z-index: 10;
                         margin: 2vh 0 -15vh 0;
                         padding: 0;
@@ -180,7 +183,7 @@ box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
                         padding-top: 0px;
                         width: 100%;
                         text-align: center;
-                        font-size: 40px;
+                        font-size: 27px;
                     }
                     form{
                         width: 80%;
@@ -239,7 +242,7 @@ box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
                             justify-content: center;
                             margin: 9px 0;
                             a{
-                                font-size: 40px;
+                                font-size: 23px;
                                 width: 100%;
                                 text-align: center;
                                 cursor:pointer;

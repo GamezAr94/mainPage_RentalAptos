@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/normalize.css">
-    <title>Document</title>
+    <title>Home Sweet Home / Rental Apartments and spaces</title>
 </head>
 
 <body>
@@ -34,7 +34,7 @@
                         <?php
                             if(isset($_SESSION['userId'])){
                                 echo '<li><a href="user.php">Account</a></li>
-                                <li><a href="#">Payment History</a></li>
+                                <li><a href="paymentHistory.php">Payment History</a></li>
                                 <li><a href="#">Make Payment</a></li>
                                 <li><a href="#">Maintenance Request</a></li>
                                 <li class="login"><a onclick="onClickLogin()">Logout</a></li>';

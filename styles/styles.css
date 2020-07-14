@@ -1,4 +1,5 @@
 header {
+  transition: .4s;
   z-index: 50;
   position: fixed;
   width: 100%;
@@ -8,6 +9,7 @@ header {
   -moz-box-shadow: 0px 5px 16px -2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 5px 16px -2px rgba(0, 0, 0, 0.75); }
   header .centralize {
+    transition: .4s;
     display: flex;
     width: 95%;
     align-items: center;
@@ -23,6 +25,7 @@ header {
       justify-content: space-between;
       align-items: center; }
       header .centralize .menu nav {
+        transition: .4s;
         margin: 0;
         padding: 0;
         width: 100%;
@@ -98,7 +101,7 @@ header {
       align-items: center; }
       header .centralize #menu #form-login div {
         display: flex;
-        font-size: 46px;
+        font-size: 30px;
         z-index: 10;
         margin: 2vh 0 -15vh 0;
         padding: 0; }
@@ -133,7 +136,7 @@ header {
         padding-top: 0px;
         width: 100%;
         text-align: center;
-        font-size: 40px; }
+        font-size: 27px; }
       header .centralize #menu #contact form {
         width: 80%;
         margin: 0 auto;
@@ -183,7 +186,7 @@ header {
             justify-content: center;
             margin: 9px 0; }
             header .centralize #menu nav ul li a {
-              font-size: 40px;
+              font-size: 23px;
               width: 100%;
               text-align: center;
               cursor: pointer; }
@@ -880,7 +883,7 @@ body #mainUserContent {
           transition: .3s;
           background-color: rgba(81, 163, 240, 0.24); }
     body #mainUserContent .content .summarize:hover {
-      background-color: #e6e6e6; }
+      background-color: whitesmoke; }
       body #mainUserContent .content .summarize:hover .title h4, body #mainUserContent .content .summarize:hover .title p {
         color: black; }
       body #mainUserContent .content .summarize:hover table {
@@ -899,7 +902,7 @@ body #mainUserContent {
       body #mainUserContent .content .information table tr:last-child:hover {
         background-color: #d6d4d4; }
     body #mainUserContent .content .information:hover {
-      background-color: #9ed1e2; }
+      background-color: #a4dcee; }
 body #extraInfo {
   background-color: #adadad;
   border-radius: 15px;
@@ -928,7 +931,8 @@ body #extraInfo {
       body #mainUserContent .content .summarize {
         border-radius: 12px 12px 0 0;
         padding-bottom: 30px;
-        width: 100%; }
+        width: 100%;
+        padding-top: 10px; }
         body #mainUserContent .content .summarize .title {
           padding-top: 10px;
           margin-top: 0px; }
@@ -985,6 +989,151 @@ body #extraInfo {
           font-size: 13px; }
   body #extraInfo p {
     font-size: 11px; } }
+body .contentHistory {
+  transition: .4s;
+  padding-top: 120px;
+  width: 95%;
+  margin: 0 auto 30px auto; }
+  body .contentHistory .title {
+    transition: .4s;
+    margin-bottom: 27px; }
+    body .contentHistory .title h5 {
+      width: 100%;
+      padding: 0px;
+      margin: 0px 0 0px 0;
+      font-size: 30px; }
+  body .contentHistory .pagos {
+    -webkit-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.75);
+    padding: 11px 20px;
+    background-color: #fff;
+    border-radius: 15px;
+    margin-bottom: 30px; }
+    body .contentHistory .pagos .addressInfo {
+      transition: .4s;
+      display: none;
+      width: 100%;
+      padding: 0px;
+      margin: 0px;
+      font-size: 20px; }
+    body .contentHistory .pagos .placeRent {
+      transition: .4s;
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap; }
+      body .contentHistory .pagos .placeRent .tableWrapper {
+        order: 1;
+        width: 60%;
+        height: 250px;
+        overflow: auto;
+        margin: 0 0 0px 0; }
+        body .contentHistory .pagos .placeRent .tableWrapper table {
+          width: 100%;
+          border-collapse: collapse; }
+          body .contentHistory .pagos .placeRent .tableWrapper table .headers th {
+            font-size: 17px;
+            background-color: #d1d0d0; }
+          body .contentHistory .pagos .placeRent .tableWrapper table tr {
+            transition: .2s; }
+            body .contentHistory .pagos .placeRent .tableWrapper table tr th {
+              border-bottom: 0.3px solid rgba(136, 136, 136, 0.534);
+              min-width: 75px;
+              max-width: 80px;
+              padding: 9px 18px;
+              font-size: 13px;
+              font-weight: 10px; }
+          body .contentHistory .pagos .placeRent .tableWrapper table tr:hover {
+            background-color: #f0f0f0; }
+      body .contentHistory .pagos .placeRent .generalInfo {
+        order: 2;
+        width: 40%; }
+        body .contentHistory .pagos .placeRent .generalInfo div {
+          width: 80%;
+          margin: 0 auto; }
+          body .contentHistory .pagos .placeRent .generalInfo div p {
+            font-size: 17px; }
+    body .contentHistory .pagos .button {
+      display: flex;
+      width: 90%;
+      margin: 0 auto; }
+      body .contentHistory .pagos .button button {
+        border-radius: 7px;
+        background-color: #2f3f47;
+        border: 0px;
+        color: #fff;
+        cursor: pointer;
+        transition: all .3s;
+        box-shadow: 0px 0.5px 0px 0.5px rgba(0, 0, 0, 0.75);
+        width: 200px;
+        height: 35px;
+        margin: 0 0 0 auto; }
+      body .contentHistory .pagos .button button:hover {
+        background-color: #3d525c; }
+
+@media only screen and (max-width: 700px) and (min-width: 500px) {
+  body .contentHistory {
+    width: 100%;
+    padding-top: 100px; }
+    body .contentHistory .title {
+      width: 90%;
+      margin: 0 auto; }
+      body .contentHistory .title h5 {
+        font-size: 25px; }
+    body .contentHistory .pagos {
+      border-radius: 0px;
+      padding-top: 0px; }
+      body .contentHistory .pagos .placeRent .tableWrapper {
+        width: 100%;
+        order: 2; }
+      body .contentHistory .pagos .placeRent .generalInfo {
+        width: 100%;
+        order: 1; }
+        body .contentHistory .pagos .placeRent .generalInfo div {
+          margin: 0; }
+          body .contentHistory .pagos .placeRent .generalInfo div p {
+            font-size: 17px; }
+      body .contentHistory .pagos .button {
+        display: flex;
+        width: 100%;
+        margin: 20px auto 0 auto; }
+        body .contentHistory .pagos .button button {
+          width: 200px;
+          height: 40px;
+          margin: 0 auto 0 auto; } }
+@media only screen and (max-width: 500px) and (min-width: 50px) {
+  body .contentHistory {
+    padding-top: 95px;
+    width: 100%; }
+    body .contentHistory .title {
+      margin: 0 auto 20px auto;
+      width: 90%; }
+      body .contentHistory .title h5 {
+        font-size: 23px; }
+    body .contentHistory .pagos {
+      border-radius: 0px;
+      padding: 10px 20px; }
+      body .contentHistory .pagos .addressInfo {
+        display: inline;
+        font-size: 15px; }
+      body .contentHistory .pagos .placeRent .tableWrapper {
+        width: 100%; }
+        body .contentHistory .pagos .placeRent .tableWrapper table .headers th {
+          font-size: 15px; }
+        body .contentHistory .pagos .placeRent .tableWrapper table tr th {
+          font-size: 11px;
+          min-width: 40px; }
+      body .contentHistory .pagos .placeRent .generalInfo {
+        display: none; }
+      body .contentHistory .pagos .button {
+        display: flex;
+        width: 100%;
+        margin: 10px auto 0 auto; }
+        body .contentHistory .pagos .button button {
+          width: 50%;
+          font-size: 15px;
+          height: 35px;
+          margin: 0 auto 0 auto; } }
 #error-login {
   width: 100%;
   padding: 20px 0;
