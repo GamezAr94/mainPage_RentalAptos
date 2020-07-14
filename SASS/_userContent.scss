@@ -2,7 +2,6 @@ body{
     #mainUserContent{
         background-color: #ffff;
         padding-top: 120px;
-        padding-bottom: 30px;
         width: 100%;
         .userSalut{
             display: flex;
@@ -28,12 +27,15 @@ body{
                     font-size: 25px;
                 }
             }
+        }
             .userApartment{
+                width: 90%;
+                margin: 0 auto;
                 p{
+                    
                     font-size: 19px;
                 }
             }
-        }
         .content{
 
             border-radius: 10px;
@@ -44,9 +46,8 @@ body{
 -moz-box-shadow: 0px 1px 13px -7px rgba(0,0,0,0.75);
 
             width: 95%;
-            margin: 0 auto;
+            margin: 7px auto 30px auto;
             display: flex;
-            margin-top: 5px;
             .summarize{
 
                 border-radius: 12px 0 0 12px;
@@ -96,6 +97,12 @@ body{
                             text-align: right;
                         }
                     }
+                    sub{
+                        font-size: 10px;
+                        a{
+                            color: red;
+                        }
+                    }
                     tr:hover{
                         background-color: rgb(250, 250, 250);
                     }
@@ -139,8 +146,19 @@ body{
             }
             .information:hover{
                 background-color: rgb(158, 209, 226);
-                //background-color: rgba(26, 168, 161, 0.664);
             }
+        }
+    }
+    #extraInfo{
+        background-color: rgb(173, 173, 173);
+        border-radius: 15px;
+        width: 80%;
+        margin:0 auto 20px auto;
+        padding: 1px 25px;
+        text-align: center;
+        p{
+            width: 100%;
+            font-size: 13px;
         }
     }
 }
@@ -150,21 +168,20 @@ body{
             padding-top: 90px;
             .userSalut{
                 width: 80%;
-                //height: 60px;
                 .userName{
                     p{
                         font-size: 22px;
                         margin-left: 4px;
                     }
                 }
+            }
                 .userApartment{
                     p{
                         font-size: 17px;
                     }
                 }
-            }
             .content{
-                margin: 0px auto;
+                margin: 7px auto 40px auto;
                 width: 85%;
                 display: block;
                 .summarize{
@@ -201,6 +218,11 @@ body{
                 }
             }
         }
+        #extraInfo{
+            p{
+                font-size: 12.5px;
+            }
+        }
     }
 }
 
@@ -217,14 +239,15 @@ body{
                             margin-left: 3px;
                         }
                     }
+                }
                     .userApartment{
                         p{
                             font-size: 16px;
                         }
                     }
-                }
                 .content{
                     width: 100%;
+                    margin: 7px auto 45px auto;
                     display: block;
                     .summarize{
                         width: 100%;
@@ -245,6 +268,12 @@ body{
                                 font-size: 15px;
                                 color: black;
                             }
+                            sub{
+                                font-size: 8px;
+                                a{
+                                    color: red;
+                                }
+                            }
                         }
                     }
                     .information{
@@ -257,6 +286,11 @@ body{
                             }
                         }
                     }
+                }
+            }
+            #extraInfo{
+                p{
+                    font-size: 11px;
                 }
             }
         }

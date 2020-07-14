@@ -796,7 +796,6 @@ body #container-info {
 body #mainUserContent {
   background-color: #ffff;
   padding-top: 120px;
-  padding-bottom: 30px;
   width: 100%; }
   body #mainUserContent .userSalut {
     display: flex;
@@ -818,7 +817,10 @@ body #mainUserContent {
         margin: 0 0 0 5px;
         padding: 0;
         font-size: 25px; }
-    body #mainUserContent .userSalut .userApartment p {
+  body #mainUserContent .userApartment {
+    width: 90%;
+    margin: 0 auto; }
+    body #mainUserContent .userApartment p {
       font-size: 19px; }
   body #mainUserContent .content {
     border-radius: 10px;
@@ -827,9 +829,8 @@ body #mainUserContent {
     -webkit-box-shadow: 0px 1px 13px -7px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 1px 13px -7px rgba(0, 0, 0, 0.75);
     width: 95%;
-    margin: 0 auto;
-    display: flex;
-    margin-top: 5px; }
+    margin: 7px auto 30px auto;
+    display: flex; }
     body #mainUserContent .content .summarize {
       border-radius: 12px 0 0 12px;
       background-color: rgba(240, 240, 240, 0.432);
@@ -869,6 +870,10 @@ body #mainUserContent {
             text-align: left; }
           body #mainUserContent .content .summarize table tr th:last-child {
             text-align: right; }
+        body #mainUserContent .content .summarize table sub {
+          font-size: 10px; }
+          body #mainUserContent .content .summarize table sub a {
+            color: red; }
         body #mainUserContent .content .summarize table tr:hover {
           background-color: #fafafa; }
         body #mainUserContent .content .summarize table tr:last-child {
@@ -895,6 +900,16 @@ body #mainUserContent {
         background-color: #d6d4d4; }
     body #mainUserContent .content .information:hover {
       background-color: #9ed1e2; }
+body #extraInfo {
+  background-color: #adadad;
+  border-radius: 15px;
+  width: 80%;
+  margin: 0 auto 20px auto;
+  padding: 1px 25px;
+  text-align: center; }
+  body #extraInfo p {
+    width: 100%;
+    font-size: 13px; }
 
 @media only screen and (max-width: 700px) and (min-width: 500px) {
   body #mainUserContent {
@@ -904,10 +919,10 @@ body #mainUserContent {
       body #mainUserContent .userSalut .userName p {
         font-size: 22px;
         margin-left: 4px; }
-      body #mainUserContent .userSalut .userApartment p {
-        font-size: 17px; }
+    body #mainUserContent .userApartment p {
+      font-size: 17px; }
     body #mainUserContent .content {
-      margin: 0px auto;
+      margin: 7px auto 40px auto;
       width: 85%;
       display: block; }
       body #mainUserContent .content .summarize {
@@ -928,7 +943,9 @@ body #mainUserContent {
         border-radius: 0 0 12px 12px;
         min-width: 0px; }
         body #mainUserContent .content .information table tr th {
-          font-size: 15px; } }
+          font-size: 15px; }
+  body #extraInfo p {
+    font-size: 12.5px; } }
 @media only screen and (max-width: 500px) and (min-width: 50px) {
   body #mainUserContent {
     padding-top: 90px; }
@@ -938,10 +955,11 @@ body #mainUserContent {
         font-weight: bold;
         font-size: 15px;
         margin-left: 3px; }
-      body #mainUserContent .userSalut .userApartment p {
-        font-size: 16px; }
+    body #mainUserContent .userApartment p {
+      font-size: 16px; }
     body #mainUserContent .content {
       width: 100%;
+      margin: 7px auto 45px auto;
       display: block; }
       body #mainUserContent .content .summarize {
         width: 100%;
@@ -957,10 +975,16 @@ body #mainUserContent {
         body #mainUserContent .content .summarize table tr {
           font-size: 15px;
           color: black; }
+        body #mainUserContent .content .summarize table sub {
+          font-size: 8px; }
+          body #mainUserContent .content .summarize table sub a {
+            color: red; }
       body #mainUserContent .content .information {
         min-width: 0px; }
         body #mainUserContent .content .information table tr th {
-          font-size: 13px; } }
+          font-size: 13px; }
+  body #extraInfo p {
+    font-size: 11px; } }
 #error-login {
   width: 100%;
   padding: 20px 0;

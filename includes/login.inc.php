@@ -13,7 +13,7 @@
             header("Location: ../index.php?error=emptyfields");
             exit();
         }else{
-            $sql = "SELECT *
+           /* $sql = "SELECT *
             FROM room_users
             INNER JOIN users
             ON room_users.users_fk = users.id_users
@@ -21,6 +21,12 @@
                 select MAX(ru_endD)
                 from room_users
                 group by room_fk)";
+                */
+                $sql = "SELECT *
+                FROM room_users
+                INNER JOIN users
+                ON room_users.users_fk = users.id_users
+                WHERE (users.name_users=? OR users.email_users = ?) AND room_users.ru_endD > CURRENT_DATE();";
             //preparar el statement connection de la base de datos
             $stmt = mysqli_stmt_init($conn);
 
@@ -58,7 +64,7 @@
                         session_start();
 
                         $_SESSION['userId'] = $row['id_users'];
-                        $_SESSION['userUid'] = $row['name_users'];
+                        //$_SESSION['userUid'] = $row['name_users'];
 
                         //llevar al usuario al inicio de pantalla con un mensaje exitoso
                         header("Location: ../user.php?login=success");
