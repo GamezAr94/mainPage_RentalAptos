@@ -17,7 +17,7 @@
             FROM users 
             LEFT JOIN room_users 
             ON room_users.users_fk = users.id_users 
-            WHERE users.id_users = ".$userid." AND room_users.ru_endD > CURRENT_DATE();";
+            WHERE users.id_users = ".$userid." ;";
 
             $result = mysqli_query($conn,$sql);
             $queryResults = mysqli_num_rows($result);
@@ -177,24 +177,21 @@
                     </table>';
 
                             }
+                        
+
 
                             
                        }else{
                             header("Location: index.php?error=info-aptos");
                         }
-
 echo '    </div>
 </div>
 
-
-<div id="extraInfo">
-    <p>1. Please contact support services for more information on "other" and / or "additional" payments added to your bill this month if applicable.</p>
-    <p>2. Realize your rental payments every month before the 25th to receive your early payment discount, the discount may change without prior notice. </p>
-</div>';
+';
 
 
 
-                    }
+    }
       /*  echo 
             '</div>
             <div class="content">
@@ -265,6 +262,10 @@ echo '    </div>
         </div>';
     */
 }
+echo'<div id="extraInfo">
+<p>1. Please contact support services for more information on "other" and / or "additional" payments added to your bill this month if applicable.</p>
+<p>2. Realize your rental payments every month before the 25th to receive your early payment discount, the discount may change without prior notice. </p>
+</div>';
     require "footer.php";
 
 
