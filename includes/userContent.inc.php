@@ -1,7 +1,6 @@
 <?php
 
-$cntctInfo = array();
-$userInfo = new UserInfo();
+$userInfo;
 
 class UserInfo{
     public $userName;
@@ -10,7 +9,7 @@ class UserInfo{
     function set_userName($userName){
         $this-> userName = $userName;
     }
-    function get_userName(){
+    public function get_userName(){
         return $this->userName;
     }
     function set_userEmail($userEmail){

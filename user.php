@@ -2,7 +2,12 @@
     require "header.php";
     include 'includes/userContent.inc.php';
     $userInfo = new UserInfo();
-    if(isset($_SESSION['userId'])){
+    $_SESSION['contratoId'] = array();
+    $_SESSION['nameUser'];
+
+    $_SESSION['cntctInfo'] = array();
+    $_SESSION['arrayContratos'] = array();
+        if(isset($_SESSION['userId'])){
         $userid = $_SESSION['userId']; 
         if(empty($userid)){
             header("Location: index.php?error=empty-user-field");
@@ -20,7 +25,7 @@
                 while($row = mysqli_fetch_assoc($result)){
                     $Contract = new contractInfo();
 
-                    $userInfo->set_userName($row['name_users']);
+                    $userInfo->set_userName($row['name_users']." ".$row['lastN_users']);
                     $userInfo->set_userEmail($row['email_users']);
                     $userInfo->set_userPhone($row['phone_users']);
 
@@ -35,8 +40,10 @@
                     $Contract->set_internet($row['ru_internet']);
                     $Contract->set_otherPay($row["ru_otherPay"]);
                     $Contract->set_totalPay($row['ru_internet']+$row['ru_bcHydro']+$row['ru_rent']+$row["ru_otherPay"]);
-                    
-                    array_push($cntctInfo, $Contract);
+
+                    $_SESSION['nameUser'] = $userInfo->get_userName();
+                    array_push($_SESSION['contratoId'], $row['ro_us']);
+                    array_push($_SESSION['cntctInfo'], $Contract);
                 }
             }else{
                 header("Location: index.php?error=null-user");
@@ -73,7 +80,7 @@
                     echo '<p id="userName">'.$userInfo->get_userName().'</p>';
                 echo '</div>
                 </div>';
-                    foreach($cntctInfo as $contract){
+                    foreach($_SESSION['cntctInfo'] as $contract){
 
                         $sql;
                         if($contract->get_aptoKey() == NULl){
