@@ -69,7 +69,7 @@
                             <th>Type:</th>
                             <th>Date:</th>
                             <th>Amount:</th>
-                            <th id="details">Details:</th>
+                            <th>Details:</th>
                         </tr>
                         <tr>
                             <th>Rent</th>

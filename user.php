@@ -3,7 +3,6 @@
     include 'includes/userContent.inc.php';
     $userInfo = new UserInfo();
     $_SESSION['contratoId'] = array();
-    $_SESSION['nameUser'];
 
     $_SESSION['cntctInfo'] = array();
     $_SESSION['arrayContratos'] = array();
