@@ -3,7 +3,7 @@
     include 'includes/userContent.inc.php';
     $userInfo = new UserInfo();
     $_SESSION['contratoId'] = array();
-
+    $_SESSION['contractIdentify'] = array();
     $_SESSION['cntctInfo'] = array();
     $_SESSION['arrayContratos'] = array();
         if(isset($_SESSION['userId'])){
@@ -16,7 +16,7 @@
             FROM users 
             LEFT JOIN room_users 
             ON room_users.users_fk = users.id_users 
-            WHERE users.id_users = ".$userid." ;";
+            WHERE users.id_users = ".$userid." AND room_users.ru_endD > CURRENT_DATE();";
 
             $result = mysqli_query($conn,$sql);
             $queryResults = mysqli_num_rows($result);
@@ -40,7 +40,23 @@
                     $Contract->set_otherPay($row["ru_otherPay"]);
                     $Contract->set_totalPay($row['ru_internet']+$row['ru_bcHydro']+$row['ru_rent']+$row["ru_otherPay"]);
 
+                    $_SESSION['userIdentifier'] = substr($row['name_users'], 0, 1).substr($row['lastN_users'], 0, 1).str_pad($row['id_users'], 4, '0', STR_PAD_LEFT);
+
                     $_SESSION['nameUser'] = $userInfo->get_userName();
+
+                    if(isset($row['apto_fk'])){
+                        $aptoIdentify = "R".str_pad($row['apto_fk'], 3, '0', STR_PAD_LEFT)."_A0";
+                    }else{
+                        $aptoIdentify = "R0_A".str_pad($row['room_fk'], 3, '0', STR_PAD_LEFT);
+                    }
+
+
+                    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    //IMPORTANT ID OF THE USERS, FIRST LETTER OF THE FIRST AND LAST NAME, USER ID, CONTRACT NUMBER, APTO ID, ROOM ID;
+                    array_push($_SESSION['contractIdentify'], $_SESSION['userIdentifier']."-".str_pad($row['ro_us'], 4, '0', STR_PAD_LEFT)."-".$aptoIdentify);
+                    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                    
                     array_push($_SESSION['contratoId'], $row['ro_us']);
                     array_push($_SESSION['cntctInfo'], $Contract);
                 }
@@ -111,6 +127,18 @@
                                     </div>';
                                 }
 
+/*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Testing the user id
+                                foreach($_SESSION['contractIdentify'] as $hola){
+                                    echo $hola.'      ';
+                                    echo "";
+                                }
+*/if(date("d") <= 25){
+    $earlyPayment = 50;
+}else{
+    $earlyPayment = 0;
+}
+$totalPay = $contract->get_totalPay()-$earlyPayment;
                                 echo 
             '<div class="content">
                 <div class="summarize">
@@ -134,15 +162,15 @@
                         </tr>
                         <tr>
                             <th>Early payment:</th>
-                            <th>-$50</th>
+                            <th>'.(($earlyPayment>0)?"-$".$earlyPayment:"-").'</th>
                         </tr>
                         <tr>
                             <th>Others:<sub><a href="#extraInfo">1</a></sub></th>
-                            <th>'.(($contract->get_otherPay()>0)?" ".$contract->get_otherPay():"-").'</th>
+                            <th>'.(($contract->get_otherPay()>0)?" $".$contract->get_otherPay():"-").'</th>
                         </tr>
                         <tr>
                             <th>Total:</th>
-                            <th>$'.$contract->get_totalPay().'</th>
+                            <th>$'.$totalPay.'</th>
                         </tr>
                     </table>
                 </div>
