@@ -290,8 +290,9 @@ echo '    </div>
     */
 }
 echo'<div id="extraInfo">
-<p>1. Please contact support services for more information on "other" and / or "additional" payments added to your bill this month if applicable.</p>
+<p>1. For more information about "Other" payments, please contact support services under <strong>Request</strong> section, with subject "Information about additional charges" and you will get an email with detailed information.</p>
 <p>2. Realize your rental payments every month before the 25th to receive your early payment discount, the discount may change without prior notice. </p>
+<p>3. You can request your billing information under <strong>Request</strong> section, with the subject "Request billing information" and you will get an email with an scaned view of your bills.</p>
 </div>';
     require "footer.php";
 
