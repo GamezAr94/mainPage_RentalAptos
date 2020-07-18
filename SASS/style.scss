@@ -9,7 +9,13 @@
 @import "contentAptos";
 @import "userContent";
 @import "paymentHistory";
-
+@import "requestBody";
+header{
+    z-index: 99999;
+}
+textarea{
+    resize: none;
+}
 #error-login{
     width: 100%;
     padding: 20px 0;

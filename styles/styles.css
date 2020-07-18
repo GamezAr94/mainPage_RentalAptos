@@ -408,7 +408,8 @@ footer {
           min-width: 390px;
           max-width: 70vw;
           max-height: 70px;
-          min-height: 20px; }
+          min-height: 20px;
+          resize: none; }
         footer #conteiner div:nth-child(2) form button {
           display: block;
           margin: 10px auto 0 auto;
@@ -1126,6 +1127,7 @@ body .contentHistory {
         display: none; }
       body .contentHistory .pagos .button {
         display: flex;
+        display: none;
         width: 100%;
         margin: 10px auto 0 auto; }
         body .contentHistory .pagos .button button {
@@ -1133,6 +1135,144 @@ body .contentHistory {
           font-size: 15px;
           height: 35px;
           margin: 0 auto 0 auto; } }
+body .contentRequest {
+  transition: .3s;
+  padding-top: 120px; }
+  body .contentRequest .title {
+    transition: .3s;
+    width: 90%;
+    margin: 0 auto 15px auto; }
+    body .contentRequest .title h5 {
+      font-size: 35px;
+      padding: 0;
+      margin: 0; }
+  body .contentRequest .formContent {
+    -webkit-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 0px 12px -2px rgba(0, 0, 0, 0.75);
+    background-color: #f1f0f0;
+    width: 85%;
+    margin: 0 auto;
+    padding-top: 15px;
+    border-radius: 17px;
+    z-index: -999; }
+    body .contentRequest .formContent .icon {
+      z-index: 0;
+      padding: 0;
+      position: absolute;
+      margin: 30px 50px 0 10%;
+      transform: rotate(-35deg); }
+      body .contentRequest .formContent .icon i {
+        font-size: 250px;
+        color: rgba(173, 216, 230, 0.24); }
+    body .contentRequest .formContent .information {
+      z-index: 50;
+      order: 2;
+      width: 90%;
+      padding-top: 20px;
+      margin: 0 auto 0 auto; }
+      body .contentRequest .formContent .information p {
+        color: #222222;
+        font-size: 25px;
+        font-weight: bold;
+        width: 100%;
+        padding: 0px;
+        margin: 0; }
+      body .contentRequest .formContent .information .detail {
+        font-size: 19px;
+        font-weight: normal;
+        margin-top: 10px;
+        margin-bottom: 15px; }
+    body .contentRequest .formContent .form {
+      width: 100%; }
+      body .contentRequest .formContent .form form {
+        width: 75%;
+        display: flex;
+        flex-direction: column;
+        margin: 0px auto 30px auto;
+        padding: 20px 0 50px 0; }
+        body .contentRequest .formContent .form form label {
+          font-size: 15px;
+          font-weight: bold; }
+        body .contentRequest .formContent .form form input, body .contentRequest .formContent .form form textarea, body .contentRequest .formContent .form form select {
+          z-index: 50;
+          background-color: #fff;
+          border: none;
+          width: 100%;
+          margin-bottom: 20px; }
+        body .contentRequest .formContent .form form select {
+          border-radius: 10px 0 0 10px;
+          height: 32px; }
+        body .contentRequest .formContent .form form input, body .contentRequest .formContent .form form textarea {
+          border-radius: 10px;
+          padding: 7px; }
+        body .contentRequest .formContent .form form textarea {
+          height: 130px; }
+        body .contentRequest .formContent .form form button {
+          border-radius: 7px;
+          background-color: #2f3f47;
+          border: 0px;
+          color: #fff;
+          cursor: pointer;
+          transition: all .3s;
+          box-shadow: 0px 0.5px 0px 0.5px rgba(0, 0, 0, 0.75);
+          margin: 10px auto 0 auto;
+          width: 300px;
+          height: 45px; }
+        body .contentRequest .formContent .form form button:hover {
+          background-color: #3d525c; }
+
+@media only screen and (max-width: 700px) and (min-width: 500px) {
+  body .contentRequest {
+    padding-top: 100px; }
+    body .contentRequest .title h5 {
+      font-size: 33px; }
+    body .contentRequest .formContent .information {
+      width: 85%; }
+      body .contentRequest .formContent .information p {
+        font-size: 24px; }
+      body .contentRequest .formContent .information .detail {
+        font-size: 17px; }
+    body .contentRequest .formContent .form form {
+      padding: 10px 0 50px 0; }
+      body .contentRequest .formContent .form form button {
+        margin: 10px auto 0 auto; } }
+@media only screen and (max-width: 500px) and (min-width: 50px) {
+  body .contentRequest {
+    padding-top: 95px; }
+    body .contentRequest .title {
+      margin-bottom: 13px; }
+      body .contentRequest .title h5 {
+        font-size: 30px; }
+    body .contentRequest .formContent {
+      padding-top: 0px;
+      padding-bottom: 0px; }
+      body .contentRequest .formContent .icon i {
+        font-size: 140px; }
+      body .contentRequest .formContent .information {
+        width: 80%; }
+        body .contentRequest .formContent .information p {
+          font-size: 23px; }
+        body .contentRequest .formContent .information .detail {
+          font-size: 15px; }
+      body .contentRequest .formContent .form form {
+        padding: 10px 0 30px 0; }
+        body .contentRequest .formContent .form form label {
+          font-size: 12px; }
+        body .contentRequest .formContent .form form input, body .contentRequest .formContent .form form textarea, body .contentRequest .formContent .form form select {
+          font-size: 15px; }
+        body .contentRequest .formContent .form form textarea {
+          height: 100px; }
+        body .contentRequest .formContent .form form button {
+          margin: 20px auto 0 auto;
+          width: 50%;
+          height: 35px; } }
+header {
+  z-index: 99999; }
+
+textarea {
+  resize: none; }
+
 #error-login {
   width: 100%;
   padding: 20px 0;

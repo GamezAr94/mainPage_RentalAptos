@@ -36,7 +36,7 @@
                                 echo '<li><a href="user.php">Account</a></li>
                                 <li><a href="paymentHistory.php">Payment History</a></li>
                                 <li><a href="#">Make Payment</a></li>
-                                <li><a href="#">Maintenance Request</a></li>
+                                <li><a href="request.php">Request</a></li>
                                 <li class="login"><a onclick="onClickLogin()">Logout</a></li>';
                             }else{
                                 echo '<li><a href="index.php">Home</a></li>
