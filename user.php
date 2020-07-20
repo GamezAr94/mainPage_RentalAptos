@@ -40,20 +40,22 @@
                     $Contract->set_otherPay($row["ru_otherPay"]);
                     $Contract->set_totalPay($row['ru_internet']+$row['ru_bcHydro']+$row['ru_rent']+$row["ru_otherPay"]);
 
-                    $_SESSION['userIdentifier'] = substr($row['name_users'], 0, 1).substr($row['lastN_users'], 0, 1).str_pad($row['id_users'], 4, '0', STR_PAD_LEFT);
+                    $_SESSION['userIdentifier'] = substr($row['name_users'], 0, 1).substr($row['lastN_users'], 0, 1).str_pad($row['id_users'], 5, '0', STR_PAD_LEFT);
 
                     $_SESSION['nameUser'] = $userInfo->get_userName();
+                    $_SESSION['lasNameUser'] = $row['lastN_users'];
 
                     if(isset($row['apto_fk'])){
-                        $aptoIdentify = "R".str_pad($row['apto_fk'], 3, '0', STR_PAD_LEFT)."_A0";
+                        $aptoIdentify = "A".str_pad($row['apto_fk'], 5, '0', STR_PAD_LEFT)."_R".str_pad($row['room_fk'], 5, '0', STR_PAD_LEFT);
                     }else{
-                        $aptoIdentify = "R0_A".str_pad($row['room_fk'], 3, '0', STR_PAD_LEFT);
+                        $aptoIdentify = "A".str_pad($row['apto_fk'], 5, '0', STR_PAD_LEFT)."_R".str_pad($row['room_fk'], 5, '0', STR_PAD_LEFT);
                     }
 
 
                     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                     //IMPORTANT ID OF THE USERS, FIRST LETTER OF THE FIRST AND LAST NAME, USER ID, CONTRACT NUMBER, APTO ID, ROOM ID;
-                    array_push($_SESSION['contractIdentify'], $_SESSION['userIdentifier']."-".str_pad($row['ro_us'], 4, '0', STR_PAD_LEFT)."-".$aptoIdentify);
+                    //ie. AG0009-0010-R005_A0 0 Arturo Gamez user id:9, contract num:10, apto id: 5, room id: 0
+                    array_push($_SESSION['contractIdentify'], $_SESSION['userIdentifier']."-".str_pad($row['ro_us'], 5, '0', STR_PAD_LEFT)."-".$aptoIdentify);
                     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                     //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
                     
@@ -92,48 +94,36 @@
                 <div class="userName">
                     <i>Icon</i> 
                     <p>Welcome&nbsp;</p>';
-                    echo '<p id="userName">'.$userInfo->get_userName().'</p>';
+                    echo '<p id="userName">'.$userInfo->get_userName().' </p>';
                 echo '</div>
                 </div>';
                     foreach($_SESSION['cntctInfo'] as $contract){
-
-                        $sql;
-                        if($contract->get_aptoKey() == NULl){
-                            $sql = "SELECT * 
-                            FROM room_users
-                            LEFT JOIN room
-                            ON room_users.room_fk = room.room_id
-                            LEFT JOIN apartaments
-                            ON apartaments.apts_id = room.apts_fk
-                            WHERE room_users.room_fk = ".$contract->get_roomKey();
-                        }else{
-                            $sql = "SELECT * 
-                            FROM room_users
-                            LEFT JOIN apartaments
-                            ON room_users.apto_fk = apartaments.apts_id
-                            WHERE room_users.apto_fk =".$contract->get_aptoKey().";";
-                        }
+                        $sql = "SELECT * 
+                        FROM room_users
+                        LEFT JOIN room as r1
+                        ON room_users.room_fk = r1.room_id
+                        LEFT JOIN apartaments as a1
+                        ON a1.apts_id = r1.apts_fk
+                        left join apartaments as a2
+                        on room_users.apto_fk = a2.apts_id
+                            WHERE room_users.ro_us = ".$contract->get_cncID().";";
                         $result = mysqli_query($conn,$sql);
                         $queryResults = mysqli_num_rows($result);
                         if($queryResults > 0){
                             while($row = mysqli_fetch_assoc($result)){
-                                if(isset($row["room_title"])){
-                                    echo '<div class="userApartment">
-                                        <p>('.$row["room_title"]." Room) ".$row["apts_uniNum"]. "-" .$row["apts_strtNum"]. " ".$row["apts_strtName"]."  Vancouver, B.C. ".$row["apts_postCode"].', Canada.</p>
+                                $roomTitle = (isset($row["room_title"])?("(".$row["room_title"].") "):"");
+                                    echo '
+                                    <div class="userApartment">
+                                        <p>'.$roomTitle.$row["apts_uniNum"]. "-" .$row["apts_strtNum"]. " ".$row["apts_strtName"]."  Vancouver, B.C. ".$row["apts_postCode"].', Canada.</p>
                                     </div>';
-                                }else{
-                                    echo '<div class="userApartment">
-                                        <p>'.$row["apts_uniNum"]. "-" .$row["apts_strtNum"]. " ".$row["apts_strtName"]."  Vancouver, B.C. ".$row["apts_postCode"].', Canada.</p>
-                                    </div>';
-                                }
 
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-Testing the user id
-                                foreach($_SESSION['contractIdentify'] as $hola){
+Testing the user id*/
+                               /* foreach($_SESSION['contractIdentify'] as $hola){
                                     echo $hola.'      ';
-                                    echo "";
-                                }
-*/if(date("d") <= 25){
+                                    echo " ____".substr($_SESSION['contractIdentify'][0], 8 , 5);
+                                }*/
+if(date("d") <= 25){
     $earlyPayment = 50;
 }else{
     $earlyPayment = 0;
@@ -213,7 +203,6 @@ $totalPay = $contract->get_totalPay()-$earlyPayment;
                         }
 echo '    </div>
 </div>
-
 ';
 
 
