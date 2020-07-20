@@ -1135,6 +1135,80 @@ body .contentHistory {
           font-size: 15px;
           height: 35px;
           margin: 0 auto 0 auto; } }
+body #requestSent {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+  background-color: rgba(212, 212, 212, 0.466); }
+  body #requestSent .messageBox {
+    position: relative;
+    display: inline-block;
+    max-width: 900px;
+    top: 54%;
+    transform: translateY(-44%);
+    background-color: #fff;
+    width: 80%;
+    height: 70%;
+    margin: 0 auto;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column; }
+    body #requestSent .messageBox .checkMark {
+      width: 40%;
+      border-radius: 100px;
+      margin: auto;
+      height: 40%; }
+      body #requestSent .messageBox .checkMark div {
+        position: absolute;
+        top: 33%;
+        left: 45%;
+        animation-timing-function: linear; }
+      body #requestSent .messageBox .checkMark div:nth-child(2)::before {
+        content: "";
+        position: absolute;
+        background-color: #4aff13;
+        height: 100%;
+        animation-name: checkMark2;
+        animation-duration: .6s;
+        animation-delay: .9s;
+        animation-fill-mode: forwards; }
+      body #requestSent .messageBox .checkMark div:nth-child(1)::before {
+        content: "";
+        position: absolute;
+        background-color: #4aff13;
+        height: 100%;
+        animation-name: checkMark1;
+        animation-duration: .5s;
+        animation-delay: .4s;
+        animation-fill-mode: forwards; }
+      body #requestSent .messageBox .checkMark div:nth-child(1) {
+        display: inline-block;
+        width: 50px;
+        transform: rotate(40deg);
+        height: 25px; }
+      body #requestSent .messageBox .checkMark div:nth-child(2) {
+        display: inline-block;
+        transform: translate(25.5%, -93%) rotate(310deg);
+        width: 80px;
+        height: 25px; }
+@keyframes checkMark1 {
+  from {
+    width: 0; }
+  to {
+    width: 100%; } }
+@keyframes checkMark2 {
+  from {
+    width: 0; }
+  to {
+    width: 80px; } }
+    body #requestSent .messageBox .messageSent {
+      height: 55%;
+      text-align: center; }
+      body #requestSent .messageBox .messageSent p {
+        width: 90%;
+        margin: 50px auto;
+        font-size: 50px; }
 body .contentRequest {
   transition: .3s;
   padding-top: 120px; }
@@ -1166,7 +1240,7 @@ body .contentRequest {
         font-size: 250px;
         color: rgba(173, 216, 230, 0.24); }
     body .contentRequest .formContent .information {
-      z-index: 50;
+      z-index: 10;
       order: 2;
       width: 90%;
       padding-top: 20px;
@@ -1195,7 +1269,7 @@ body .contentRequest {
           font-size: 15px;
           font-weight: bold; }
         body .contentRequest .formContent .form form input, body .contentRequest .formContent .form form textarea, body .contentRequest .formContent .form form select {
-          z-index: 50;
+          z-index: 10;
           background-color: #fff;
           border: none;
           width: 100%;
@@ -1223,6 +1297,14 @@ body .contentRequest {
           background-color: #3d525c; }
 
 @media only screen and (max-width: 700px) and (min-width: 500px) {
+  body #requestSent .messageBox .checkMark div {
+    top: 35%;
+    left: 41%; }
+  body #requestSent .messageBox .messageSent {
+    height: 50%; }
+    body #requestSent .messageBox .messageSent p {
+      margin: 40px auto;
+      font-size: 40px; }
   body .contentRequest {
     padding-top: 100px; }
     body .contentRequest .title h5 {
@@ -1238,6 +1320,16 @@ body .contentRequest {
       body .contentRequest .formContent .form form button {
         margin: 10px auto 0 auto; } }
 @media only screen and (max-width: 500px) and (min-width: 50px) {
+  body #requestSent .messageBox {
+    width: 90%; }
+    body #requestSent .messageBox .checkMark div {
+      top: 30%;
+      left: 39%; }
+    body #requestSent .messageBox .messageSent {
+      height: 45%; }
+      body #requestSent .messageBox .messageSent p {
+        margin: 10px auto;
+        font-size: 35px; }
   body .contentRequest {
     padding-top: 95px; }
     body .contentRequest .title {

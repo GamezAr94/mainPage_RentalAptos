@@ -1,4 +1,86 @@
 body{
+    #requestSent{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 99;
+        background-color: rgba(212, 212, 212, 0.466);
+        .messageBox{
+            position: relative;
+            display: inline-block;
+            max-width: 900px;
+            top: 54%;
+            transform: translateY(-44%);
+            background-color: #fff;
+            width: 80%;
+            height: 70%;
+            margin: 0 auto;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            .checkMark{
+                width: 40%;
+                border-radius: 100px;
+                margin: auto;
+                height: 40%;
+                div{
+                    position: absolute;
+                    top: 33%;
+                    left: 45%;
+                    animation-timing-function: linear;
+                }
+                div:nth-child(2)::before{
+                    content: "";
+                    position: absolute;
+                    background-color: rgb(74, 255, 19);
+                    height: 100%;
+                    animation-name: checkMark2;
+                    animation-duration: .6s;
+                    animation-delay: .9s;
+                    animation-fill-mode: forwards;
+                }
+                div:nth-child(1)::before{
+                    content: "";
+                    position: absolute;
+                    background-color: rgb(74, 255, 19);
+                    height: 100%;
+                    animation-name: checkMark1;
+                    animation-duration: .5s;
+                    animation-delay: .4s;
+                    animation-fill-mode: forwards;
+                }
+                div:nth-child(1){
+                    display: inline-block;
+                    width: 50px;
+                    transform:rotate(40deg);
+                    height: 25px;
+                }
+                div:nth-child(2){
+                    display: inline-block;
+                    transform: translate(25.5%, -93%) rotate(310deg);
+                    width: 80px;
+                    height: 25px;
+                }
+                @keyframes checkMark1 {
+                    from {width: 0;}
+                    to {width: 100%;}
+                  }
+                  @keyframes checkMark2 {
+                    from {width: 0;}
+                    to {width: 80px;}
+                  }
+            }
+            .messageSent{
+                height: 55%;
+                text-align: center;
+                p {
+                    width: 90%;
+                    margin: 50px auto;
+                    font-size: 50px;
+                }
+            }
+        }
+    }
     .contentRequest{
         transition: .3s;
         padding-top: 120px;
@@ -34,7 +116,7 @@ body{
                 }
             }
             .information{
-                z-index: 50;
+                z-index: 10;
                 order: 2;
                 width: 90%;
                 padding-top: 20px;
@@ -67,7 +149,7 @@ body{
                         font-weight: bold;
                     }
                     input, textarea, select{
-                        z-index: 50;
+                        z-index: 10;
                         background-color: #fff;
                         border: none;
                         width: 100%;
@@ -101,6 +183,23 @@ body{
 
 @media only screen and (max-width: 700px) and (min-width: 500px){
     body{
+        #requestSent{
+            .messageBox{
+                .checkMark{
+                    div{
+                        top: 35%;
+                        left: 41%;
+                    }
+                }
+                .messageSent{
+                    height: 50%;
+                    p {
+                        margin: 40px auto;
+                        font-size: 40px;
+                    }
+                }
+            }
+        }
         .contentRequest{
             padding-top: 100px;
             .title{
@@ -131,6 +230,24 @@ body{
 }
 @media only screen and (max-width: 500px)and (min-width: 50px){
     body{
+        #requestSent{
+            .messageBox{
+                width: 90%;
+                .checkMark{
+                    div{
+                        top: 30%;
+                        left: 39%;
+                    }
+                }
+                .messageSent{
+                    height: 45%;
+                    p {
+                        margin: 10px auto;
+                        font-size: 35px;
+                    }
+                }
+            }
+        }
         .contentRequest{
             padding-top: 95px;
             .title{

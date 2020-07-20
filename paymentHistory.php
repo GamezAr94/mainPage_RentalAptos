@@ -1,6 +1,9 @@
 <?php
     require "header.php";
     include 'includes/userContent.inc.php';
+    if(!isset($_SESSION['userId'])){
+        header("Location: index.php?error=not-session");
+    }
 ?>
     <div class="contentHistory">
         <div class="title">

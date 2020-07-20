@@ -1,6 +1,20 @@
 <?php
     require "header.php";
+    if(!isset($_SESSION['userId'])){
+        header("Location: index.php?error=not-session");
+    }
 ?>
+<div id="requestSent">
+    <div class="messageBox">
+        <div class="checkMark">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="messageSent">
+            <p>Request sent successfully!</p>
+        </div>
+    </div>
+</div>
     <div class="contentRequest">
         <div class="title">
             <h5>Request</h5>
