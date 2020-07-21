@@ -86,8 +86,11 @@
                             exit();
                         }*/
                         }else if($row['member'] == 1){
-                            $_SESSION['userId'] = $row['id_member'];
-                            header("Location: ..?login=success1");
+                            session_start();
+                            $_SESSION['memberId'] = $row['id_member'];
+                            $_SESSION['memberName'] = $row['name_member']." ".$row['lastN_member'];
+                            header("Location: ../member.php?login=success1");
+                            exit();
                         }else{
 
                         }

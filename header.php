@@ -38,6 +38,12 @@
                                 <li><a href="#">Make Payment</a></li>
                                 <li><a href="request.php">Request</a></li>
                                 <li class="login"><a onclick="onClickLogin()">Logout</a></li>';
+                            }else if(isset($_SESSION['memberId'])){
+                                echo '<li><a href="member.php">Account</a></li>
+                                <li><a href="paymentHistory.php">Apartments</a></li>
+                                <li><a href="#">Rooms</a></li>
+                                <li><a href="request.php">Tenants</a></li>
+                                <li class="login"><a onclick="onClickLogin()">Logout</a></li>';
                             }else{
                                 echo '<li><a href="index.php">Home</a></li>
                                 <li><a href="#">About us</a></li>
@@ -51,7 +57,7 @@
                 <div id="form-login" class="hiden">
                     <?php
                     //checar si la secion esta iniciada 
-                    if(isset($_SESSION['userId'])){
+                    if(isset($_SESSION['userId']) || isset($_SESSION['memberId'])){
                         echo '<div>Logout</div>';
                         echo '<form action="includes/logout.inc.php" method ="post">
                             <button type="submit" name="logout-submit">Logout</button>
@@ -81,7 +87,7 @@
             </div>
         </div>
         <?php
-            if(!empty($_GET) && !isset($_SESSION['userId'])){
+            if(!empty($_GET) && !isset($_SESSION['userId']) && !isset($_SESSION['memberId'])){
                 if(!empty($_GET['error'])){
                     $popup = $_GET['error'];
                     echo '<div id="error-login">Login error: '.$popup.'</div>';

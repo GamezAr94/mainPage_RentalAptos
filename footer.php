@@ -10,7 +10,7 @@
             <div>
                 <?php
 
-                    if(isset($_SESSION['userId'])){
+                    if(isset($_SESSION['userId']) || isset($_SESSION['memberId'])){
                         //ingresar datos que quiero que se muesten en vez de la forma de contacto 
                     }else{
                         echo '<p>Contact us</p>
