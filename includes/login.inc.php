@@ -22,11 +22,18 @@
                 from room_users
                 group by room_fk)";
                 */
-                $sql = "SELECT *
+                /*$sql = "SELECT *
                 FROM room_users
                 INNER JOIN users
                 ON room_users.users_fk = users.id_users
-                WHERE (users.name_users=? OR users.email_users = ?) AND room_users.ru_endD > CURRENT_DATE();";
+                WHERE (users.name_users=? OR users.email_users = ?) AND room_users.ru_endD > CURRENT_DATE();";*/
+            $sql = "SELECT `id_member`,`name_member`,`lastN_member`,`phone_member`,`email_member`,`pass_member`,true as member
+            FROM `member` 
+            WHERE member.name_member=? OR member.email_member = ?
+            UNION
+            SELECT `id_users`,`name_users`,`lastN_users`,`phone_users`,`email_users`,`pass_users`,false as member
+            FROM users
+            WHERE users.name_users=? OR users.email_users = ?";
             //preparar el statement connection de la base de datos
             $stmt = mysqli_stmt_init($conn);
 
@@ -37,7 +44,7 @@
             }else{
                 //pasar los parametros del usuario a la base de datos 
                 //para despues compararlos y ver si el nombre o email son correctos
-                mysqli_stmt_bind_param($stmt, "ss", $mailuid, $mailuid);
+                mysqli_stmt_bind_param($stmt, "ssss", $mailuid, $mailuid, $mailuid, $mailuid);
 
                 //ejecutar el statement
                 mysqli_stmt_execute($stmt);
@@ -52,11 +59,16 @@
                     //use this method only if the password is hashed (encripted)
                     //$pwdCheck = password_verify($password, $row['pass_users']);
 
-                    if($row['pass_users'] != $password){
+                    if($row['pass_member'] != $password){
                         header("Location: ../index.php?error=wrongpassword");
                         exit();
-                    }else if($row['pass_users'] == $password){
-
+                    }else if($row['pass_member'] == $password){
+                        if($row['member']==0){
+                            session_start();
+                            $_SESSION['userId'] = $row['id_member'];
+                            header("Location: ../user.php?login=success0");
+                            exit();
+                        /*++++++++++++++CHECA SI EL CONTRATO HA EXPIRADO++++++++++++++++
                         //checa si su contrato aun no ha expirado, de haber expirado no podran acceder 
                         if($row['ru_endD'] >= date("Y-m-d")){
                         //iniciar una session
@@ -72,6 +84,12 @@
                         }else{
                             header("Location: ../index.php?error=nocurrentuser".date("Y-m-d").$row['ru_endD']);
                             exit();
+                        }*/
+                        }else if($row['member'] == 1){
+                            $_SESSION['userId'] = $row['id_member'];
+                            header("Location: ..?login=success1");
+                        }else{
+
                         }
 
                     }else{

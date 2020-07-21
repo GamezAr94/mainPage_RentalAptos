@@ -6,7 +6,7 @@
     $_SESSION['contractIdentify'] = array();
     $_SESSION['cntctInfo'] = array();
     $_SESSION['arrayContratos'] = array();
-        if(isset($_SESSION['userId'])){
+    if(isset($_SESSION['userId'])){
         $userid = $_SESSION['userId']; 
         if(empty($userid)){
             header("Location: index.php?error=empty-user-field");
@@ -63,10 +63,16 @@
                     array_push($_SESSION['cntctInfo'], $Contract);
                 }
             }else{
+                session_start();
+                session_unset();
+                session_destroy();
                 header("Location: index.php?error=null-user");
             }
         }
     }else{
+        session_start();
+        session_unset();
+        session_destroy();
         header("Location: index.php?error=session-not-started");
     }
 
