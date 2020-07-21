@@ -6,7 +6,7 @@
 ?>
 <div id="requestSent">
     <div class="messageBox">
-        <div class="checkMark">
+        <div class="checkMark" id="visible">
             <div></div>
             <div></div>
         </div>
@@ -23,10 +23,22 @@
             <p class="icon"><i class="far fa-envelope"></i></p>
             <div class="information">
                 <p>Please,</p>
-                <p class="detail"> Be sure to be specific in your request description, this will help us process your request </p>
+                <p class="detail"> Please, make sure to be specific in your request description, this will help us process your request </p>
+                <?php
+                    if(!empty($_GET)){
+                        if(!empty($_GET['errorSpam'])){
+                            echo '<p id="red" class="detail">You have reached the limit of requestes today, please try tomorrow. Thank you</p>
+                            <p class= "detail"> We are processing your request, Thank you for your patience.</p>';
+                        }
+                        if(!empty($_GET['successful'])){
+                            echo'<p id="blue" class="detail">We are happy to help you, our team is processing your request, Thank you for your patience. </p>
+                                    <p class= "detail"> (processing time 1-2 days)</p>';
+                        }
+                    }
+                ?>
             </div>
             <div class="form">
-                <form action="includes/addRequest.inc.php" method="post">
+                <form id="sendRequestButton" action="includes/addRequest.inc.php" method="post">
                     <label for="userName">User Name:</label>
                     <?php
                         echo "<input type='text' name='userName' value='".$_SESSION['nameUser']."' readonly>";
@@ -89,12 +101,15 @@
                     </select>
                     
                     <label for="subject">Subject:</label>
-                    <input type="text" name="subject" placeholder="Subject...">
+                    <input type="text" name="subject" placeholder="Subject..." id="subject">
 
                     <label for="message">Specify your request:</label>
-                    <textarea name="message" placeholder="Message..."></textarea>
-
-                    <button type="submit" name="send-request">Send</button>
+                    <textarea name="message" placeholder="Message..." id="message"></textarea>
+                    <?php
+                        if(empty($_GET['errorSpam'])){
+                            echo '<button type="submit" id= "buttonRequest" name="send-request">Send</button>';
+                        }
+                    ?>
                 </form>
             </div>
         </div>

@@ -139,7 +139,7 @@ $totalPay = $contract->get_totalPay()-$earlyPayment;
                     </div>
                     <table>
                         <tr>
-                            <th data-tooltip="BLAHDKJDN DNSJKDN DN SDJKDSJ N">Rent:</th>
+                            <th>Rent:</th>
                             <th>$'.$contract->get_rent().'</th>
                         </tr>
                         <tr>
