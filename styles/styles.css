@@ -727,6 +727,8 @@ body #container-info {
       justify-content: center;
       flex-wrap: wrap; }
       body #container-info .content .img-container {
+        top: 0;
+        position: relative;
         margin-top: 0;
         min-width: 0;
         width: 100%;
@@ -743,6 +745,8 @@ body #container-info {
   body #container-info {
     padding-top: 100px; }
     body #container-info .content .img-container {
+      top: 0;
+      position: relative;
       margin-top: 0;
       min-width: 0;
       width: 100%;
