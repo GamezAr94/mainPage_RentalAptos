@@ -1,6 +1,6 @@
 header{
     transition: .4s;
-    z-index: 50;
+    z-index: 9990;
     position: fixed;
     width: 100%;
     background-color: $colorHeader;
@@ -14,7 +14,7 @@ box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
         //lo alinea en el centro vertical y horizontal al a y al .menu 
         //background-color: red;
         display: flex;
-        width: 94%;
+        width: 93%;
         align-items: center;
         justify-content: space-between;
         margin: 0px auto;
@@ -57,14 +57,16 @@ box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
                         display: none;
                     }
                     li{
+                        font-weight: bold;
                        // background-color: #fff;
                     transition: 0.4s ease;
                         a{
+                            transition: .3s;
                             font-size: 16px;
                             padding: 6px;
                         }
                         a:hover{
-                            font-weight: bold;
+                            color: $aFontColor;
                         }
                     }
                 }
@@ -124,7 +126,7 @@ box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
     header{
         //se disminutye el alto del header al llegar a ese tamaño
         background-color: $colorHeader;
-        height: 80px;
+        height: 100px;
         .centralize{
             #menu{
                 #form-login{
@@ -175,9 +177,9 @@ box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
                 }
                 #contact{
                     position: relative;
-                    background-color: lightblue;
+                    background-color: $colorHeader;
                     height: 100%;
-                    top: 0;
+                    top: 30px;
                     p{
                         padding-top: 0px;
                         width: 100%;
@@ -191,12 +193,12 @@ box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
                         input{
                             width: 100%;
                             height: 30px;
-                            margin-bottom: 2vh;
+                            margin-bottom: 10px;
                         }
                         textarea{
-                            margin-bottom: 3vh;
+                            margin-bottom: 25px;
                             width: 100%;
-                            height: 15vh;
+                            height: 60px;
                         }
                         button{
                             @include button();
@@ -216,12 +218,13 @@ box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
             #menu{
                 //cuando el menu es clickeado se cambia la clase a show para mostrar el menu
                 //ocupa toda la pantalla con una posicion absoluta
-                top: 65px;
+                top: 40px;
+                z-index: -1;
                 left: 0;
                 position: absolute;
                 background-color: $colorHeader;
                 //aumentar el height para que el menu en celular se vea de tamaño completo 
-                height: 100vh;
+                height: 115vh;
                 justify-content: center;
                 align-items: center;
                 nav{

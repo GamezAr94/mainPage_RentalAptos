@@ -1,8 +1,9 @@
 //posicion del contenedor de la hamburguesa
 #menu-hamburger{
+    transition: .4s;
     display: none;
     position: absolute;
-    top: 27px;
+    top: 37px;
     right: 7%;
     width: 40px;
         height: 35px;
