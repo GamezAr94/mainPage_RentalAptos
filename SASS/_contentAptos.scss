@@ -39,6 +39,7 @@ body{
                 padding: 20px 40px 40px 40px;
             }
             .img-container{
+                top: 110px;
                 position: -webkit-sticky;
                 position: sticky;
                 margin-top: 25px;
@@ -89,7 +90,6 @@ body{
                         color:rgba(7, 7, 7, .8);
                         font-weight: bold;
                         font-size: 38px;
-                        transition: 0.6s ease;
                         user-select: none;
                         i{
                             margin-top: 5px;

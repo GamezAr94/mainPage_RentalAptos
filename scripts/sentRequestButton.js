@@ -3,7 +3,7 @@ var bannerRequest = document.getElementById("requestSent");
 var mark = document.getElementById("visible");
 var subjectLabel = document.getElementById("subject");
 var  send = true;
-bannerRequest.style.transition = "all .3s";
+//bannerRequest.style.transition = "all .3s";
 
 requestButton.onsubmit=function(){
     event.preventDefault();

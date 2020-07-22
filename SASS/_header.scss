@@ -5,16 +5,16 @@ header{
     width: 100%;
     background-color: $colorHeader;
     height: 100px;
-    -webkit-box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
-box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 14px -2px rgba(0,0,0,0.75);
     .centralize{
         transition: .4s;
         //este es el espacio que tiene todo el contenedor del header
         //lo alinea en el centro vertical y horizontal al a y al .menu 
         //background-color: red;
         display: flex;
-        width: 95%;
+        width: 94%;
         align-items: center;
         justify-content: space-between;
         margin: 0px auto;
@@ -45,7 +45,7 @@ box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
                 width: 100%;
                 text-align: center;
                 min-width: 260px;
-                transition: 0.5s ease;
+                transition: 0.4s ease;
                 ul{
                     //le da una separacion around a los elementos de la lista
               //      background-color: purple;
@@ -58,7 +58,7 @@ box-shadow: 0px 5px 16px -2px rgba(0,0,0,0.75);
                     }
                     li{
                        // background-color: #fff;
-                    transition: 0.5s ease;
+                    transition: 0.4s ease;
                         a{
                             font-size: 16px;
                             padding: 6px;

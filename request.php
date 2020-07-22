@@ -117,6 +117,7 @@
             </div>
         </div>
     </div>
+    <script src="scripts/sentRequestButton.js"></script>
 <?php
     require "footer.php";
 ?>
