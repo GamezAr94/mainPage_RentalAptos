@@ -1442,6 +1442,10 @@ body .memberBody {
         font-size: 25px;
         margin: 0px;
         padding: 10px 18px; }
+      body .memberBody .content .section .info p {
+        font-size: 19px;
+        padding: 0;
+        margin: 6px 15px; }
       body .memberBody .content .section .list {
         overflow: scroll;
         background-color: gray;
@@ -1494,6 +1498,10 @@ body .memberBody {
       body .memberBody .content .section p {
         font-size: 22px;
         padding: 10px 10px; }
+      body .memberBody .content .section .info p {
+        font-size: 16px;
+        padding: 0;
+        margin: 6px 8px; }
       body .memberBody .content .section .list {
         height: 200px; }
         body .memberBody .content .section .list table th {
@@ -1504,7 +1512,7 @@ body .memberBody {
   body .memberBody {
     padding-top: 100px; }
     body .memberBody .salute {
-      padding: 0;
+      padding: 10px 0 0 0;
       width: 100%;
       justify-content: center;
       border-radius: 0px 0px 0 0; }
@@ -1523,6 +1531,10 @@ body .memberBody {
       body .memberBody .content .section p {
         font-size: 20px;
         padding: 10px 10px; }
+      body .memberBody .content .section .info p {
+        font-size: 15px;
+        padding: 0;
+        margin: 6px 8px; }
       body .memberBody .content .section .list {
         height: 200px; }
         body .memberBody .content .section .list table th {

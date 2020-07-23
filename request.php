@@ -91,7 +91,7 @@
                             <option value="fixing">Reparate</option>
                             <option value="replace">Replace</option>
                             <option value="painting">Paint</option>
-                            <option selected="selected" value="other_Maintenance">Other Maintenance</option>
+                            <option selected="selected" value="Other Maintenance">Other Maintenance</option>
                         </optgroup>
                         <optgroup label="Payment Information">
                             <option value="bills">My billing information</option>
@@ -99,7 +99,7 @@
                         </optgroup>
                         <optgroup label="Other Inquiries">
                             <option value="extension">Extend my contract</option>
-                            <option value="other_Inquiry">Other inquiry</option>
+                            <option value="Other Inquiry">Other inquiry</option>
                         </optgroup>
                     </select>
                     

@@ -55,6 +55,13 @@ body{
                     margin:0px;
                     padding: 10px 18px;
                 }
+                .info{
+                    p{
+                        font-size: 19px;
+                        padding: 0;
+                        margin: 6px 15px;
+                    }
+                }
                 .list{
                     overflow: scroll;
                     background-color: gray;
@@ -121,6 +128,13 @@ body{
                         font-size: 22px;
                         padding: 10px 10px;
                     }
+                    .info{
+                        p{
+                            font-size: 16px;
+                            padding: 0;
+                            margin: 6px 8px;
+                        }
+                    }
                     .list{
                         height: 200px;
                         table{
@@ -143,7 +157,7 @@ body{
         .memberBody{
             padding-top: 100px;
             .salute{
-                padding: 0;
+                padding: 10px 0 0 0;
                 width:100%;
                 justify-content: center;
                 border-radius: 0px 0px 0 0;
@@ -167,6 +181,13 @@ body{
                     p{
                         font-size: 20px;
                         padding: 10px 10px;
+                    }
+                    .info{
+                        p{
+                            font-size: 15px;
+                            padding: 0;
+                            margin: 6px 8px;
+                        }
                     }
                     .list{
                         height: 200px;

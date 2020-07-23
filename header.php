@@ -40,9 +40,9 @@
                                 <li class="login"><a onclick="onClickLogin()">Logout</a></li>';
                             }else if(isset($_SESSION['memberId'])){
                                 echo '<li><a href="member.php">Account</a></li>
-                                <li><a href="paymentHistory.php">Apartments</a></li>
+                                <li><a href="#">Apartments</a></li>
                                 <li><a href="#">Rooms</a></li>
-                                <li><a href="request.php">Tenants</a></li>
+                                <li><a href="#">Tenants</a></li>
                                 <li class="login"><a onclick="onClickLogin()">Logout</a></li>';
                             }else{
                                 echo '<li><a href="index.php">Home</a></li>
