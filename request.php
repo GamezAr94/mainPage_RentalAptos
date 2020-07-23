@@ -121,37 +121,3 @@
 <?php
     require "footer.php";
 ?>
-
-<?php
-    foreach($_SESSION['contratoId'] as $contatoId){
-        $sql = "SELECT apartaments.apts_strtNum,apartaments.apts_uniNum, apartaments.apts_strtName, room.room_title, room_users.ro_us
-                FROM room_users
-                left JOIN room
-                on room.room_id = room_users.room_fk
-                LEFT JOIN apartaments
-                on apartaments.apts_id = room.apts_fk
-                WHERE room_users.room_fk is NOT NULL and room_users.ru_endD > CURRENT_DATE() AND room_users.ro_us = ".$contatoId."
-                GROUP BY room_users.room_fk
-                union 
-                select apartaments.apts_strtNum,apartaments.apts_uniNum, apartaments.apts_strtName, room_users.room_fk, room_users.ro_us
-                from room_users
-                LEFT JOIN apartaments
-                on apartaments.apts_id = room_users.apto_fk
-                where room_users.room_fk is null and room_users.ru_endD > CURRENT_DATE() AND room_users.ro_us = ".$contatoId."
-                GROUP BY room_users.apto_fk;";
-        $result = mysqli_query($conn,$sql);
-        $queryResults = mysqli_num_rows($result);
-        if($queryResults > 0){
-            while($row = mysqli_fetch_assoc($result)){
-                $apts_strtNum = $row['apts_strtNum'];
-                $apts_uniNum = $row['apts_uniNum'];
-                $apts_strtName = $row['apts_strtName'];
-                $room_title = $row['room_title'];
-                $ro_us = $row['ro_us'];
-                echo '<option value="extension">'.$room_title!=Null?$room_title:"".$apts_uniNum."-".$apts_strtNum." ".$apts_strtName.'</option>';
-            }
-        }else{
-            header("Location: index.php?error=apto-request-sql");
-        }
-    }
-?>
