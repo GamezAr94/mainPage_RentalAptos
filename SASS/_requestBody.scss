@@ -255,6 +255,7 @@ body{
 @media only screen and (max-width: 500px)and (min-width: 50px){
     body{
         #requestSent{
+            margin-top: -10px;
             .messageBox{
                 width: 90%;
                 .checkMark{
@@ -273,11 +274,11 @@ body{
             }
         }
         .contentRequest{
-            padding-top: 95px;
+            padding-top: 110px;
             .title{
                 margin-bottom: 13px;
                 h5{
-                    font-size: 30px;
+                    font-size: 24px;
                 }
             }
             .formContent{

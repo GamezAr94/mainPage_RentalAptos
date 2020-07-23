@@ -965,7 +965,7 @@ body #extraInfo {
     font-size: 12.5px; } }
 @media only screen and (max-width: 500px) and (min-width: 50px) {
   body #mainUserContent {
-    padding-top: 90px; }
+    padding-top: 100px; }
     body #mainUserContent .userSalut {
       width: 95%; }
       body #mainUserContent .userSalut .userName p {
@@ -1116,7 +1116,7 @@ body .contentHistory {
           margin: 0 auto 0 auto; } }
 @media only screen and (max-width: 500px) and (min-width: 50px) {
   body .contentHistory {
-    padding-top: 95px;
+    padding-top: 110px;
     width: 100%; }
     body .contentHistory .title {
       margin: 0 auto 20px auto;
@@ -1353,22 +1353,24 @@ body .contentRequest {
       body .contentRequest .formContent .form form button {
         margin: 10px auto 0 auto; } }
 @media only screen and (max-width: 500px) and (min-width: 50px) {
-  body #requestSent .messageBox {
-    width: 90%; }
-    body #requestSent .messageBox .checkMark div {
-      top: 30%;
-      left: 39%; }
-    body #requestSent .messageBox .messageSent {
-      height: 45%; }
-      body #requestSent .messageBox .messageSent p {
-        margin: 10px auto;
-        font-size: 35px; }
+  body #requestSent {
+    margin-top: -10px; }
+    body #requestSent .messageBox {
+      width: 90%; }
+      body #requestSent .messageBox .checkMark div {
+        top: 30%;
+        left: 39%; }
+      body #requestSent .messageBox .messageSent {
+        height: 45%; }
+        body #requestSent .messageBox .messageSent p {
+          margin: 10px auto;
+          font-size: 35px; }
   body .contentRequest {
-    padding-top: 95px; }
+    padding-top: 110px; }
     body .contentRequest .title {
       margin-bottom: 13px; }
       body .contentRequest .title h5 {
-        font-size: 30px; }
+        font-size: 24px; }
     body .contentRequest .formContent {
       padding-top: 0px;
       padding-bottom: 0px; }
