@@ -30,6 +30,14 @@
     </div>
     <div class="content">
         <div class="section">
+            <p>Add Data</p>
+        </div>
+        <div class="addingMenu">
+            <a href="#">Add Appartment</a>
+            <a href="#">Add Room</a>
+            <a href="#">Add Tenant</a>
+        </div>
+        <div class="section">
             <?php
                 get_tenantInfo($conn);
             ?>
@@ -53,7 +61,7 @@
                         echo '<tr>
                             <td>'.$tenant->cont_start.'</td>
                             <td>'.$tenant->cont_end.'</td>
-                            <td>'.$tenant->tenant_address.'</td>
+                            <td><i>'.$tenant->roomTitle."</i> ".$tenant->tenant_address.'</td>
                             <td>'.$tenant->tenant_name.'</td>
                             <td>'.$tenant->tenant_phone.'</td>
                             <td><button>View</button></td>
@@ -80,6 +88,7 @@
                         <th>Rent to Pay per Month</th>
                         <th>Address</th>
                         <th># Rooms</th>
+                        <th>Available on</th>
                         <th>Rooms</th>
                     </tr>
                     <?php
@@ -90,6 +99,7 @@
                                     <td>$'.$aptoList->rent_apto.'</td>
                                     <td>'.$aptoList->address_apto.'</td>
                                     <td>'.$aptoList->numRooms.'</td>
+                                    <td>'.$aptoList->nexAvailable.'</td>
                                     <td><button>View</button></td>
                                 </tr>';
                         }
@@ -120,7 +130,7 @@
                         foreach($_SESSION["requestInfoList"] as $requestInfoList){
                             echo '<tr>
                                     <td>'.$requestInfoList->date_req.'</td>
-                                    <td>'.$requestInfoList->address_req.'</td>
+                                    <td><i>'.$requestInfoList->roomTitle."</i> ".$requestInfoList->address_req.'</td>
                                     <td>'.$requestInfoList->tenant_req.'</td>
                                     <td>'.$requestInfoList->type_req.'</td>
                                     <td>'.$requestInfoList->subject_req.'</td>
@@ -144,17 +154,17 @@
         public $tenant_address;
         public $tenant_name;
         public $tenant_phone;
+        public $roomTitle = "(Full Apto)";
     }
     function get_tenantInfo($conn) {
         $_SESSION["tenantInfoList"] = array();
-        $sql = 'SELECT room_users.ru_rent,CONCAT(`name_users`, " ", `lastN_users`) as fullname, `phone_users`, `ru_startD`, ru_endD, CONCAT(apts_uniNum,"-",apts_strtNum," ", apts_strtName, " st.") AS fullAddress
+        $sql = 'SELECT room_users.room_fk, room_users.ru_rent,CONCAT(`name_users`, " ", `lastN_users`) as fullname, `phone_users`, `ru_startD`, ru_endD, CONCAT(apts_uniNum,"-",apts_strtNum," ", apts_strtName, " st.") AS fullAddress
         FROM `users` 
         LEFT JOIN room_users
         ON users.id_users = room_users.users_fk
         LEFT JOIN apartaments
         ON room_users.apto_fk = apartaments.apts_id
-        WHERE room_users.ru_startD < CURRENT_DATE() AND room_users.ru_endD > CURRENT_DATE()
-        GROUP BY apartaments.apts_id;';
+        WHERE room_users.ru_startD < CURRENT_DATE() AND room_users.ru_endD > CURRENT_DATE();';
         $result = mysqli_query($conn,$sql);
         $queryResults = mysqli_num_rows($result);
         if($queryResults > 0){
@@ -167,6 +177,20 @@
                 $tenant->tenant_address = $row['fullAddress'];
                 $tenant->tenant_name = $row['fullname'];
                 $tenant->tenant_phone = $row['phone_users'];
+                if(isset($row['room_fk'])){
+                    $sqlRoomTitle = 'SELECT room.room_title
+                                    FROM room_users
+                                    LEFT JOIN room
+                                    ON room.room_id = room_users.room_fk
+                                    WHERE room.room_id ='.$row['room_fk'].';';
+                    $resultTitle = mysqli_query($conn, $sqlRoomTitle);
+                    $queryResultsTitle = mysqli_num_rows($resultTitle);
+                    if($queryResultsTitle > 0){
+                        while($rowTitle = mysqli_fetch_assoc($resultTitle)){
+                            $tenant->roomTitle = "(".$rowTitle['room_title']." Room)";
+                        }
+                    }
+                }
                 array_push($_SESSION["tenantInfoList"], $tenant);
             }
         }else{
@@ -182,10 +206,11 @@
         public $type_req;
         public $subject_req;
         public $isDone_req;
+        public $roomTitle = "(Full Apto)";
     }
     function get_requestList($conn){
         $_SESSION["requestInfoList"] = array();
-        $sql='SELECT `request_id`,`request_date`,`request_type`,`request_subject`, `isDone_req`, CONCAT(apartaments.apts_uniNum, "-", apartaments.apts_strtNum, " ", apartaments.apts_strtName, " st.") as fullAddress, CONCAT(users.name_users, " ", users.lastN_users) AS fullName
+        $sql='SELECT room_users.room_fk, `request_id`,`request_date`,`request_type`,`request_subject`, `isDone_req`, CONCAT(apartaments.apts_uniNum, "-", apartaments.apts_strtNum, " ", apartaments.apts_strtName, " st.") as fullAddress, CONCAT(users.name_users, " ", users.lastN_users) AS fullName
         FROM `request`
         LEFT JOIN room_users
         ON  room_users.ro_us = request.ro_us_fk
@@ -211,6 +236,20 @@
                 if($row['isDone_req']==0){
                     $_SESSION['totalReqPendings']+=1;
                 }
+                if(isset($row['room_fk'])){
+                    $sqlRoomTitle = 'SELECT room.room_title
+                                    FROM room_users
+                                    LEFT JOIN room
+                                    ON room.room_id = room_users.room_fk
+                                    WHERE room.room_id ='.$row['room_fk'].';';
+                    $resultTitle = mysqli_query($conn, $sqlRoomTitle);
+                    $queryResultsTitle = mysqli_num_rows($resultTitle);
+                    if($queryResultsTitle > 0){
+                        while($rowTitle = mysqli_fetch_assoc($resultTitle)){
+                            $request->roomTitle = "(".$rowTitle['room_title']." Room)";
+                        }
+                    }
+                }
                 array_push($_SESSION["requestInfoList"], $request);
             }
         }else{
@@ -225,6 +264,7 @@
         public $end_apto;
         public $numRooms;
         public $address_apto;
+        public $nexAvailable;
     }
     function get_aptoList($conn){
         $_SESSION['aptoInfoList'] = array();
@@ -249,6 +289,20 @@
                 $apto->end_apto = date("d M Y", strtotime($row['ac_endD']));
                 $apto->address_apto = $row['address'];
                 $apto->numRooms = $row['numRooms'];
+                $sqlMaxDate = "SELECT MAX(`ru_endD`) AS maxDate
+                FROM `room_users`
+                WHERE apto_fk =".$row['apts_id'].";";
+                $resultDate = mysqli_query($conn, $sqlMaxDate);
+                $queryResultsDate = mysqli_num_rows($resultDate);
+                if($queryResultsDate > 0){
+                    while($rowDate = mysqli_fetch_assoc($resultDate)){
+                        if(strtotime($rowDate['maxDate']) > strtotime(date("Y-M-d"))){
+                            $apto->nexAvailable = date("d M Y", strtotime($rowDate['maxDate']));
+                        }else{
+                            $apto->nexAvailable = "Now";
+                        }
+                    }
+                }
                 array_push($_SESSION['aptoInfoList'],$apto);
             }
         }else{
