@@ -1589,6 +1589,129 @@ body .memberBody {
           margin-bottom: 10px; }
         body .memberBody .content .addingMenu a:hover {
           font-size: 15px; } }
+body .add {
+  width: 100%;
+  padding-top: 130px;
+  padding-bottom: 50px; }
+  body .add .title {
+    width: 85%;
+    margin: 0 auto; }
+    body .add .title p {
+      padding: 0px;
+      margin: 0px;
+      font-size: 25px; }
+  body .add .addContainer {
+    width: 90%;
+    background-color: #fff;
+    border-radius: 17px;
+    margin: 30px auto 0px auto;
+    padding-bottom: 15px;
+    -webkit-box-shadow: 0px 8px 8px -2px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 8px 8px -2px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 8px 8px -2px rgba(0, 0, 0, 0.75); }
+    body .add .addContainer form {
+      margin: 0px auto 0 auto;
+      width: 90%;
+      padding-top: 15px; }
+      body .add .addContainer form section {
+        background-color: rgba(248, 248, 248, 0.37);
+        width: 100%;
+        display: flex;
+        margin: 0 0 15px 0;
+        padding-bottom: 15px;
+        flex-wrap: wrap;
+        border-radius: 5px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.26); }
+        body .add .addContainer form section .required::before {
+          content: "*";
+          color: red; }
+        body .add .addContainer form section div {
+          margin: 10px auto 0 auto;
+          width: 40%;
+          padding: 25px 15px; }
+          body .add .addContainer form section div input {
+            font-size: 15px; }
+          body .add .addContainer form section div textarea {
+            width: 100%;
+            resize: vertical; }
+          body .add .addContainer form section div button {
+            display: flex;
+            width: 90%;
+            justify-content: center;
+            padding: 13px 0;
+            margin: 0 auto;
+            border-radius: 7px;
+            background-color: #2f3f47;
+            border: 0px;
+            color: #fff;
+            cursor: pointer;
+            transition: all .3s;
+            box-shadow: 0px 0.5px 0px 0.5px rgba(0, 0, 0, 0.75); }
+          body .add .addContainer form section div button:hover {
+            background-color: #3c505a; }
+        body .add .addContainer form section .extraInfo {
+          margin: 0px;
+          padding: 5px 15px;
+          width: 100%;
+          border-radius: 5px;
+          background-color: rgba(197, 231, 243, 0.644); }
+          body .add .addContainer form section .extraInfo .subtitle {
+            font-weight: bold;
+            font-size: 18px; }
+          body .add .addContainer form section .extraInfo ul li {
+            list-style-type: disc;
+            font-size: 14px;
+            font-weight: lighter;
+            margin-bottom: 10px; }
+        body .add .addContainer form section .long {
+          width: 80%; }
+
+@media only screen and (max-width: 700px) and (min-width: 500px) {
+  body .add {
+    padding-top: 120px;
+    padding-bottom: 40px; }
+    body .add .title p {
+      padding: 0px;
+      margin: 0px;
+      font-size: 21px; }
+    body .add .addContainer {
+      margin: 15px auto 0px auto;
+      padding-bottom: 10px; }
+      body .add .addContainer form {
+        padding-top: 10px; }
+        body .add .addContainer form section {
+          margin: 0 0 10px 0;
+          padding-bottom: 0px; }
+          body .add .addContainer form section div {
+            margin: 3px auto 0 auto; }
+            body .add .addContainer form section div input {
+              font-size: 14px; }
+            body .add .addContainer form section div button {
+              width: 100%; } }
+@media only screen and (max-width: 500px) and (min-width: 50px) {
+  body .add {
+    padding-top: 115px;
+    padding-bottom: 30px; }
+    body .add .title p {
+      font-size: 19px; }
+    body .add .addContainer {
+      width: 100%;
+      margin: 10px auto 0px auto; }
+      body .add .addContainer form section {
+        margin: 0 0 10px 0;
+        padding-bottom: 10px; }
+        body .add .addContainer form section div, body .add .addContainer form section .long {
+          width: 100%;
+          padding: 15px 15px; }
+          body .add .addContainer form section div input, body .add .addContainer form section .long input {
+            font-size: 13px; }
+          body .add .addContainer form section div textarea, body .add .addContainer form section .long textarea {
+            width: 95%;
+            height: 80px;
+            resize: vertical; }
+          body .add .addContainer form section div button, body .add .addContainer form section .long button {
+            width: 80%;
+            font-size: 15px; } }
 header {
   z-index: 99999; }
 

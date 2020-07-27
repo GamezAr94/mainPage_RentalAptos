@@ -3,6 +3,8 @@
     session_start();
     include 'includes/dbh.inc.php';
     include 'includes/variablesSQL.inc.php';
+    
+    date_default_timezone_set('Canada/Pacific');
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/styles.css">
     <link rel="stylesheet" href="styles/normalize.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Home Sweet Home / Rental Apartments and spaces</title>
 </head>
 

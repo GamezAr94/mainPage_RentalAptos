@@ -16,7 +16,7 @@
 <div class="memberBody">
     <div class="salute">
         <i class="<?php
-        date_default_timezone_set('Canada/Pacific');
+        //date_default_timezone_set('Canada/Pacific');
         if((int)date("H") > 12 && (int)date("H") <= 19){
             echo "fas fa-sun yellow";
         }else if(((int)date("H") > 19) || ((int)date("H") >= 0 && (int)date("H") <= 4)){
@@ -25,7 +25,7 @@
         echo "fas fa-coffee orange";
         }else{
             echo "";    
-        }?>"></i>
+        };?>"></i>
         <p>Welcolme back <?php echo $_SESSION['memberName'];?></p>
     </div>
     <div class="content">
@@ -33,9 +33,9 @@
             <p>Add Data</p>
         </div>
         <div class="addingMenu">
-            <a href="#">Add Appartment</a>
-            <a href="#">Add Room</a>
-            <a href="#">Add Tenant</a>
+            <a href="addApartment.php">Add Appartment</a>
+            <a href="addRoom.php">Add Room</a>
+            <a href="addTenant.php">Add Tenant</a>
         </div>
         <div class="section">
             <?php

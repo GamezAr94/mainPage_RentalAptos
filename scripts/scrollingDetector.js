@@ -3,7 +3,6 @@ var burguerMenu = document.querySelector("#menu-hamburger");
 var centralize = document.querySelector("header .centralize");
 
 window.onscroll = function(){
-    console.log(burguerMenu);
     if(window.pageYOffset > 100){
         header.style.height = "50px";
         centralize.style.width = "97%";
