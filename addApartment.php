@@ -19,7 +19,7 @@
                         <p class="subtitle">Contract Information</p>
                         <ul>
                             <li>Information about your contract with this apartment/house</li>
-                            <li>Add only numbers in "Landlord Phone" field</li>
+                            <li>Do not add simbols or spaces in "Landlord Phone", add only numbers</li>
                         </ul>
                     </div>
                     <div class="long">
@@ -99,11 +99,11 @@
                     </div>
                     <div class="long required">
                         <label for="shortDesc">Short Description: </label>
-                        <textarea id="shortDesc" rows="2" name="shortDesc" required="required"></textarea>
+                        <textarea id="shortDesc" minlength="5" maxlength="100" rows="2" name="shortDesc" required="required"></textarea>
                     </div>
                     <div class="long required">
                         <label for="longDesc">Long Description: </label>
-                        <textarea id="longDesc" rows="10" name="longDesc" required="required"></textarea>
+                        <textarea id="longDesc" minlength="5" maxlength="1000"  rows="10" name="longDesc" required="required"></textarea>
                     </div>
                     <div class="long">
                         <label for="comments">Comments: </label>

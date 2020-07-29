@@ -83,6 +83,11 @@ body{
                     .long{
                         width: 80%;
                     }
+                    .hideSelection, #roomSelect{
+                        display: none;
+                        visibility:visible;
+                        opacity: 0;
+                    }
                 }
             }
         }
