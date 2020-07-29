@@ -135,13 +135,13 @@
                         </ul>
                     </div>
                     <div>
-                        <button type="submit" name="send-message">Send</button>
+                        <button type="submit" name="save-tenant">Save</button>
                     </div>
                 </section>
             </form>
     </div>
 </div>
-<!--<script src="scripts/checkMinDate.addSection.js"></script>-->
+<script src="scripts/checkMinDate.addSection.js"></script>
 <script>
      var x = document.getElementsByClassName("hideSelection");
      var rentApto = document.getElementById("rentApto");
@@ -172,7 +172,9 @@
         roomSelect.style.display = "inline";
         document.getElementById('room').required = true;
     })
-
+    document.getElementById("rent").addEventListener("focusout", function(){
+        document.getElementById("damageDeposit").value = Math.floor(this.value/2);
+    })
 </script>
 <?php
     require "footer.php";
