@@ -13,7 +13,9 @@ include 'dbh.inc.php';
             header("Location: ../request.php?error=emptyfields");
             exit();
         }else{
-            $spam = countSpam($conn);
+            //Anti-spam method+++++++++++++++++++++++++++++++++++++++++
+            //$spam = countSpam($conn, $contractId);
+            $spam = 0;
             if($spam >= 4){
                 header("Location: ../request.php?errorSpam=limit-of-requests-today-".$spam);
                 exit();
@@ -40,11 +42,14 @@ include 'dbh.inc.php';
         //header("Location: ../blas.php");
     //}
 
-
-    function countSpam($conn){
-        $sqlSpam = "SELECT COUNT(`request_date`) as Spam
+//++++++++++++++++Fix the anti-spam method+++++++++++++++++++++++++
+    function countSpam($conn, $contract){
+        $sqlSpam = "SELECT COUNT(`request_date`) as Spam, room_users.ro_us
         FROM `request` 
-        WHERE request_date = CURRENT_DATE();";
+        LEFT JOIN room_users
+        ON room_users.ro_us = request.ro_us_fk
+        WHERE YEAR(request_date) = year(CURRENT_DATE()) AND Month(request_date) = Month(CURRENT_DATE()) AND Day(request_date) = Day(CURRENT_DATE()) AND room_users.ro_us =".$contract."
+        group by room_users.ro_us";
             
             $stmtSpam = mysqli_stmt_init($conn);
             if(!mysqli_stmt_prepare($stmtSpam, $sqlSpam)){

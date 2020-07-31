@@ -1628,7 +1628,8 @@ body .add {
         body .add .addContainer form section div {
           margin: 10px auto 0 auto;
           width: 40%;
-          padding: 25px 15px; }
+          padding: 25px 15px;
+          text-align: center; }
           body .add .addContainer form section div input {
             font-size: 15px; }
           body .add .addContainer form section div textarea {
@@ -1654,6 +1655,7 @@ body .add {
           padding: 5px 15px;
           width: 100%;
           border-radius: 5px;
+          text-align: left;
           background-color: rgba(197, 231, 243, 0.644); }
           body .add .addContainer form section .extraInfo .subtitle {
             font-weight: bold;
@@ -1664,7 +1666,13 @@ body .add {
             font-weight: lighter;
             margin-bottom: 10px; }
         body .add .addContainer form section .long {
-          width: 80%; }
+          width: 80%;
+          margin: 0 auto;
+          text-align: left; }
+          body .add .addContainer form section .long p {
+            text-align: center; }
+            body .add .addContainer form section .long p strong {
+              color: green; }
         body .add .addContainer form section .hideSelection, body .add .addContainer form section #roomSelect {
           display: none;
           visibility: visible;
@@ -1704,6 +1712,8 @@ body .add {
       body .add .addContainer form section {
         margin: 0 0 10px 0;
         padding-bottom: 10px; }
+        body .add .addContainer form section div {
+          text-align: left; }
         body .add .addContainer form section div, body .add .addContainer form section .long {
           width: 100%;
           padding: 15px 15px; }

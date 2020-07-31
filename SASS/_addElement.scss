@@ -42,6 +42,7 @@ body{
                         margin: 10px auto 0 auto;
                         width: 40%;
                         padding: 25px 15px;
+                        text-align: center;
                         input{
                             font-size: 15px;
                         }
@@ -66,6 +67,7 @@ body{
                         padding: 5px 15px;
                         width: 100%;
                         border-radius: 5px;
+                        text-align: left;
                         background-color: rgba(197, 231, 243, 0.644);
                         .subtitle{
                             font-weight: bold;
@@ -82,6 +84,14 @@ body{
                     }
                     .long{
                         width: 80%;
+                        margin: 0 auto;
+                        text-align: left;
+                        p{ 
+                            text-align: center;
+                            strong{
+                                color: green;
+                            }
+                        }
                     }
                     .hideSelection, #roomSelect{
                         display: none;
@@ -145,6 +155,9 @@ body{
                     section{
                         margin: 0 0 10px 0;
                         padding-bottom: 10px;
+                        div{
+                            text-align: left;
+                        }
                         div, .long{
                             width: 100%;
                             padding: 15px 15px;

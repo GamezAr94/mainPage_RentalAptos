@@ -25,7 +25,7 @@
                     while($row = mysqli_fetch_assoc($result)){
                         $ru_startD = $row['ru_startD'];
                         $ru_endD = $row['ru_endD'];
-                        if($row['apto_fk'] == null){
+                        if(isset($row['room_fk'])){
                             $sqlApto = "SELECT room_users.ru_startD, room_users.ru_endD, room.room_id, room.room_title, apartaments.apts_strtNum, apartaments.apts_strtName, apartaments.apts_postCode, apartaments.apts_uniNum
                                 FROM `room_users` 
                                 LEFT JOIN room
@@ -53,8 +53,8 @@
                                                             <p><strong>Rent type:</strong> '.$apt_type.'</p>
                                                                 <p><strong>Tenant Name:</strong> '.$_SESSION['nameUser'].'</p>
                                                                 <p><strong>Address:</strong> '.$apts_address.'</p>
-                                                                <p><strong>Start contract:</strong> '.$ru_startD.'</p>
-                                                                <p><strong>End contract:</strong> '.$ru_endD.'</p>
+                                                                <p><strong>Start contract:</strong> '.date("d M Y", strtotime($ru_startD)).'</p>
+                                                                <p><strong>End contract:</strong> '.date("d M Y", strtotime($ru_endD)).'</p>
                                                         </div>
                                                     </div>
                                                     <div class="tableWrapper">
@@ -120,8 +120,8 @@
                                                             <p><strong>Rent type:</strong> '.$apt_type.'</p>
                                                                 <p><strong>Tenant Name:</strong> '.$_SESSION['nameUser'].'</p>
                                                                 <p><strong>Address:</strong> '.$apts_address.'</p>
-                                                                <p><strong>Start contract:</strong> '.$ru_startD.'</p>
-                                                                <p><strong>End contract:</strong> '.$ru_endD.'</p>
+                                                                <p><strong>Start contract:</strong> '.date("d M Y", strtotime($ru_startD)).'</p>
+                                                                <p><strong>End contract:</strong> '.date("d M Y", strtotime($ru_endD)).'</p>
                                                         </div>
                                                     </div>
                                                     <div class="tableWrapper">

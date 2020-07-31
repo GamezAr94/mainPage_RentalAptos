@@ -13,19 +13,21 @@
         <p>Add an Apartment</p>
     </div>
     <div class="addContainer">
-            <form action="#">
+            <form action="includes/addApartment.inc.php" method="post">
                 <section>
                     <div class="extraInfo">
                         <p class="subtitle">Contract Information</p>
                         <ul>
                             <li>Information about your contract with this apartment/house</li>
                             <li>Do not add simbols or spaces in "Landlord Phone", add only numbers</li>
+                            <li>"Monthly Payment" field is the amount <strong>YOU</strong> are paying to the owner</li>
                         </ul>
                     </div>
                     <div class="long">
                         <label for="company">Company Name <i>(if applicable)</i>: </label>
                         <input type="text" id="company" name="company" autofocus="on" placeholder="Company Name">
                     </div>
+                   
                     <div class="required">
                         <label for="landlordFName">Landlord First Name: </label>
                         <input type="text" id="landlordFName" name="landlordFName" placeholder="First Name" required="required">
@@ -45,57 +47,62 @@
                     <div class="required">
                         <label for="start">Start Contract:</label>
                         <!--++++++++++++++current date++++++++++++++++++++++++++-->
-                        <input type="date" id="start" name="contrc-start" value="YYY-MM-DD" min="2008-01-01" max="2030-07-22" required="required">
+                        <input type="date" id="start" name="contrcStart" value="YYY-MM-DD" min="2008-01-01" max="2030-07-22" required="required">
                     </div>
                     <div class="required">
                         <label for="end ">End Contract: </label>
-                        <input type="date" id="end" name="contrc-end" value="MM/DD/YYYY" min="2010-01-01" max="2040-07-22" required="required">
+                        <input type="date" id="end" name="contrcEnd" value="MM/DD/YYYY" min="2010-01-01" max="2040-07-22" required="required">
                     </div>
                     <div class="required">
-                        <label for="rent">Rent: $</label>
-                        <input type="number" placeholder="0.00" id="rent" min="1" step="0.01" required="required">
+                        <label for="pay">Monthly Payment: $</label>
+                        <input type="number" placeholder="0.00" name="pay" id="pay" min="1" step="0.01" required="required">
                     </div>
                 </section>
                 <section>
                     <div class="extraInfo">
-                        <p class="subtitle">Address</p>
+                        <p class="subtitle">Apartament information</p>
                         <ul>
                             <li>Do not add <i>"st, str., street"</i> at the end of the field "Street Name", enter only the street name</li>
+                            <li>"Monthly Tenant Rent" field is the amount your tenant has to pay in case they want to rent the full apartment</li>
                         </ul>
                     </div>
-                    <div>
+                    <div class="required">
                         <label for="unitNum">Unit Number: </label>
-                        <input type="text" placeholder="906" id="unitNum">
+                        <input type="text" placeholder="906" name = "unitNum" id="unitNum" required="required">
                     </div>
                     <div class="required">
                         <label for="streetNum">Street Number: </label>
-                        <input type="text" placeholder="1865" id="streetNum" required="required">
+                        <input type="text" placeholder="1865" name="streetNum" id="streetNum" required="required">
                     </div>
                     <div class="required">
                         <label for="streetName">Street Name: </label>
-                        <input type="text" maxlength="20" placeholder="Beatty" id="streetName" required="required">
+                        <input type="text" maxlength="20" placeholder="Beatty" name="streetName" id="streetName" required="required">
+                    </div>
+                    <div class="required">
+                        <label for="rent">Monthly Tenant Rent: $</label>
+                        <input type="number" placeholder="0.00" name="rent" id="rent" min="1" step="0.01" required="required">
                     </div>
                     <div class="required">
                         <label for="postCode1">Postal Code: </label>
-                        <input size="5" type="text" maxlength="3" pattern="[A-Za-z][0-9][A-Za-z]" placeholder="V6Z" id="postCode1" required="required">
+                        <input size="5" type="text" maxlength="3" pattern="[A-Za-z][0-9][A-Za-z]" placeholder="V6Z" name="postCode1" id="postCode1" required="required">
                 
                         <label for="postCode2">-</label>
-                        <input size="5" type="text" maxlength="3" pattern="[0-9][A-Za-z][0-9]" placeholder="3C1" id="postCode2" required="required">
+                        <input size="5" type="text" maxlength="3" pattern="[0-9][A-Za-z][0-9]" placeholder="3C1" name="postCode2" id="postCode2" required="required">
                     </div>
                 </section>
                 <section>
                     <div class="extraInfo">
                         <p class="subtitle">Extra Details</p>
                         <ul>
-                            <li>You can select multiple images (minimum 1, maximum 5 per apartment)</li>
+                            <li>You can upload up to 5 images simultaniously on "Select Apartament Images" field (files extensions must be .jpg or .png)</li>
                             <li>The long description will appear on the "Full Rent Appartment" description, it will be public</li>
                             <li>The short description will appear on the "Main Page", it will be public</li>
                             <li>Comments field is not required and is private, only you can see this information, you can add comments or additional notes in this field</li>
                         </ul>
                     </div>
                     <div class="long required">
-                        <label for="images">Select Images</label>
-                        <input type="file" id="images" name="image1" multiple accept="image/png, image/jpeg" required="required">
+                        <label for="aptoImages">Select Apartament Images</label>
+                        <input type="file" id="aptoImages" name="aptoImages" multiple accept="image/png, image/jpeg" required="required">
                     </div>
                     <div class="long required">
                         <label for="shortDesc">Short Description: </label>
@@ -103,11 +110,11 @@
                     </div>
                     <div class="long required">
                         <label for="longDesc">Long Description: </label>
-                        <textarea id="longDesc" minlength="5" maxlength="1000"  rows="10" name="longDesc" required="required"></textarea>
+                        <textarea id="longDesc" minlength="5" maxlength="1000" rows="10" name="longDesc" required="required"></textarea>
                     </div>
                     <div class="long">
                         <label for="comments">Comments: </label>
-                        <textarea id="comments" rows="10" name="comments"></textarea>
+                        <textarea id="comments" minlength="5" maxlength="200" rows="10" name="comments"></textarea>
                     </div>
                 </section>
                 <section>
