@@ -1,7 +1,7 @@
 <?php
 include 'dbh.inc.php';
 
-if(isset($_POST['save-apto'])){
+if(isset($_POST['saveApto'])){
 
     $unitNum = ucfirst(strtolower($_POST['unitNum']));
     $streetNum = ucfirst(strtolower($_POST['streetNum']));
@@ -49,23 +49,90 @@ if(isset($_POST['save-apto'])){
             }else{
                 mysqli_stmt_bind_param($stmtContract, "ssdsssss", $contrcStart, $contrcEnd, $pay, $company, $landlordFName, $landlordLName, $landlordEmail, $landlordPhone);
                 
-                try{
                     //ejecutar el statement
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_execute($stmtContract);
-                    if (!file_exists('../img/'.$unitNum.$streetNum.$streetName.$postCode."-".$contrcStart.$contrcEnd)) {
-                        mkdir('../img/'.$unitNum.$streetNum.$streetName.$postCode."-".$contrcStart.$contrcEnd, 0777, true);
+                    $dirName = $unitNum.$streetNum.$streetName.$postCode;
+                    if (!file_exists('../img/'.$dirName)) {
+                        mkdir('../img/'.$dirName);
                     }
-                }catch(mysqli_sql_exception $e){
-                    echo "There is a problem creating the new apartament, please try again or call IT services if the problem persists. Sorry for the inconvenients.";
-                    exit();
-                }
+                    $photoCounter = 0;
+                     // Loop through each Picture
+                    for($i = 0; $i < sizeof($_FILES['aptoImages']['name']); $i++){
+                        $fileName = $_FILES['aptoImages']['name'][$i];
+                        $fileTmpName = $_FILES['aptoImages']['tmp_name'][$i];
+                        $fileSize = $_FILES['aptoImages']['size'][$i];
+                        $fileError = $_FILES['aptoImages']['error'][$i];
+                        $fileType = $_FILES['aptoImages']['type'][$i];
+
+                        $fileExt = explode('.', $fileName);
+                        $fileActualExt = strtolower(end($fileExt));
+                        $allowed = array('jpg', 'png', 'jpeg');
+                        if(in_array($fileActualExt, $allowed)){
+                            if($fileError === 0){
+                                if($fileSize <= 1500000){
+                                    $photoCounter++;
+                                    //changuing the name with miliseconds
+                                    //adding the address of the apartment
+                                    $fileNameNew = "apto".$photoCounter."-".$unitNum.$streetNum.$streetName."-".uniqid('', true).".".$fileActualExt;
+                                    //the destination of the image
+                                    $fileDestination = '../img/'.$dirName."/".$fileNameNew;
+                                    //move image from, to 
+                                    if(move_uploaded_file($fileTmpName, $fileDestination)){
+                                        $sqlUploadImage = "INSERT INTO `picture`(`picture_bio`, `picture_location`, `apts_fk`) 
+                                        VALUES ($shortDesc,'$fileNameNew', (SELECT MAX(apts_id) FROM apartaments))";
+                                        if(mysqli_query($conn, $sqlUploadImage)){
+                                            header("Location: ../addApartment.php?successfullUpload");
+                                        }else{
+                                            DeletingApto($conn);
+                                            header("Location: ../addApartment.php?errorUploadingFiles");
+                                            exit();
+                                        }
+                                    }else{
+                                        DeletingApto($conn);
+                                        header("Location: ../addApartment.php?errorMovingFiles");
+                                        exit();
+                                    }
+                                }else{
+                                    DeletingApto($conn);
+                                    header("Location: ../addApartment.php?errorFileTooBig");
+                                }
+                            }else{
+                                DeletingApto($conn);
+                                header("Location: ../addApartment.php?errorUploadingPictures");
+                            }
+                        }else{
+                            DeletingApto($conn);
+                            header("Location: ../addApartment.php?errorUploadingPicturesOfThisType");
+                        }
+                    }
             }
-            header("Location: ../addApartment.php?successful=apto-added");
         }
     }
 }else{
-    //header("Location: ../blas.php");
+    header("Location: ../addApartment.php?error=noConnection");
 }
 
+function DeletingApto($conn){
+    $maxID = 0;
+    $sql = "SELECT max(apts_id) as 'apts_id' FROM apartaments";
+    $queryResult = mysqli_query($conn, $sql);
+    $MresultMaxId = mysqli_num_rows($queryResult);
+    if($MresultMaxId > 0){
+        while($rowTitle = mysqli_fetch_assoc($queryResult)){
+            $maxID = $rowTitle['apts_id'];
+        }
+    }
+    if($maxID > 0){
+        $sqlDeletingContract = "DELETE FROM aptocontract
+                        WHERE aptocontract.apts_fk =".$maxID.";";
+
+        $sqlDeletingApto = "DELETE FROM apartaments
+                        WHERE apartaments.apts_id =".$maxID.";";
+
+
+        mysqli_query($conn, $sqlDeletingContract);
+        mysqli_query($conn, $sqlDeletingApto);
+    }
+}
 ?>

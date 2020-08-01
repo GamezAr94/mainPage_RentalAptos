@@ -13,8 +13,8 @@
         <p>Add an Apartment</p>
     </div>
     <div class="addContainer">
-            <form action="includes/addApartment.inc.php" method="post">
-                <section>
+            <form action="includes/addApartment.inc.php" method="post" enctype="multipart/form-data">
+            <section>
                     <div class="extraInfo">
                         <p class="subtitle">Contract Information</p>
                         <ul>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="long required">
                         <label for="aptoImages">Select Apartament Images</label>
-                        <input type="file" id="aptoImages" name="aptoImages" multiple accept="image/png, image/jpeg" required="required">
+                        <input type="file" id="aptoImages" name="aptoImages[]" multiple accept="image/png, image/jpeg" required="required">
                     </div>
                     <div class="long required">
                         <label for="shortDesc">Short Description: </label>
@@ -125,7 +125,7 @@
                         </ul>
                     </div>
                     <div>
-                        <button type="submit" name="save-apto">Save</button>
+                        <button type="submit" name="saveApto">Save</button>
                     </div>
                 </section>
             </form>
