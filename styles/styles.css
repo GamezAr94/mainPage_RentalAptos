@@ -1609,6 +1609,23 @@ body .add {
     -webkit-box-shadow: 0px 8px 8px -2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 8px 8px -2px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 8px 8px -2px rgba(0, 0, 0, 0.75); }
+    body .add .addContainer #errorHandler {
+      width: 100%;
+      padding: 20px 0;
+      border-radius: 17px 17px 0 0;
+      background-color: rgba(255, 0, 0, 0.301); }
+      body .add .addContainer #errorHandler ul li {
+        list-style-type: disc;
+        font-size: 14px;
+        font-weight: lighter;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: #750000; }
+        body .add .addContainer #errorHandler ul li i {
+          width: 30%;
+          font-style: normal;
+          font-weight: bold;
+          color: #000041; }
     body .add .addContainer form {
       margin: 0px auto 0 auto;
       width: 90%;

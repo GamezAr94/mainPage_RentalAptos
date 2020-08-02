@@ -1,57 +1,11 @@
 <?php
 include 'dbh.inc.php';
-/* Testing how to upload pictures 
-    if(isset($_POST['saveApto'])){
-
-    // Loop through each file
-    for($i = 0; $i < sizeof($_FILES['aptoImages']['name']); $i++){
-        $fileName = $_FILES['aptoImages']['name'][$i];
-        $fileTmpName = $_FILES['aptoImages']['tmp_name'][$i];
-        $fileSize = $_FILES['aptoImages']['size'][$i];
-        $fileError = $_FILES['aptoImages']['error'][$i];
-        $fileType = $_FILES['aptoImages']['type'][$i];
-
-        $fileExt = explode('.', $fileName);
-        $fileActualExt = strtolower(end($fileExt));
-        $allowed = array('jpg', 'png', 'jpeg');
-        if(in_array($fileActualExt, $allowed)){
-            if($fileError === 0){
-                if($fileSize <= 1000000){
-                    //changuing the name with miliseconds
-                    //adding the address of the apartment
-                    $fileNameNew = "apto-".[$i].uniqid('', true).".".$fileActualExt;
-                    $aptoFolder="apartamentsFolder";
-                    if (!file_exists('../img/'.$aptoFolder)) {
-                        mkdir('../img/'.$aptoFolder, 0777, true);
-                    }
-                    //the destination of the image
-                    $fileDestination = '../img/'.$aptoFolder."/".$fileNameNew;
-                    //move image from, to 
-                    if(move_uploaded_file($fileTmpName, $fileDestination)){
-                        $sqlUploadImage = "INSERT INTO `picture`(`picture_bio`, `picture_location`, `apts_fk`) 
-                        VALUES ('HOLA','$fileNameNew', (SELECT MAX(apts_id) FROM apartaments))";
-                        if(mysqli_query($conn, $sqlUploadImage)){
-                            header("Location: ../addApartment.php?successfullUpload");
-                        }else{
-                            header("Location: ../addApartment.php?errorUploadingFiles");
-                            exit();
-                        }
-                    }else{
-                        header("Location: ../addApartment.php?errorMovingFiles");
-                        exit();
-                    }
-                }else{
-                    echo "Your file is too big";
-                }
-            }else{
-                echo "There was an error uploading your files.";
-            }
-        }else{
-            echo "You cannot upload files of this type.";
-        }
-    }
-}*/
-
+$errorHandler = "";
+$errorHandlerSQL = "";
+$errorHandlerUpload = "";
+$errorHandlerSize = "";
+$errorHandlerProcess = "";
+$errorHandlerExtension = "";
 if(isset($_POST['saveApto'])){
 
     $unitNum = ucfirst(strtolower($_POST['unitNum']));
@@ -108,6 +62,11 @@ if(isset($_POST['saveApto'])){
                         mkdir('../img/'.$dirName, 0777, true);
                     }
                     $photoCounter = 0;
+                    define('KB', 1024);
+                    define('MB', 1048576);
+                    define('GB', 1073741824);
+                    define('TB', 1099511627776);
+                    $header ="";
                     for($i = 0; $i < sizeof($_FILES['aptoImages']['name']); $i++){
                         $fileName = $_FILES['aptoImages']['name'][$i];
                         $fileTmpName = $_FILES['aptoImages']['tmp_name'][$i];
@@ -120,10 +79,11 @@ if(isset($_POST['saveApto'])){
                         $allowed = array('jpg', 'png', 'jpeg');
                         if(in_array($fileActualExt, $allowed)){
                             if($fileError === 0){
-                                if($fileSize <= 1000000){
+                                if($fileSize <= 5*MB){
                                     //changuing the name with miliseconds
                                     //adding the address of the apartment
-                                    $fileNameNew = "apto-".uniqid('', true).".".$fileActualExt;
+                                    $photoCounter++;
+                                    $fileNameNew = "apto-".$unitNum.$streetNum."-".$streetName.$i."_".$photoCounter.uniqid('', true).".".$fileActualExt;
                                     //the destination of the image
                                     $fileDestination = '../img/'.$dirName."/".$fileNameNew;
                                     //move image from, to 
@@ -131,33 +91,49 @@ if(isset($_POST['saveApto'])){
                                         $sqlUploadImage = "INSERT INTO `picture`(`picture_bio`, `picture_location`, `apts_fk`) 
                                         VALUES ('$shortDesc','$fileNameNew', (SELECT MAX(apts_id) FROM apartaments))";
                                         if(mysqli_query($conn, $sqlUploadImage)){
-                                            header("Location: ../addApartment.php?successfullUpload");
                                         }else{
-                                            $error = true;
-                                            header("Location: ../addApartment.php?errorUploadingFiles");
+                                            if($errorHandler == ""){
+                                                $errorHandler = "sqlError=".$fileName;
+                                            }else{
+                                                $errorHandler = $errorHandler."-".$fileName;
+                                            }
                                         }
                                     }else{
-                                        $error = true;
-                                        header("Location: ../addApartment.php?errorMovingFiles");
+                                        if($errorHandlerUpload == ""){
+                                            $errorHandlerUpload = "errorUploading=".$fileName;
+                                        }else{
+                                            $errorHandlerUpload =  $errorHandlerUpload."-".$fileName;
+                                        }
                                     }
                                 }else{
-                                    $error = true;
-                                    echo "Your file is too big";
+                                    if($errorHandlerSize === ""){
+                                        $errorHandlerSize = "errorSize=".$fileName;
+                                    }else{
+                                        $errorHandlerSize = $errorHandlerSize."-".$fileName;
+                                    }
                                 }
                             }else{
-                                $error = true;
-                                echo "There was an error uploading your files.";
+                                if($errorHandlerProcess == ""){
+                                    $errorHandlerProcess = "errorProcess=".$fileName;
+                                }else{
+                                    $errorHandlerProcess += $errorHandlerProcess."-".$fileName;
+                                }
                             }
                         }else{
-                            $error = true;
-                            echo "You cannot upload files of this type.";
+                            if($errorHandlerExtension == ""){
+                                $errorHandlerExtension = "errorExtension=".$fileName;
+                            }else{
+                                $errorHandlerExtension = $errorHandlerProcess."-".$fileName;
+                            }
                         }
                     }
+                    $header = $errorHandler."&".$errorHandlerSQL."&".$errorHandlerUpload."&".$errorHandlerSize."&".$errorHandlerProcess."&".$errorHandlerExtension;
+                    header("Location: ../addApartment.php?successfull=Upload&".$header);
             }
         }
     }
 }else{
-    header("Location: ../addApartment.php?error=noConnection");
+    header("Location: ../addApartment.php?errorConnection=noConnection");
 }
 
 function DeletingApto($conn){
