@@ -100,8 +100,24 @@
                         <p class="subtitle">Apartament information</p>
                         <ul>
                             <li>Do not add <i>"st, str., street"</i> at the end of the field "Street Name", enter only the street name</li>
+                            <li>If you are renting the whole apartment it will be shown public in the main page under "Rent Full Apartment" section.</li>
                             <li>"Monthly Tenant Rent" field is the amount your tenant has to pay in case they want to rent the full apartment</li>
                         </ul>
+                    </div>
+                    <div class="long">
+                        <p class="required">Are you renting the whole apartment: </p>
+                        <div>
+                            <div>
+                                <input type="radio" id="yes"
+                                name="fullRent" value="1">
+                                <label for="yes">Yes</label>
+                            </div>
+                            <div>
+                                <input type="radio" id="no"
+                                name="fullRent" value="0" checked>
+                                <label for="no">No</label>
+                            </div>
+                        </div>
                     </div>
                     <div class="required">
                         <label for="unitNum">Unit Number: </label>

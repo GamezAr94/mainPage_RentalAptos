@@ -26,14 +26,19 @@ if(isset($_POST['saveApto'])){
     $contrcStart = ucfirst(strtolower($_POST['contrcStart']));
     $contrcEnd = ucfirst(strtolower($_POST['contrcEnd']));
     $pay = ucfirst(strtolower($_POST['pay']));
+    $fullRentBollean = $_POST['fullRent'];
+
     if(empty($unitNum) || empty($streetNum) || empty($streetName) || empty($rent) || empty($postCode1) || empty($postCode2) || empty($shortDesc) || empty($longDesc) ||
     empty($contrcStart) || empty($landlordFName) || empty($landlordLName) || empty($contrcEnd) || empty($pay)){
         //Agregar un error provider de que no se permiten campos vacios
         header("Location: ../addApartment.php?error=emptyfields");
         exit();
     }else{
-        $sql = "INSERT INTO `apartaments`(`apts_strtNum`, `apts_strtName`, `apts_price`, `apts_shortDesc`, `apts_longDesc`, `apts_postCode`, `apts_uniNum`, `apts_comments`) 
-            VALUES (?,?,?,?,?,?,?,?);";
+        if(empty($fullRentBollean)){
+            $fullRentBollean = false;
+        }
+        $sql = "INSERT INTO `apartaments`(`apts_strtNum`, `apts_strtName`, `apts_price`, `apts_shortDesc`, `apts_longDesc`, `apts_postCode`, `apts_uniNum`, `apts_comments`, `apts_isFullRent`) 
+            VALUES (?,?,?,?,?,?,?,?,?);";
         
         $stmt = mysqli_stmt_init($conn);
         if(!mysqli_stmt_prepare($stmt, $sql)){
@@ -43,7 +48,7 @@ if(isset($_POST['saveApto'])){
             exit();
         }else{
             $postCode = strtoupper($postCode1."-".$postCode2);
-            mysqli_stmt_bind_param($stmt, "ssdsssss", $streetNum, $streetName, $rent, $shortDesc, $longDesc, $postCode, $unitNum, $comments);
+            mysqli_stmt_bind_param($stmt, "ssdsssssb", $streetNum, $streetName, $rent, $shortDesc, $longDesc, $postCode, $unitNum, $comments, $fullRentBollean);
             
             $sqlContract = "INSERT INTO `aptocontract`(`ac_startD`, `ac_endD`, `apts_fk`, `ac_rent`, `ac_companyName`, `ac_landlordFName`, `ac_landlordLName`, `ac_landlordEmail`, `ac_landlordPhone`) 
             VALUES (?,?, (SELECT MAX(apts_id) FROM apartaments),?,?,?,?,?,?);";
@@ -88,9 +93,11 @@ if(isset($_POST['saveApto'])){
                                     $fileDestination = '../img/'.$dirName."/".$fileNameNew;
                                     //move image from, to 
                                     if(move_uploaded_file($fileTmpName, $fileDestination)){
+                                        $newName = $dirName."/".$fileNameNew;
                                         $sqlUploadImage = "INSERT INTO `picture`(`picture_bio`, `picture_location`, `apts_fk`) 
-                                        VALUES ('$shortDesc','$fileNameNew', (SELECT MAX(apts_id) FROM apartaments))";
+                                        VALUES ('$shortDesc','$newName', (SELECT MAX(apts_id) FROM apartaments))";
                                         if(mysqli_query($conn, $sqlUploadImage)){
+                                            //no pasa nada cuando se hace la conexion exitosamente porque aun se debe salir del ciclo for 
                                         }else{
                                             if($errorHandler == ""){
                                                 $errorHandler = "sqlError=".$fileName;

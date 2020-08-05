@@ -1647,6 +1647,16 @@ body .add {
           width: 40%;
           padding: 25px 15px;
           text-align: center; }
+          body .add .addContainer form section div div {
+            display: flex;
+            justify-content: space-around;
+            margin: 0 auto;
+            padding: 0 0;
+            width: 250px; }
+            body .add .addContainer form section div div div {
+              width: 40px;
+              margin: 0 0;
+              padding: 0 0; }
           body .add .addContainer form section div input {
             font-size: 15px; }
           body .add .addContainer form section div textarea {
