@@ -88,7 +88,7 @@
                     </div>
                     <div class="required">
                         <label for="end ">End Contract: </label>
-                        <input type="date" id="end" name="contrcEnd" value="MM/DD/YYYY" min="2010-01-01" max="2040-07-22" required="required">
+                        <input type="date" id="end" name="contrcEnd" value="MM/DD/YYYY" max="2040-07-22" required="required">
                     </div>
                     <div class="required">
                         <label for="pay">Monthly Payment: $</label>

@@ -27,7 +27,11 @@ if(isset($_POST['saveApto'])){
     $contrcEnd = ucfirst(strtolower($_POST['contrcEnd']));
     $pay = ucfirst(strtolower($_POST['pay']));
     $fullRentBollean = $_POST['fullRent'];
-
+    if(strtotime($contrcStart) > strtotime($contrcEnd)){
+        //Agregar un error provider de que no se permiten campos vacios
+        header("Location: ../addApartment.php?error=startDateGreatherThanEndDate");
+        exit();
+    }
     if(empty($unitNum) || empty($streetNum) || empty($streetName) || empty($rent) || empty($postCode1) || empty($postCode2) || empty($shortDesc) || empty($longDesc) ||
     empty($contrcStart) || empty($landlordFName) || empty($landlordLName) || empty($contrcEnd) || empty($pay)){
         //Agregar un error provider de que no se permiten campos vacios
