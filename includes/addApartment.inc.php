@@ -52,7 +52,7 @@ if(isset($_POST['saveApto'])){
             exit();
         }else{
             $postCode = strtoupper($postCode1."-".$postCode2);
-            mysqli_stmt_bind_param($stmt, "ssdsssssb", $streetNum, $streetName, $rent, $shortDesc, $longDesc, $postCode, $unitNum, $comments, $fullRentBollean);
+            mysqli_stmt_bind_param($stmt, "ssdsssssi", $streetNum, $streetName, $rent, $shortDesc, $longDesc, $postCode, $unitNum, $comments, $fullRentBollean);
             
             $sqlContract = "INSERT INTO `aptocontract`(`ac_startD`, `ac_endD`, `apts_fk`, `ac_rent`, `ac_companyName`, `ac_landlordFName`, `ac_landlordLName`, `ac_landlordEmail`, `ac_landlordPhone`) 
             VALUES (?,?, (SELECT MAX(apts_id) FROM apartaments),?,?,?,?,?,?);";
@@ -134,11 +134,11 @@ if(isset($_POST['saveApto'])){
                             if($errorHandlerExtension == ""){
                                 $errorHandlerExtension = "errorExtension=".$fileName;
                             }else{
-                                $errorHandlerExtension = $errorHandlerProcess."-".$fileName;
+                                $errorHandlerExtension = $errorHandlerExtension."-".$fileName;
                             }
                         }
                     }
-                    $header = $errorHandler."&".$errorHandlerSQL."&".$errorHandlerUpload."&".$errorHandlerSize."&".$errorHandlerProcess."&".$errorHandlerExtension;
+                    $header = $errorHandler."&".$errorHandlerUpload."&".$errorHandlerSize."&".$errorHandlerProcess."&".$errorHandlerExtension;
                     header("Location: ../addApartment.php?successfull=Upload&".$header);
             }
         }
@@ -146,7 +146,7 @@ if(isset($_POST['saveApto'])){
 }else{
     header("Location: ../addApartment.php?errorConnection=noConnection");
 }
-
+//currently not using this function
 function DeletingApto($conn){
     $maxID = 0;
     $sql = "SELECT max(apts_id) as 'apts_id' FROM apartaments";

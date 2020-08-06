@@ -163,11 +163,11 @@
                     </div>
                     <div class="long required">
                         <label for="longDesc">Long Description: </label>
-                        <textarea id="longDesc" minlength="5" maxlength="1000" rows="10" name="longDesc" required="required"></textarea>
+                        <textarea id="longDesc" minlength="5" maxlength="2000" rows="10" name="longDesc" required="required"></textarea>
                     </div>
                     <div class="long">
                         <label for="comments">Comments: </label>
-                        <textarea id="comments" minlength="5" maxlength="200" rows="10" name="comments"></textarea>
+                        <textarea id="comments" minlength="5" maxlength="500" rows="10" name="comments"></textarea>
                     </div>
                 </section>
                 <section>
