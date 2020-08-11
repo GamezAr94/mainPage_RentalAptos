@@ -8,6 +8,17 @@
     }else{
     }
 ?>
+<div id="requestSent">
+    <div class="messageBox">
+        <div class="checkMark" id="visible">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="messageSent">
+            <p>Room added succesfully!</p>
+        </div>
+    </div>
+</div>
 <div class="add">
     <div class="title">
         <p>Add Tenant</p>
@@ -31,8 +42,25 @@
                     <div class="required hideSelection">
                         <label for="aptos">Select an apartaments:</label>
                         <select name="aptos" id="aptos" required="required">
-                            <option value="id-apto">1875 Robson st.</option>
-                            <option value="id-apto">939 Beatty st.</option>
+                            <?php
+
+                                $sql = "SELECT `apts_uniNum`, `apts_strtNum`, `apts_strtName`, `apts_id` 
+                                FROM `apartaments` 
+                                LEFT JOIN aptocontract
+                                ON aptocontract.apts_fk = apartaments.apts_id
+                                WHERE aptocontract.ac_endD > CURDATE();";
+
+                                $result = mysqli_query($conn, $sql);
+                                if(mysqli_num_rows($result) > 0){
+                                    while($row = mysqli_fetch_assoc($result)){
+                                        $GLOBALS['idApto'] = $row["apts_id"];
+                                        echo '<option value='.$row["apts_id"].'>'.$row["apts_uniNum"].'-'.$row["apts_strtNum"].' '.$row["apts_strtName"].'</option>';
+                                    }
+                                }else{
+                                    echo '<option value="0" disabled>Your list of Apartaments is empty</option>';
+                                }
+
+                            ?>
                         </select>
                     </div>
                     <div class="required" id="roomSelect">
@@ -119,10 +147,14 @@
                         <input type="number" placeholder="0.00" id="internetBill" min="1" step="0.01">
                     </div>
                     <div>
+                        <label for="gas">Gas: $</label>
+                        <input type="number" placeholder="0.00" id="gas" min="1" step="0.01">
+                    </div>
+                    <div>
                         <label for="otherChargesBill">Other Charges: $</label>
                         <input type="number" placeholder="0.00" id="otherChargesBill" min="1" step="0.01">
                     </div>
-                    <div class="required">
+                    <div>
                         <label for="otherCharDesc">Short Description Other Charges: </label>
                         <input type="text" id="otherCharDesc" minlength="5" maxlength="50" name="otherCharDesc" placeholder="Short Description">
                     </div>
@@ -148,7 +180,7 @@
      var rentRoom = document.getElementById("rentRoom");
      var roomSelect = document.getElementById("roomSelect");
 
-     console.log(roomSelect);
+     //code to make visible the options depending on what they want to rent (apto, room)
     rentApto.addEventListener("click", function(){
         for(var i = 0; i < x.length; i++){
             x[i].style.opacity = 1;
@@ -160,7 +192,7 @@
         roomSelect.style.display = "none";
         document.getElementById('room').required = false;
     })
-        
+    //code to make visible the options depending on what they want to rent (apto, room)
     rentRoom.addEventListener("click", function(){
         for(var i = 0; i < x.length; i++){
             x[i].style.opacity = 1;
@@ -172,10 +204,24 @@
         roomSelect.style.display = "inline";
         document.getElementById('room').required = true;
     })
+    //code to make automatic the value of damage deposit
     document.getElementById("rent").addEventListener("focusout", function(){
         document.getElementById("damageDeposit").value = Math.floor(this.value/2);
     })
 </script>
+<script>
+    $(document).ready(function(){
+        $("#room").load("includes/load-rooms.inc.php",{ idApto: document.getElementById("aptos").value });
+        $("#aptos").change(function(){
+            $("#room").load("includes/load-rooms.inc.php",{ idApto: this.value });
+        });
+    })
+</script>
+<?php
+    if(isset($_GET["successfull"])){
+        echo '<script src="scripts/addApto.js"></script>';
+    }
+?>
 <?php
     require "footer.php";
 ?>

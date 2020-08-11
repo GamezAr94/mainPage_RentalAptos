@@ -64,7 +64,7 @@
                     <div class="long">
                         <p>The apartment selected has <strong>0</strong> room(s) at this moment.</p>
                         <?php
-                        /*
+                        /*++++++agregar un script para generar el numero de cuartos que tiene cada departamento
                         echo $variable = "<script>hola()</script>";
                         echo '<p>'.$variable.' </p>';
                             if(isset($GLOBALS['idApto'])){
@@ -133,6 +133,7 @@
         return 15;
     };
 </script>
+<script src="scripts/checkMinDate.addSection.js"></script>
 <?php
     if(isset($_GET["successfull"])){
         echo '<script src="scripts/addApto.js"></script>';
